@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="346.0" fitWidth="346.0" layoutX="510.0" layoutY="-8.0">
+      <ImageView fitHeight="346.0" fitWidth="346.0" layoutX="510.0" layoutY="-8.0" AnchorPane.bottomAnchor="430.0" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="50.0">
          <image>
             <Image url="@../Resources/Images/logo.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" layoutX="478.0" layoutY="297.0" prefHeight="256.0" prefWidth="413.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="478.0" layoutY="297.0" prefHeight="256.0" prefWidth="413.0" spacing="30.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="475.0" AnchorPane.topAnchor="297.0">
          <children>
             <Label text="Home">
                <font>
@@ -49,7 +49,7 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="1253.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" text="Log out">
+      <Button layoutX="1253.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" text="Log out" AnchorPane.rightAnchor="14.0">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
