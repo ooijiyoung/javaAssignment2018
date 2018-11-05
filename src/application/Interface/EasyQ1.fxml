@@ -9,41 +9,41 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="443.0" layoutY="79.0" text="Quiz Question 1">
+      <Label fx:id="QuizNum00" layoutX="443.0" layoutY="79.0" text="Quiz Question 1">
          <font>
             <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <Button layoutX="32.0" layoutY="26.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
+      <Button fx:id="Exit00" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="664.0" layoutY="171.0" text="Easy" textFill="#89ff8b">
+      <Label fx:id="Difficulty00" layoutX="664.0" layoutY="171.0" text="Easy" textFill="#89ff8b">
          <font>
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="619.0" layoutY="231.0" prefHeight="37.0" prefWidth="128.0" text="2 + 2 = ?" textFill="WHITE">
+      <Label fx:id="Question000" layoutX="619.0" layoutY="231.0" prefHeight="37.0" prefWidth="128.0" text="2 + 2 = ?" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="353.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #f46969;" text="Previous">
+      <Button fx:id="Previous00" layoutX="353.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #f46969;" text="Previous">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="819.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next">
+      <Button fx:id="Next00" layoutX="819.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Text layoutX="641.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00">
+      <Text fx:id="Timer00" layoutX="641.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00">
          <font>
             <Font size="35.0" />
          </font>
       </Text>
-      <TextField layoutX="590.0" layoutY="317.0" text="IS 4!!!!!!!!! (Short Answer)" />
+      <TextField fx:id="ShortAnswer00" layoutX="590.0" layoutY="317.0" text="IS 4!!!!!!!!! (Short Answer)" />
    </children>
 </AnchorPane>
