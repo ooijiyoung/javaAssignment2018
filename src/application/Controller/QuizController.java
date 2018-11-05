@@ -74,6 +74,12 @@ public class QuizController implements Initializable {
 		if (Easy00.isSelected()) {
 			
 		}
+		else if (Medium01.isSelected()) {
+			
+		}
+		else if (Hard02.isSelected()) {
+			
+		}
 	}
 
 	@Override
