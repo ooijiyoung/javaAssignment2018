@@ -2,3 +2,53 @@
 .mainBgnColor{
 	-fx-background-color: rgb(121,206,245)
 }
+
+.text-title{
+	-fx-font-size: 64px;
+}
+
+.text-main{
+	-fx-font-size: 20px;
+}
+
+.text-white {
+  -fx-text-fill: #fff !important;
+}
+
+.text-primary {
+  -fx-text-fill: #007bff !important;
+}
+
+.text-danger{
+	-fx-text-fill: #dc3545;
+}
+
+.text-success{
+	-fx-text-fill: #28a745;
+}
+.btn {
+	-fx-font-weight: 400;
+  -fx-text-alignment: center;
+  -fx-cursor: default;
+  -fx-border-color: transparent;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-background-insets: 0, 0, -1, 0;
+  -fx-font-size: 16px;
+ }
+
+.btn-success {
+  -fx-text-fill: #fff;
+  -fx-background-color: #28a745;
+  -fx-border-color: #28a745;
+}
+
+.btn-danger {
+  -fx-text-fill: #fff;
+  -fx-background-color: #dc3545;
+  -fx-border-color: #dc3545;
+}
+
+.bg-white {
+  -fx-background-color: #fff !important;
+}
