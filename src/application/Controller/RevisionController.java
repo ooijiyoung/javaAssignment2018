@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class RevisionController  implements Initializable{
+public class RevisionController implements Initializable{
 
     @FXML
     private AnchorPane rootPane;
