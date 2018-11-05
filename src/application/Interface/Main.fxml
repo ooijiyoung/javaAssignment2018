@@ -22,34 +22,34 @@
                   <Font name="Segoe UI" size="64.0" />
                </font>
             </Label>
-            <Button fx:id="btnQuiz" alignment="CENTER" mnemonicParsing="false" onAction="#goToQuiz" prefHeight="52.0" prefWidth="231.0" text="Quiz">
+            <Button fx:id="btnQuiz" alignment="CENTER" mnemonicParsing="false" onAction="#cmdQuiz" prefHeight="52.0" prefWidth="231.0" text="Quiz">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnRevision" alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="231.0" text="Revision">
+            <Button fx:id="btnRevision" alignment="CENTER" mnemonicParsing="false" onAction="#cmdRevision" prefHeight="52.0" prefWidth="231.0" text="Revision">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnResults" alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="231.0" text="Results">
+            <Button fx:id="btnResults" alignment="CENTER" mnemonicParsing="false" onAction="#cmdResults" prefHeight="52.0" prefWidth="231.0" text="Results">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="231.0" text="Profile">
+            <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onAction="#cmdProfile" prefHeight="52.0" prefWidth="231.0" text="Profile">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btnRanking" alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="231.0" text="Ranking">
+            <Button fx:id="btnRanking" alignment="CENTER" mnemonicParsing="false" onAction="#cmdRanking" prefHeight="52.0" prefWidth="231.0" text="Ranking">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <Button layoutX="1253.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="99.0" text="Log out">
+      <Button fx:id="btnLogout" layoutX="1253.0" layoutY="14.0" mnemonicParsing="false" onAction="#cmdLogout" prefHeight="38.0" prefWidth="99.0" text="Log out">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>

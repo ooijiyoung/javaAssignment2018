@@ -25,7 +25,8 @@ public class MainController implements Initializable  {
 	private Button btnProfile;
 	@FXML
 	private Button btnRanking;
-
+	@FXML
+	private Button btnLogout;
 	
 
 	@Override
@@ -34,8 +35,33 @@ public class MainController implements Initializable  {
 		
 	}
 	
-	public void goToQuiz(ActionEvent event) throws IOException {
+	public void cmdQuiz(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	public void cmdRevision(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Revision.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	public void cmdResults(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Result.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	public void cmdProfile(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Profile.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	public void cmdRanking(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Ranking.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	public void cmdLogout(ActionEvent event) throws IOException{
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
 

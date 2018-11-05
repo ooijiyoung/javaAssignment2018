@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="443.0" layoutY="95.0" text="Revision Question X">
          <font>
@@ -33,7 +33,7 @@
             </RadioButton>
          </children>
       </VBox>
-      <Button fx:id="btnRevStart" layoutX="637.0" layoutY="502.0" mnemonicParsing="false" onAction="#cmdStartRevision" prefHeight="44.0" prefWidth="106.0" text="Start">
+      <Button fx:id="btnRevStart" layoutX="637.0" layoutY="502.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Start">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
