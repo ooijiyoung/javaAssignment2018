@@ -1,15 +1,18 @@
-package application;
-
+package application.Interface;
+	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
-public class Result extends Application{
+
+public class Revision extends Application {
+	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Result.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Revision.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
