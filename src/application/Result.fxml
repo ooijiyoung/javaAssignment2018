@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,12 +11,12 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="539.0" layoutY="80.0" text="Result" AnchorPane.bottomAnchor="611.0" AnchorPane.leftAnchor="539.0" AnchorPane.rightAnchor="640.0" AnchorPane.topAnchor="80.0">
+      <Label alignment="CENTER" layoutX="533.0" layoutY="150.0" text="Result" AnchorPane.bottomAnchor="541.0" AnchorPane.leftAnchor="533.0" AnchorPane.rightAnchor="646.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <GridPane layoutX="271.0" layoutY="276.0" prefHeight="90.0" prefWidth="724.0" style="-fx-background-color: white;">
+      <GridPane layoutX="265.0" layoutY="250.0" prefHeight="90.0" prefWidth="724.0" style="-fx-background-color: white;">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.0" minWidth="0.0" prefWidth="42.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="402.0" />
@@ -49,5 +51,10 @@
             </Label>
          </children>
       </GridPane>
+      <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0">
+         <image>
+            <Image url="@../Resources/Images/home.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
