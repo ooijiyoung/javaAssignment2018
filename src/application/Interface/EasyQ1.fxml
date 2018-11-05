@@ -2,8 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -27,35 +30,44 @@
             <Font name="Segoe UI Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="595.0" layoutY="324.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="5">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="595.0" layoutY="446.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="2">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="595.0" layoutY="385.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="4">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="595.0" layoutY="508.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="1">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
       <Button layoutX="353.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #f46969;" text="Previous">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="856.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next">
+      <Button layoutX="819.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <VBox layoutX="588.0" layoutY="330.0" prefHeight="189.0" prefWidth="191.0" spacing="10.0">
+         <children>
+            <ToggleButton mnemonicParsing="false" prefHeight="44.0" prefWidth="186.0" text="A. 3">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" prefHeight="44.0" prefWidth="186.0" text="A. 3">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" prefHeight="44.0" prefWidth="186.0" text="A. 3">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton mnemonicParsing="false" prefHeight="44.0" prefWidth="186.0" text="A. 3">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </VBox>
+      <Text layoutX="641.0" layoutY="605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
