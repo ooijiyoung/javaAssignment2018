@@ -3,6 +3,29 @@
 	-fx-background-color: rgb(121,206,245)
 }
 
+.text-title{
+	-fx-font-size: 64px;
+}
+
+.text-main{
+	-fx-font-size: 20px;
+}
+
+.text-white {
+  -fx-text-fill: #fff !important;
+}
+
+.text-primary {
+  -fx-text-fill: #007bff !important;
+}
+
+.text-danger{
+	-fx-text-fill: #dc3545;
+}
+
+.text-success{
+	-fx-text-fill: #28a745;
+}
 .btn {
 	-fx-font-weight: 400;
   -fx-text-alignment: center;
@@ -24,4 +47,8 @@
   -fx-text-fill: #fff;
   -fx-background-color: #dc3545;
   -fx-border-color: #dc3545;
+}
+
+.bg-white {
+  -fx-background-color: #fff !important;
 }
