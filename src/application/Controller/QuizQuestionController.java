@@ -72,7 +72,9 @@ public class QuizQuestionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		lblQuestion.setText("Testing");
+		int addFirst = number.nextInt(35);
+		int addSecond = number.nextInt(35);
+		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 		System.out.println("Test");
 		tfAnswer = new TextField();
 
