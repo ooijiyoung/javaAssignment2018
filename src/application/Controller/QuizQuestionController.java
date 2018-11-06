@@ -71,22 +71,18 @@ public class QuizQuestionController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("from comms " + Comms.getQuizNum());
+		
+	}
+
+	public void setQuizNum(int newNumQues) {
+		numOfQuiz = newNumQues;
+		System.out.println(numOfQuiz);
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
 		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 		System.out.println("Test");
 		System.out.println(numOfQuiz);
 		tfAnswer = new TextField();
-		
-		QuizNumberController qz = new QuizNumberController();
-		System.out.println(qz.newNumOutside);
-
-	}
-
-	public void setQuizNum(int newNumQues) {
-		numOfQuiz = newNumQues;
-		
 	}
 
 //	public void initialize() {
