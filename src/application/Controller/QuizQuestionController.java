@@ -26,6 +26,7 @@ public class QuizQuestionController implements Initializable {
 	int ans;
 	int oper = 0;
 	int numOfQuiz = 0;
+	int count = 0;
 
 	@FXML
 	private AnchorPane rootPane;
@@ -74,31 +75,53 @@ public class QuizQuestionController implements Initializable {
 		
 	}
 
-	public void setQuizNum(int newNumQues) {
+	public void setQuizNum(int newNumQues) throws IOException {
 		numOfQuiz = newNumQues;
-		System.out.println(numOfQuiz);
-		for (int i = 1; i <= numOfQuiz; i++ ) {
-			int addFirst = number.nextInt(35);
-			int addSecond = number.nextInt(35);
-			int fAns = addFirst + addSecond;
-			lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-			System.out.println("Test");
-			System.out.println(numOfQuiz);
-			tfAnswer = new TextField();
+	//	System.out.println(numOfQuiz);
+		if (count < numOfQuiz) {
+			
+			int fAns = setQuestion();
 			
 			btnNextQues.setOnAction(e->{
 				String ans = tfAnswer.getText();
 				int newAns = Integer.parseInt(ans);
-				System.out.println("test");
+			//	System.out.println("test");
 				if(newAns == fAns) {
 					score ++;
 				}
+				count ++;
+				System.out.println("Count: " + count);
+				tfAnswer.clear();
+				tfAnswer.setText("0");
+				try {
+					setQuizNum(numOfQuiz);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 //				setQuizNum(numOfQuiz);
 			});
 		}
 		
+		else {
+			System.out.println("Your Score is: " +score);
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+		}
+		
 	}
-
+	
+	public int setQuestion() {
+		int addFirst = number.nextInt(35);
+		int addSecond = number.nextInt(35);
+		int fAns = addFirst + addSecond;
+		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
+	//	System.out.println("Test");
+	//	System.out.println(numOfQuiz);
+		return fAns;
+	}
+	
 //	public void initialize() {
 //		// TODO Auto-generated method stub
 //		Comms.getInstance().getQuizNum();
