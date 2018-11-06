@@ -84,10 +84,10 @@ public class QuizQuestionController implements Initializable {
 			lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 			System.out.println("Test");
 			System.out.println(numOfQuiz);
-			tfAnswer = new TextField();
 			
 			btnNextQues.setOnAction(e->{
 				String ans = tfAnswer.getText();
+				System.out.println(ans);
 				int newAns = Integer.parseInt(ans);
 				System.out.println("test");
 				if(newAns == fAns) {
