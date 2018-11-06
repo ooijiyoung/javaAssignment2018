@@ -60,10 +60,10 @@ public class QuizNumberController implements Initializable {
 		
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
-<<<<<<< HEAD
+
 //		System.out.println(newNumQues);
 		newNumOutside = newNumQues;
-=======
+
 		//System.out.println(newNumQues);
 		//Comms.setQuizNum(newNumQues);
 		ctrl.setQuizNum(newNumQues);
@@ -71,7 +71,7 @@ public class QuizNumberController implements Initializable {
 		
 		AnchorPane newRoot = loader.load();
 		rootPane.getChildren().setAll(newRoot);
->>>>>>> 7e9046041d3e1177cf1a490fa96d8405d6c7d17d
+
 		//
 
 //			int addFirst = number.nextInt(35);
