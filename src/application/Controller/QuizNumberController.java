@@ -18,6 +18,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class QuizNumberController implements Initializable {
 	// Number of Question
+	
+	public int newNumOutside;
 	@FXML
 	private AnchorPane rootPane;
 
@@ -54,7 +56,8 @@ public class QuizNumberController implements Initializable {
 		rootPane.getChildren().setAll(newRoot);
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
-		System.out.println(newNumQues);
+//		System.out.println(newNumQues);
+		newNumOutside = newNumQues;
 		//
 
 //			int addFirst = number.nextInt(35);

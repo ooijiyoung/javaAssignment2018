@@ -75,6 +75,9 @@ public class QuizQuestionController implements Initializable {
 		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 		System.out.println("Test");
 		tfAnswer = new TextField();
+		
+		QuizNumberController qz = new QuizNumberController();
+		System.out.println(qz.newNumOutside);
 
 	}
 
