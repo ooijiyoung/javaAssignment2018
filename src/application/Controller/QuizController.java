@@ -137,6 +137,7 @@ public class QuizController implements Initializable {
 		rootPane.getChildren().setAll(newRoot);
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
+
 		System.out.println(newNumQues);
 
 //		for (int i = 1; i <= newNumQues; i++) {
@@ -152,6 +153,26 @@ public class QuizController implements Initializable {
 			System.out.println("correct");
 		} else {
 			System.out.println("Wrong the correct answer is " + addTotal);
+
+
+		for (int i = 1; i <= newNumQues; i++) {
+			int addFirst = number.nextInt(35);
+			int addSecond = number.nextInt(35);
+			txtQuestion.setText(i + ") " + addFirst + " + " + addSecond + " = ?");
+			int addTotal = addFirst + addSecond;
+//			String strAns = tfAnswer.getText();
+//			int newAns = Integer.parseInt(strAns);
+//			
+//
+//			if (newAns == addTotal) {
+//				score++;
+//				System.out.println("correct");
+//			} else {
+//				System.out.println("Wrong the correct answer is " + addTotal);
+//			}
+
+			break;
+
 		}
 //		}
 
@@ -160,6 +181,7 @@ public class QuizController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		txtQuestion = new Text();
+		tfAnswer = new TextField();
 	}
 }
