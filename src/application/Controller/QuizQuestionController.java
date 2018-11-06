@@ -12,11 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import application.Model.Comms;
 
 public class QuizQuestionController implements Initializable {
 
@@ -26,6 +25,7 @@ public class QuizQuestionController implements Initializable {
 	int score = 0;
 	int ans;
 	int oper = 0;
+	int numOfQuiz = 0;
 
 	@FXML
 	private AnchorPane rootPane;
@@ -70,21 +70,30 @@ public class QuizQuestionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		System.out.println("from comms " + Comms.getQuizNum());
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
 		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 		System.out.println("Test");
+		System.out.println(numOfQuiz);
 		tfAnswer = new TextField();
 
 	}
 
-	public void initialize() {
-		// TODO Auto-generated method stub
-		int addFirst = number.nextInt(35);
-		int addSecond = number.nextInt(35);
-		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-		System.out.println("Test");
-		tfAnswer = new TextField();
-
+	public void setQuizNum(int newNumQues) {
+		numOfQuiz = newNumQues;
+		
 	}
+
+//	public void initialize() {
+//		// TODO Auto-generated method stub
+//		Comms.getInstance().getQuizNum();
+//		int addFirst = number.nextInt(35);
+//		int addSecond = number.nextInt(35);
+//		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
+//		System.out.println("Test");
+//		tfAnswer = new TextField();
+//
+//	}
 }
