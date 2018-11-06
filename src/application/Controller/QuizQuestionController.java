@@ -83,7 +83,6 @@ public class QuizQuestionController implements Initializable {
 			
 			btnNextQues.setOnAction(e->{
 				String ans = tfAnswer.getText();
-				System.out.println(ans);
 				int newAns = Integer.parseInt(ans);
 			//	System.out.println("test");
 				if(newAns == fAns) {
