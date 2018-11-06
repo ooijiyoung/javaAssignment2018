@@ -30,11 +30,11 @@
                   <Font name="Segoe UI Bold" size="35.0" />
                </font>
             </Label>
-            <Text fx:id="txtQuestion" strokeType="OUTSIDE" strokeWidth="0.0" text="2 + 2 = ?">
+            <Label fx:id="lblQuestion" text="2 + 2 = ?">
                <font>
-                  <Font name="Segoe UI" size="35.0" />
+                  <Font name="Segoe UI" size="34.0" />
                </font>
-            </Text>
+            </Label>
             <TextField fx:id="tfAnswer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="301.0" promptText="Insert answer here" VBox.vgrow="NEVER" />
             <Text fx:id="txtTimer" strokeType="OUTSIDE" strokeWidth="0.0" text="00 : 00">
                <font>
