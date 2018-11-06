@@ -56,13 +56,11 @@ public class QuizQuestionController implements Initializable {
 	private Button btnNextQues;
 
 	@FXML
-	private ToggleGroup group1;
-
-	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
+
 	@FXML
 	void cmdExit(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
@@ -71,6 +69,16 @@ public class QuizQuestionController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		int addFirst = number.nextInt(35);
+		int addSecond = number.nextInt(35);
+		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
+		System.out.println("Test");
+		tfAnswer = new TextField();
+
+	}
+
+	public void initialize() {
 		// TODO Auto-generated method stub
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
