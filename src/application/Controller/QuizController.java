@@ -54,59 +54,6 @@ public class QuizController implements Initializable {
 	@FXML
 	private RadioButton rbHard;
 
-	// Number of Question
-	@FXML
-	private Button btnStart;
-
-	@FXML
-	private RadioButton rb5;
-
-	@FXML
-	private RadioButton rb10;
-
-	@FXML
-	private RadioButton rb15;
-
-	@FXML
-	private RadioButton rb20;
-
-	@FXML
-	private RadioButton rb25;
-
-	@FXML
-	private ImageView imgBack;
-
-	@FXML
-	private Label lblNumQuestion;
-
-	// Quiz Question
-	@FXML
-	private Button btnExit;
-
-	@FXML
-	private Label lblQuizQuesNo;
-
-	@FXML
-	private Label lblDifficulty;
-
-	@FXML
-	private Label lblQuestion;
-
-	@FXML
-	private TextField tfAnswer;
-
-	@FXML
-	private Text txtTimer;
-
-	@FXML
-	private Button btnPrevious;
-
-	@FXML
-	private Button btnNextQues;
-
-	@FXML
-	private ToggleGroup group1;
-
 	@FXML
 	void cmdHome(MouseEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
@@ -147,7 +94,7 @@ public class QuizController implements Initializable {
 		int newAns = Integer.parseInt(strAns);
 	}
 
-	@Override
+	@Override	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		lblQuestion = new Label();
