@@ -14,10 +14,10 @@
    <children>
       <Label layoutX="539.0" layoutY="80.0" text="Kid Math">
          <font>
-            <Font name="Segoe UI" size="64.0" />
+            <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <GridPane layoutX="436.0" layoutY="283.0" prefHeight="346.0" prefWidth="542.0">
+      <GridPane layoutX="436.0" layoutY="283.0" prefHeight="377.0" prefWidth="542.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,22 +25,24 @@
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.600012207031256" minHeight="10.0" prefHeight="25.00000610351563" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="44.199987792968756" minHeight="10.0" prefHeight="27.400000000000006" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="49.00000610351563" minHeight="10.0" prefHeight="32.19995117187503" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="44.20004882812498" minHeight="10.0" prefHeight="39.19998779296873" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.80002441406248" minHeight="10.0" prefHeight="31.20001220703125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="53.59998779296876" minHeight="8.800000000000011" prefHeight="32.80000000000001" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="51.39999999999998" minHeight="6.600012207031227" prefHeight="36.19998779296873" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="41.0" prefWidth="237.0" text="ID:" GridPane.rowIndex="1">
+            <Label prefHeight="41.0" prefWidth="237.0" text="Name:" GridPane.rowIndex="1">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <Label prefHeight="46.0" prefWidth="224.0" text="Password:" GridPane.rowIndex="2">
+            <Label prefHeight="46.0" prefWidth="224.0" text="Password:" GridPane.rowIndex="3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -50,64 +52,70 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label text="Re-enter Password" GridPane.rowIndex="3">
+            <Label text="Re-enter Password" GridPane.rowIndex="4">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Parent's Info" GridPane.rowIndex="4">
+            <Label text="Parent's Info" GridPane.rowIndex="6">
                <font>
                   <Font name="Segoe UI Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label text="Name:" GridPane.rowIndex="5">
+            <Label text="Name:" GridPane.rowIndex="7">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Date of Birth/Age:" GridPane.rowIndex="6">
+            <Label text="Date of Birth/Age:" GridPane.rowIndex="8">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="IC:" GridPane.rowIndex="7">
+            <Label text="IC:" GridPane.rowIndex="9">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Contact Number:" GridPane.rowIndex="8">
+            <Label text="Contact Number:" GridPane.rowIndex="10">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Address:" GridPane.rowIndex="9">
+            <Label text="Address:" GridPane.rowIndex="11">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField prefHeight="23.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <Label text="Student's Info">
                <font>
                   <Font name="Segoe UI Bold Italic" size="20.0" />
                </font>
             </Label>
+            <Label text="IC:" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Label layoutX="622.0" layoutY="191.0" text="Register">
          <font>
-            <Font size="30.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="650.0" layoutY="664.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Submit" />
+      <Button layoutX="653.0" layoutY="696.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Submit" />
    </children>
 </AnchorPane>
