@@ -52,18 +52,23 @@ public class QuizNumberController implements Initializable {
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/EasyQ1.fxml"));
-		QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
-		
-		
+		//QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
+		//FXMLLoader loader=new FXMLLoader(getClass().getResource("/sample/second_view.fxml"));
+		AnchorPane newRoot = loader.load();
+
+   	QuizQuestionController quizCtrl=loader.getController();
+   	
+
+
 		
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
 		//System.out.println(newNumQues);
 		//Comms.setQuizNum(newNumQues);
-		ctrl.setQuizNum(newNumQues);
+		quizCtrl.setQuizNum(newNumQues);
 		
 		
-		AnchorPane newRoot = loader.load();
+		
 		rootPane.getChildren().setAll(newRoot);
 		//
 
