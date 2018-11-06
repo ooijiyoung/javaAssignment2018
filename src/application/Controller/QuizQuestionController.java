@@ -77,12 +77,26 @@ public class QuizQuestionController implements Initializable {
 	public void setQuizNum(int newNumQues) {
 		numOfQuiz = newNumQues;
 		System.out.println(numOfQuiz);
-		int addFirst = number.nextInt(35);
-		int addSecond = number.nextInt(35);
-		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-		System.out.println("Test");
-		System.out.println(numOfQuiz);
-		tfAnswer = new TextField();
+		for (int i = 1; i <= numOfQuiz; i++ ) {
+			int addFirst = number.nextInt(35);
+			int addSecond = number.nextInt(35);
+			int fAns = addFirst + addSecond;
+			lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
+			System.out.println("Test");
+			System.out.println(numOfQuiz);
+			tfAnswer = new TextField();
+			
+			btnNextQues.setOnAction(e->{
+				String ans = tfAnswer.getText();
+				int newAns = Integer.parseInt(ans);
+				System.out.println("test");
+				if(newAns == fAns) {
+					score ++;
+				}
+//				setQuizNum(numOfQuiz);
+			});
+		}
+		
 	}
 
 //	public void initialize() {
