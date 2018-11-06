@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.MainController">
+
+   <children>
+      <ImageView fitHeight="346.0" fitWidth="346.0" layoutX="510.0" layoutY="-8.0" AnchorPane.bottomAnchor="430.0" AnchorPane.leftAnchor="510.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="50.0">
+         <image>
+            <Image url="@../Resources/Images/logo.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="478.0" layoutY="297.0" prefHeight="256.0" prefWidth="413.0" spacing="30.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="475.0" AnchorPane.topAnchor="297.0">
+         <children>
+            <Label text="Home">
+               <font>
+                  <Font name="Segoe UI" size="64.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnQuiz" alignment="CENTER" mnemonicParsing="false" onAction="#cmdQuiz" prefHeight="52.0" prefWidth="231.0" text="Quiz">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRevision" alignment="CENTER" mnemonicParsing="false" onAction="#cmdRevision" prefHeight="52.0" prefWidth="231.0" text="Revision">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnResults" alignment="CENTER" mnemonicParsing="false" onAction="#cmdResults" prefHeight="52.0" prefWidth="231.0" text="Results">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onAction="#cmdProfile" prefHeight="52.0" prefWidth="231.0" text="Profile">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRanking" alignment="CENTER" mnemonicParsing="false" onAction="#cmdRanking" prefHeight="52.0" prefWidth="231.0" text="Ranking">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Button fx:id="btnLogout" layoutX="1253.0" layoutY="14.0" mnemonicParsing="false" onAction="#cmdLogout" prefHeight="38.0" prefWidth="99.0" text="Log out">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
