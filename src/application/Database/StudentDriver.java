@@ -1,36 +1,44 @@
 package application.Database;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.List;
+
 import application.Model.Student;
 
-public class StudentDriver {
+public class StudentDriver {	
+	ArrayList<Student> studentDB = new ArrayList <>();
+	final String fileName = "Student.dat";
 	int indexid;
-	ArrayList<Student> StudentDB = new ArrayList <Student>();
+	Database<Student> db = new Database<Student>();
 	
-	
-  @SuppressWarnings("unchecked")
-	public void dbLoad(){
-    try{
-        File studentDB = new File("studentDB.dat");
-            if(!studentDB.exists()) {
-            	studentDB.createNewFile();
-            } 
-            else{ //only try to load database if only exist
-            FileInputStream databaseFile = new FileInputStream("studentDB.dat");
-            ObjectInputStream save = new ObjectInputStream(databaseFile);
-
-            StudentDB = (ArrayList<Student> ) save.readObject();
-
-            save.close();
-            } // 
-        }
-        catch(Exception exc){
-        	//TODO: implement error message
-           //error dont do anything, just keep quiet (either database file empty or cannot load)
-        	//screw the user anyway. 
-	    }
+	protected void add() {
+		Student std = new Student();
+		System.out.println(std + " student " + std.getName());
+		try {
+			studentDB.add(std);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 	}
+	
+	protected void load() {
+		ArrayList<Student> tmpDB = (ArrayList<Student>) db.loadDB(fileName);
+		if(tmpDB!=null) {
+			studentDB = (ArrayList<Student>) tmpDB;
+		}
+	}
+	
+	protected void save() {
+		db.saveDB(fileName, studentDB);
+	}
+	
+	protected void listAllStudentDebug() {
+		for(int x=0;x<studentDB.size();x++) {
+			System.out.println(studentDB.get(x).getName());
+		}
+	}
+	
+
+
 }

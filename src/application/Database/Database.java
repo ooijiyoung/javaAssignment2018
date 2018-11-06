@@ -2,26 +2,30 @@ package application.Database;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
+import java.io.ObjectOutputStream;
+import java.util.List;
 
-import application.Model.Student;
 
-public class Database {
+
+public class Database<T> {
+	//final String dir = "../application/Resources/Databases/";
+	String dir ="../database/";
 	
-	//
-	public <T> T loadDB(String FileName){
-		T returnObj = null;
+	public List<T> loadDB(String fileName){
+		fileName = dir + fileName;
+		List<T> returnObj = null;
 		try{
-      File OurDatabase = new File(FileName);
+      File OurDatabase = new File(fileName);
           if(!OurDatabase.exists()) {
           	OurDatabase.createNewFile();
           } 
           else{ //only try to load database if only exist
-          FileInputStream databaseFile = new FileInputStream(FileName);
+          FileInputStream databaseFile = new FileInputStream(fileName);
           ObjectInputStream obj = new ObjectInputStream(databaseFile);
 
-          returnObj =  (T) obj.readObject();
+          returnObj =  (List<T>) obj.readObject();
 
           obj.close();
           } // 
@@ -37,5 +41,29 @@ public class Database {
 		
 	}
 	
-	
+	public void saveDB(String fileName, T object) {
+		fileName = dir + fileName;
+    try{  
+	    FileOutputStream databaseFile=new FileOutputStream(fileName);
+	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
+	    save.writeObject(object);
+	    save.close(); 
+    } catch(Exception exc){
+        exc.printStackTrace();
+    }
+	}
+
+	public void saveDB(String fileName, List<T> arrayObj) {
+		fileName = dir + fileName;
+		try{  
+	    FileOutputStream databaseFile=new FileOutputStream(fileName);
+	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
+	    save.writeObject(arrayObj);
+	    save.close(); 
+    } catch(Exception exc){
+    	exc.printStackTrace();
+    }
+		
+	}
+
 }

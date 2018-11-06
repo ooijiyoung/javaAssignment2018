@@ -3,7 +3,7 @@ package application.Model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Student {
+public class Student implements Serializable{
 	private int stdID;
 	private String name;
 	private Date dob;
@@ -11,7 +11,9 @@ public class Student {
 	private String password;
 	private int parentID; 
 	
+	
 	public Student(String name, Date dob, String ic_no, String password, int parentID) {
+	//Name, DOB, ICNO, Password, ParentID
 		this.name = name;
 		this.dob = dob;
 		this.ic_no = ic_no;
@@ -20,7 +22,11 @@ public class Student {
 	}
 	
 	public Student() {
-		// TODO Auto-generated constructor stub
+		name = "unammmed student";
+		dob = new Date();
+		ic_no = "000000000000";
+		password = "password";
+		parentID = 0;
 	}
 
 	public String getName() {
