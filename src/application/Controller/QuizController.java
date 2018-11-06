@@ -86,18 +86,21 @@ public class QuizController implements Initializable {
 //		int newNumQues = Integer.parseInt(chk.getText());
 //		System.out.println(newNumQues);
 //
+		
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
+		System.out.println(addFirst + " " + addSecond);
+		lblQuestion = new Label();
 		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-		int addTotal = addFirst + addSecond;
-		String strAns = tfAnswer.getText();
-		int newAns = Integer.parseInt(strAns);
+		//int addTotal = addFirst + addSecond;
+		//String strAns = tfAnswer.getText();
+		//int newAns = Integer.parseInt(strAns);
 	}
 
 	@Override	
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		lblQuestion = new Label();
+		
 //		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
 		tfAnswer = new TextField();
 	}
