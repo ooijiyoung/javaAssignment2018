@@ -4,46 +4,69 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizController">
    <children>
-      <Label fx:id="lblQuizQuesNo" layoutX="443.0" layoutY="94.0" text="Quiz Question 1">
-         <font>
-            <Font name="Segoe UI Bold" size="64.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnExit" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#cmdHome" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
+      <Button fx:id="btnExit" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#cmdExit" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label fx:id="lblDifficulty" layoutX="647.0" layoutY="193.0" text="Easy" textFill="#89ff8b">
-         <font>
-            <Font name="Segoe UI Bold" size="35.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblQuestion" layoutX="611.0" layoutY="286.0" text="2 + 2 = ?" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="35.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnPrevious" layoutX="353.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #f46969;" text="Previous">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnNextQues" layoutX="856.0" layoutY="614.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <TextField fx:id="tfAnswer" layoutX="566.0" layoutY="378.0" prefHeight="55.0" prefWidth="235.0" promptText="Insert answer here" />
-      <Text fx:id="txtTimer" layoutX="639.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00 : 00">
-         <font>
-            <Font name="Segoe UI" size="30.0" />
-         </font>
-      </Text>
+      <VBox alignment="CENTER" layoutX="341.0" layoutY="168.0" prefHeight="325.0" prefWidth="684.0" spacing="30.0">
+         <children>
+            <Label fx:id="lblQuizQuesNo" text="Quiz Question 1">
+               <font>
+                  <Font name="Segoe UI Bold" size="64.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtDifficulty" text="Easy" textFill="#89ff8b">
+               <font>
+                  <Font name="Segoe UI Bold" size="35.0" />
+               </font>
+            </Label>
+            <Text fx:id="txtQuestion" strokeType="OUTSIDE" strokeWidth="0.0" text="2 + 2 = ?">
+               <font>
+                  <Font name="Segoe UI" size="35.0" />
+               </font>
+            </Text>
+            <TextField fx:id="tfAnswer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="301.0" promptText="Insert answer here" VBox.vgrow="NEVER" />
+            <Text fx:id="txtTimer" strokeType="OUTSIDE" strokeWidth="0.0" text="00 : 00">
+               <font>
+                  <Font name="Segoe UI" size="30.0" />
+               </font>
+            </Text>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnNextQues" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #6ffc71;" text="Next" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPrevious" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #f46969;" text="Previous" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

@@ -90,7 +90,7 @@ public class QuizController implements Initializable {
 	private Label lblDifficulty;
 
 	@FXML
-	private Label lblQuestion;
+	private Text txtQuestion;
 
 	@FXML
 	private TextField tfAnswer;
@@ -126,9 +126,37 @@ public class QuizController implements Initializable {
 	}
 
 	@FXML
+	void cmdExit(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+
+	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/EasyQ1.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+
+		RadioButton chk = (RadioButton) group1.getSelectedToggle();
+		int newNumQues = Integer.parseInt(chk.getText());
+
+		for (int i = 1; i <= newNumQues; i++) {
+			int addFirst = number.nextInt(35);
+			int addSecond = number.nextInt(35);
+			txtQuestion.setText(i + ") " + addFirst + " + " + addSecond + " = ?");
+			int addTotal = addFirst + addSecond;
+			String strAns = tfAnswer.getText();
+			int newAns = Integer.parseInt(strAns);
+			rootPane.getChildren().setAll(newRoot);
+
+			if (newAns == addTotal) {
+				score++;
+				System.out.println("correct");
+			} else {
+				System.out.println("Wrong the correct answer is " + addTotal);
+			}
+
+			break;
+		}
+
 	}
 
 	@Override
