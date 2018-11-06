@@ -4,9 +4,11 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,6 +42,9 @@ public class ProfileController implements Initializable {
 	    
 	    @FXML
 	    private Label address;
+	    
+	    @FXML
+	    private Button editButton;
 
 	    @FXML
 	    void cmdHome(MouseEvent event) throws IOException {
@@ -47,14 +52,24 @@ public class ProfileController implements Initializable {
 	  		rootPane.getChildren().setAll(newRoot);
 	    }
 	
-	public void setText(File file) {
-		
-	}
+	  @FXML
+	    void editProfile(ActionEvent event) throws IOException{
+	    	AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/ProfileEdit.fxml"));
+	  		rootPane.getChildren().setAll(newRoot);
+	    }
+	    
 	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 	nameStudent.setText("Test");
+//	icStudent.setText("Test");
+//	dobStudent.setText("Test");
+//	nameParent.setText("Test");
+//	contactParent.setText("Test");
+//	icParent.setText("Test");
+//	address.setText("Test");
+	
 	}
 	
 	
