@@ -19,6 +19,10 @@ public class Student {
 		this.parentID = parentID;
 	}
 	
+	public Student() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}
