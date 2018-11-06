@@ -65,6 +65,8 @@ public class ProfileController implements Initializable {
 		
 	
 		
+	
+		
 		
 	nameStudent.setText("Test");
 	icStudent.setText("Test");
@@ -74,6 +76,9 @@ public class ProfileController implements Initializable {
 	icParent.setText("Test");
 	address.setText("Test");
 	
+	
+	
+		
 	}
 	
 	
