@@ -34,7 +34,7 @@
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <Button fx:id="btnNext" layoutX="595.0" layoutY="480.0" mnemonicParsing="false" onAction="#cmdStart" prefHeight="44.0" prefWidth="190.0" text="Next">
+      <Button fx:id="btnNext" layoutX="595.0" layoutY="480.0" mnemonicParsing="false" onAction="#cmdNext" prefHeight="44.0" prefWidth="190.0" text="Next">
          <font>
             <Font size="20.0" />
          </font>
