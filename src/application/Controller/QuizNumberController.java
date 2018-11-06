@@ -66,8 +66,6 @@ public class QuizNumberController implements Initializable {
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
 
-//		System.out.println(newNumQues);
-		newNumOutside = newNumQues;
 
 		//System.out.println(newNumQues);
 		//Comms.setQuizNum(newNumQues);
