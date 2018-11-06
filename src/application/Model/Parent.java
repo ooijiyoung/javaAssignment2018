@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 
-public class Parent {
+public class Parent implements Serializable {
 	private int parentID; 
 	private String name;
 	private LocalDate dob;

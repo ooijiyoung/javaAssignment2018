@@ -1,10 +1,12 @@
 package application.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -73,7 +75,15 @@ public class RegistrationController  implements Initializable{
     	StudentDB stdDB = new StudentDB();
     	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
     	
-    	
+    	stdDB.listAllStudentDebug();
+    	AnchorPane newRoot;
+    	try {
+			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	
     }
 

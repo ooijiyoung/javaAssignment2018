@@ -55,11 +55,14 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <TextField fx:id="tfStdIC" prefHeight="25.0" prefWidth="486.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpStdDob" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="tfStdPwd" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
+            <TextField fx:id="tfStdConfirmPwd" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label styleClass="text-main" text="Re-enter Password" GridPane.rowIndex="5">
                <font>
                   <Font size="20.0" />
@@ -95,8 +98,8 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="tfStdConfirmPwd" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="tfParentName" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <DatePicker fx:id="dpParentDOB" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
             <TextField fx:id="tfParentIC" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <TextField fx:id="tfParentContact" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <TextArea fx:id="tfParentAddr" GridPane.columnIndex="1" GridPane.rowIndex="12" />
@@ -110,10 +113,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="tfStdIC" prefHeight="25.0" prefWidth="486.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label styleClass="text-main" text="Date Of Birth" GridPane.rowIndex="3" />
-            <DatePicker fx:id="dpStdDob" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker fx:id="dpParentDOB" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
          </children>
       </GridPane>
       <Label layoutX="622.0" layoutY="191.0" text="Register">
