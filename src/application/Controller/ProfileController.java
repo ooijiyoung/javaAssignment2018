@@ -35,7 +35,7 @@ public class ProfileController implements Initializable {
 	    private Label nameParent;
 	    
 	    @FXML
-	    private Label contactParent;
+	    private Label contactParents;
 	    
 	    @FXML
 	    private Label icParent;
@@ -63,12 +63,12 @@ public class ProfileController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 	nameStudent.setText("Test");
-//	icStudent.setText("Test");
-//	dobStudent.setText("Test");
-//	nameParent.setText("Test");
-//	contactParent.setText("Test");
-//	icParent.setText("Test");
-//	address.setText("Test");
+	icStudent.setText("Test");
+	dobStudent.setText("Test");
+	nameParent.setText("Test");
+	contactParents.setText("Test");
+	icParent.setText("Test");
+	address.setText("Test");
 	
 	}
 	
