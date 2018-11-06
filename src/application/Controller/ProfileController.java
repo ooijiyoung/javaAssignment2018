@@ -1,6 +1,6 @@
 package application.Controller;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -47,10 +47,16 @@ public class ProfileController implements Initializable {
 	  		rootPane.getChildren().setAll(newRoot);
 	    }
 	
+	public void setText(File file) {
+		
+	}
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+	nameStudent.setText("Test");
 	}
+	
+	
 
 }
