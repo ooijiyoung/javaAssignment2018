@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizController">
+   <children>
+      <Label fx:id="lblNumQuesion" contentDisplay="CENTER" layoutX="376.0" layoutY="185.0" text="Number of Question?">
+         <font>
+            <Font name="Segoe UI Bold" size="64.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnStart" layoutX="588.0" layoutY="445.0" mnemonicParsing="false" onAction="#cmdStart" prefHeight="44.0" prefWidth="190.0" text="Start">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <HBox layoutX="446.0" layoutY="334.0" prefHeight="100.0" prefWidth="488.0" spacing="50.0">
+         <children>
+            <RadioButton fx:id="rb5" mnemonicParsing="false" selected="true" text="5">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rb10" mnemonicParsing="false" text="10" toggleGroup="$group1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rb15" mnemonicParsing="false" text="15" toggleGroup="$group1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rb20" mnemonicParsing="false" text="20" toggleGroup="$group1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rb25" mnemonicParsing="false" prefHeight="30.0" prefWidth="44.0" text="25" toggleGroup="$group1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <ImageView fx:id="imgBack" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0">
+         <image>
+            <Image url="@../Resources/Images/back.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
