@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css"
- xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ParentEditController">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ParentEditController">
 	<!-- TODO Add Nodes -->
 	
 	<children>
@@ -109,8 +108,8 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="addressField" text="No 55 Jalan Nasi Lemak, U7/88, Bukit Bobo" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField fx:id="contactField" text="123215" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="addressField" prefHeight="34.0" prefWidth="350.0" text="No 55 Jalan Nasi Lemak, U7/88, Bukit Bobo" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="contactField" prefHeight="34.0" prefWidth="350.0" text="123215" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <Button fx:id="doneButton" layoutX="657.0" layoutY="622.0" mnemonicParsing="false" onAction="#doneEdit" text="Done">
