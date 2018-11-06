@@ -2,7 +2,10 @@ package application.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.Timer;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,10 +21,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class QuizController implements Initializable {
-
+	Random operation = new Random();
+	Random number = new Random();
+	Timer timer = new Timer();
+	int score = 0;
+	int ans;
+	int oper = 0;
 	@FXML
 	private AnchorPane rootPane;
 
+	@FXML
+	private Button btnNext;
+	
 	@FXML
 	private Button btnStart;
 
@@ -38,7 +49,13 @@ public class QuizController implements Initializable {
 	private RadioButton Hard02;
 	
 	@FXML
+	private ImageView Back00;
+	
+	@FXML
 	private Label QuizNum00;
+	
+	@FXML
+	private Label Quiz00;
 	
 	@FXML
 	private Button Exit00;
@@ -60,6 +77,26 @@ public class QuizController implements Initializable {
 	
 	@FXML
 	private TextField ShortAnswer00;
+	
+	@FXML
+	private RadioButton Num5;
+	
+	@FXML
+	private RadioButton Num10;
+	
+	@FXML
+	private RadioButton Num15;
+	
+	@FXML
+	private RadioButton Num20;
+	
+	@FXML
+	private RadioButton Num25;
+	
+	@FXML
+	private Label NumQuesTitle00;
+	
+	
 
 	@FXML
 	void cmdHome(MouseEvent event) throws IOException {
@@ -73,6 +110,27 @@ public class QuizController implements Initializable {
 		rootPane.getChildren().setAll(newRoot);
 		if (Easy00.isSelected()) {
 			
+			
+			for (int i = 1; i <= QuesNo; i++) {
+				oper = operation.nextInt(1);
+				switch (oper) {
+				case 0:
+					int addFirst = number.nextInt(35);
+					int addSecond = number.nextInt(35);
+					System.out.println(i + ") " + addFirst + " + " + addSecond + " = ?");
+					int addTotal = addFirst + addSecond;
+					ans = 0;
+					System.out.print("Answer: ");
+					ans = kbInput.nextInt();
+					if (ans == addTotal) {
+						score++;
+						System.out.println("correct");
+					} else {
+						System.out.println("Wrong the correct answer is " + addTotal);
+					}
+					break;
+				}
+			}
 		}
 		else if (Medium01.isSelected()) {
 			
