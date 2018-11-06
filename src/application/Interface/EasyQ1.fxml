@@ -39,7 +39,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <TextField fx:id="tfAnswer" layoutX="566.0" layoutY="378.0" prefHeight="55.0" prefWidth="235.0" text="Insert answer here" />
+      <TextField fx:id="tfAnswer" layoutX="566.0" layoutY="378.0" prefHeight="55.0" prefWidth="235.0" promptText="Insert answer here" />
       <Text fx:id="txtTimer" layoutX="639.0" layoutY="587.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00 : 00">
          <font>
             <Font name="Segoe UI" size="30.0" />
