@@ -27,6 +27,8 @@ public class QuizController implements Initializable {
 	int score = 0;
 	int ans;
 	int oper = 0;
+	
+	//Quiz choosing difficulty 
 	@FXML
 	private AnchorPane rootPane;
 
@@ -34,70 +36,70 @@ public class QuizController implements Initializable {
 	private Button btnNext;
 	
 	@FXML
-	private Button btnStart;
-
-	@FXML
 	private ImageView imgHome;
 	
 	@FXML
-	private RadioButton Easy00;
+	private Label lblQuiz;
 	
 	@FXML
-	private RadioButton Medium01;
+	private RadioButton rbEasy;
 	
 	@FXML
-	private RadioButton Hard02;
+	private RadioButton rbMedium;
 	
 	@FXML
-	private ImageView Back00;
-	
-	@FXML
-	private Label QuizNum00;
-	
-	@FXML
-	private Label Quiz00;
-	
-	@FXML
-	private Button Exit00;
-	
-	@FXML
-	private Label Difficulty00;
-	
-	@FXML
-	private Label Question000;
-	
-	@FXML
-	private Button Previous00;
-	
-	@FXML
-	private Label Next00;
-	
-	@FXML
-	private Text Timer00;
-	
-	@FXML
-	private TextField ShortAnswer00;
-	
-	@FXML
-	private RadioButton Num5;
-	
-	@FXML
-	private RadioButton Num10;
-	
-	@FXML
-	private RadioButton Num15;
-	
-	@FXML
-	private RadioButton Num20;
-	
-	@FXML
-	private RadioButton Num25;
-	
-	@FXML
-	private Label NumQuesTitle00;
-	
-	
+	private RadioButton rbHard;
 
+	//Number of Question
+	@FXML
+	private Button btnStart;
+	
+	@FXML
+	private RadioButton rb5;
+	
+	@FXML
+	private RadioButton rb10;
+	
+	@FXML
+	private RadioButton rb15;
+	
+	@FXML
+	private RadioButton rb20;
+	
+	@FXML
+	private RadioButton rb25;
+	
+	@FXML
+	private ImageView imgBack;
+	
+	@FXML
+	private Label lblNumQuestion;
+	
+	//Quiz Question
+	@FXML
+	private Button btnExit;
+	
+	@FXML
+	private Label lblQuizQuesNo;
+	
+	@FXML
+	private Label lblDifficulty;
+	
+	@FXML
+	private Label lblQuestion;
+	
+	@FXML
+	private TextField tfAnswer;
+	
+	@FXML
+	private Text txtTimer;
+	
+	@FXML
+	private Button btnPrevious;
+	
+	@FXML
+	private Button btnNextQues;
+	
 	@FXML
 	void cmdHome(MouseEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
@@ -108,7 +110,7 @@ public class QuizController implements Initializable {
 	void cmdStart(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/EasyQ1.fxml"));
 		rootPane.getChildren().setAll(newRoot);
-		if (Easy00.isSelected()) {
+		if (rbEasy.isSelected()) {
 			
 			
 			for (int i = 1; i <= QuesNo; i++) {
@@ -132,10 +134,10 @@ public class QuizController implements Initializable {
 				}
 			}
 		}
-		else if (Medium01.isSelected()) {
+		else if (rbMedium.isSelected()) {
 			
 		}
-		else if (Hard02.isSelected()) {
+		else if (rbHard.isSelected()) {
 			
 		}
 	}
