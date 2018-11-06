@@ -11,12 +11,12 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizController">
    <children>
-      <Label contentDisplay="CENTER" layoutX="619.0" layoutY="183.0" text="Quiz">
+      <Label fx:id="lblQuiz" contentDisplay="CENTER" layoutX="619.0" layoutY="183.0" text="Quiz">
          <font>
             <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <RadioButton fx:id="Easy00" layoutX="642.0" layoutY="315.0" mnemonicParsing="false" selected="true" text="Easy">
+      <RadioButton fx:id="rbEasy" layoutX="642.0" layoutY="315.0" mnemonicParsing="false" selected="true" text="Easy">
          <font>
             <Font size="20.0" />
          </font>
@@ -24,17 +24,17 @@
             <ToggleGroup fx:id="group" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="Medium01" layoutX="644.0" layoutY="363.0" mnemonicParsing="false" text="Medium" toggleGroup="$group" AnchorPane.leftAnchor="644.0">
+      <RadioButton fx:id="rbMedium" layoutX="644.0" layoutY="363.0" mnemonicParsing="false" text="Medium" toggleGroup="$group" AnchorPane.leftAnchor="644.0">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="Hard02" layoutX="644.0" layoutY="408.0" mnemonicParsing="false" text="Hard" toggleGroup="$group" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="644.0" AnchorPane.rightAnchor="642.0" AnchorPane.topAnchor="408.0">
+      <RadioButton fx:id="rbHard" layoutX="644.0" layoutY="408.0" mnemonicParsing="false" text="Hard" toggleGroup="$group" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="644.0" AnchorPane.rightAnchor="642.0" AnchorPane.topAnchor="408.0">
          <font>
             <Font size="20.0" />
          </font>
       </RadioButton>
-      <Button fx:id="btnStart" layoutX="595.0" layoutY="480.0" mnemonicParsing="false" onAction="#cmdStart" prefHeight="44.0" prefWidth="190.0" text="Start">
+      <Button fx:id="btnNext" layoutX="595.0" layoutY="480.0" mnemonicParsing="false" onAction="#cmdStart" prefHeight="44.0" prefWidth="190.0" text="Next">
          <font>
             <Font size="20.0" />
          </font>
