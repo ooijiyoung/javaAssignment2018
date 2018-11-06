@@ -71,8 +71,7 @@ public class QuizQuestionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
-		
+
 	}
 
 	public void setQuizNum(int newNumQues) throws IOException {
@@ -84,6 +83,7 @@ public class QuizQuestionController implements Initializable {
 			
 			btnNextQues.setOnAction(e->{
 				String ans = tfAnswer.getText();
+				System.out.println(ans);
 				int newAns = Integer.parseInt(ans);
 			//	System.out.println("test");
 				if(newAns == fAns) {
@@ -111,17 +111,17 @@ public class QuizQuestionController implements Initializable {
 		}
 		
 	}
-	
+
 	public int setQuestion() {
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
 		int fAns = addFirst + addSecond;
 		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-	//	System.out.println("Test");
-	//	System.out.println(numOfQuiz);
+		// System.out.println("Test");
+		// System.out.println(numOfQuiz);
 		return fAns;
 	}
-	
+
 //	public void initialize() {
 //		// TODO Auto-generated method stub
 //		Comms.getInstance().getQuizNum();
