@@ -11,10 +11,11 @@ import java.util.List;
 
 public class Database<T> {
 	//final String dir = "../application/Resources/Databases/";
-	String dir ="../database/";
+	String dir ="database/";
 	
 	public List<T> loadDB(String fileName){
 		fileName = dir + fileName;
+		
 		List<T> returnObj = null;
 		try{
       File OurDatabase = new File(fileName);
@@ -66,4 +67,12 @@ public class Database<T> {
 		
 	}
 
+	public Database() {
+		
+		File directory = new File(dir);
+    if (! directory.exists()){
+        directory.mkdir();
+    }
+		
+	}
 }

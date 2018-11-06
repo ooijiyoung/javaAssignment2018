@@ -12,8 +12,9 @@ public class Student implements Serializable{
 	private int parentID; 
 	
 	
-	public Student(String name, Date dob, String ic_no, String password, int parentID) {
+	public Student(int studentID, String name, Date dob, String ic_no, String password, int parentID) {
 	//Name, DOB, ICNO, Password, ParentID
+		this.stdID = studentID;
 		this.name = name;
 		this.dob = dob;
 		this.ic_no = ic_no;
