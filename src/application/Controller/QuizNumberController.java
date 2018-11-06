@@ -15,6 +15,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import application.Model.Comms;
 
 public class QuizNumberController implements Initializable {
 	// Number of Question
@@ -52,12 +53,25 @@ public class QuizNumberController implements Initializable {
 
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/EasyQ1.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/EasyQ1.fxml"));
+		QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
+		
+		
+		
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
+<<<<<<< HEAD
 //		System.out.println(newNumQues);
 		newNumOutside = newNumQues;
+=======
+		//System.out.println(newNumQues);
+		//Comms.setQuizNum(newNumQues);
+		ctrl.setQuizNum(newNumQues);
+		
+		
+		AnchorPane newRoot = loader.load();
+		rootPane.getChildren().setAll(newRoot);
+>>>>>>> 7e9046041d3e1177cf1a490fa96d8405d6c7d17d
 		//
 
 //			int addFirst = number.nextInt(35);
