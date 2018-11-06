@@ -41,7 +41,7 @@ public class QuizQuestionController implements Initializable {
 	private Label lblDifficulty;
 
 	@FXML
-	private Text txtQuestion;
+	private Label lblQuestion;
 
 	@FXML
 	private TextField tfAnswer;
@@ -63,11 +63,17 @@ public class QuizQuestionController implements Initializable {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
+	@FXML
+	void cmdExit(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		txtQuestion = new Text();
+		lblQuestion.setText("Testing");
+		System.out.println("Test");
 		tfAnswer = new TextField();
 
 	}
