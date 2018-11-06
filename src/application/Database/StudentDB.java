@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import application.Model.Student;
 
-public class StudentDriver {	
+public class StudentDB {	
 	ArrayList<Student> studentDB = new ArrayList <>();
 	final String fileName = "Student.dat";
 	int indexid=0;
