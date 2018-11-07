@@ -3,44 +3,44 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizResultController">
    <children>
-      <Label layoutX="590.0" layoutY="132.0" text="Result">
-         <font>
-            <Font name="Segoe UI Bold" size="64.0" />
-         </font>
-      </Label>
-      <Button layoutX="32.0" layoutY="26.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
+      <Button fx:id="btnExit" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#cmdExit" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Quiz">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="663.0" layoutY="230.0" text="Easy" textFill="#89ff8b">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="578.0" layoutY="350.0" text="Better luck next time" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="627.0" layoutY="384.0" text="you got a ..." textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="650.0" layoutY="442.0" text="0 / 10" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="599.0" layoutY="493.0" text="Your Dumb Fuck" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Bold" size="20.0" />
-         </font>
-      </Label>
+      <VBox alignment="CENTER" layoutX="532.0" layoutY="238.0" prefHeight="235.0" prefWidth="303.0" spacing="30.0">
+         <children>
+            <Label text="Result">
+               <font>
+                  <Font name="Segoe UI Bold" size="64.0" />
+               </font>
+            </Label>
+            <Label fx:id="quizDiff" alignment="CENTER" contentDisplay="CENTER" text="Easy" textFill="#89ff8b">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="someWord" text="Better luck next time" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="quizGrade" text="you got a ..." textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="quizScore" text="0 / 10" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

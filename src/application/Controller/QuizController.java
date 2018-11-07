@@ -54,7 +54,7 @@ public class QuizController implements Initializable {
 
 	@FXML
 	private RadioButton rbHard;
-	
+
 	@FXML
 	private ToggleGroup group;
 
@@ -73,27 +73,26 @@ public class QuizController implements Initializable {
 	@FXML
 	void cmdNext(ActionEvent event) throws IOException {
 //		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
-		
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
-		
+
 		AnchorPane newRoot = loader.load();
-		
-		
+
 		RadioButton chk = (RadioButton) group.getSelectedToggle();
 		switch (chk.getText()) {
 		case "Easy":
-			Comms.getInstance().shareVar().setQuizDifficulty(0);;
+			Comms.getInstance().shareVar().setQuizDifficulty(0);
+			;
 			break;
 		case "Medium":
-			Comms.getInstance().shareVar().setQuizDifficulty(1);;
+			Comms.getInstance().shareVar().setQuizDifficulty(1);
+			;
 			break;
 		case "Hard":
-			Comms.getInstance().shareVar().setQuizDifficulty(2);;
+			Comms.getInstance().shareVar().setQuizDifficulty(2);
+			;
 			break;
 		}
-			
-		
-		
 
 		rootPane.getChildren().setAll(newRoot);
 	}
@@ -104,9 +103,7 @@ public class QuizController implements Initializable {
 		rootPane.getChildren().setAll(newRoot);
 	}
 
-
-
-	@Override	
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 

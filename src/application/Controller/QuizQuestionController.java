@@ -27,7 +27,7 @@ public class QuizQuestionController implements Initializable {
 	int oper = 0;
 	int numOfQuiz = 0;
 	int count = 0;
-	String diff = null;
+
 	@FXML
 	private AnchorPane rootPane;
 
@@ -71,7 +71,7 @@ public class QuizQuestionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		System.out.println("Quiz diffuculty is + :" + Comms.getInstance().shareVar().getQuizDifficulty());
+		System.out.println("Quiz diffuculty is :" + Comms.getInstance().shareVar().getQuizDifficulty());
 	}
 
 	public void setQuizNum(int newNumQues) throws IOException {
@@ -105,27 +105,96 @@ public class QuizQuestionController implements Initializable {
 
 		else {
 			System.out.println("Your Score is: " + score);
-			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+			Comms.getInstance().shareVar().setQuizScore(score);
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/AfterQuizResult.fxml"));
 			rootPane.getChildren().setAll(newRoot);
 		}
 
 	}
 
 	public int setQuestion() {
-		setQuizDiff(diff);
-		System.out.println(diff);
-		int addFirst = number.nextInt(35);
-		int addSecond = number.nextInt(35);
-		int fAns = addFirst + addSecond;
-		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-		// System.out.println("Test");
-		// System.out.println(numOfQuiz);
-		return fAns;
-	}
+		int fAns = 0;
+		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
+		switch (diff) {
+		case 0: {
+			int First = number.nextInt(35);
+			int Second = number.nextInt(35);
+			fAns = First + Second;
+			lblQuestion.setText(First + " + " + Second + " = ?");
+		}
+		case 1: {
+			int oper = operation.nextInt(2);
 
-	public String setQuizDiff(String QuizDiff) {
-		// TODO Auto-generated method stub
-		diff = QuizDiff;
-		return diff;
+			switch (oper) {
+			case 0: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				fAns = First + Second;
+				lblQuestion.setText(First + " + " + Second + " = ?");
+				break;
+			}
+			case 1: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				while (Second >= First) {
+					Second = number.nextInt(35);
+				}
+				fAns = First - Second;
+				lblQuestion.setText(First + " - " + Second + " = ?");
+				break;
+			}
+			}
+			break;
+		}
+		case 2: {
+			int oper = operation.nextInt(4);
+
+			switch (oper) {
+			case 0: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				fAns = First + Second;
+				lblQuestion.setText(First + " + " + Second + " = ?");
+				break;
+			}
+			case 1: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				while (Second >= First) {
+					Second = number.nextInt(35);
+				}
+				while (Second >= First) {
+					Second = number.nextInt(35);
+				}
+
+				fAns = First - Second;
+				lblQuestion.setText(First + " - " + Second + " = ?");
+				break;
+			}
+			case 2: {
+				int First = number.nextInt(13);
+				int Second = number.nextInt(13);
+				fAns = First * Second;
+				lblQuestion.setText(First + " x " + Second + " = ?");
+				break;
+			}
+			case 3: {
+				int First = number.nextInt(36);
+				int Second = number.nextInt(11);
+				while (First % 2 != 0) {
+					First = number.nextInt(36);
+				}
+				while (Second % 2 != 0) {
+					Second = number.nextInt(11);
+				}
+				fAns = First / Second;
+				lblQuestion.setText(First + " ÷ " + Second + " = ?");
+				break;
+			}
+			}
+		}
+			break;
+		}
+		return fAns;
 	}
 }
