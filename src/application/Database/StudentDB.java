@@ -40,7 +40,7 @@ public class StudentDB {
 	
 	public void listAllStudentDebug() {
 		for(int x=0;x<studentDB.size();x++) {
-			System.out.println(studentDB.get(x).getName());
+			System.out.println(studentDB.get(x).getStdID() + " " + studentDB.get(x).getName() + " "+ studentDB.get(x).getIC());
 		}
 	}
 	

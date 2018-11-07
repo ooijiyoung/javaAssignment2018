@@ -36,11 +36,12 @@ public class LoginController implements Initializable{
   	StudentDB database = new StudentDB();
   	String stdIC = tfID.getText();
   	String stdPwd = pfPassword.getText();
-  	
+  	database.listAllStudentDebug();
   	int stdID = database.selectStdIDFromIC(stdIC);
   	if(stdID!=0) {
   		if(database.isPwdCorrectFromStdID(stdID, stdPwd)) {
   			Comms.getInstance().shareVar().setLoggedIn();
+  			System.out.println(stdID);
   			Comms.getInstance().shareVar().setID(stdID);
   			try {
   				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));

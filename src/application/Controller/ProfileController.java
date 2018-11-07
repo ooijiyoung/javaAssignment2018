@@ -4,6 +4,9 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Database.ParentDB;
+import application.Database.StudentDB;
+import application.Model.Comms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,19 +65,19 @@ public class ProfileController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		int stdID = Comms.getInstance().shareVar().getID();
+		System.out.println(stdID);
+		StudentDB stdDB = new StudentDB();
+		ParentDB prtDB = new ParentDB();
 		
-	
-		
-	
-		
-		
-	nameStudent.setText("Test");
-	icStudent.setText("Test");
-	dobStudent.setText("Test");
-	nameParent.setText("Test");
-	contactParents.setText("Test");
-	icParent.setText("Test");
-	address.setText("Test");
+		stdDB.listAllStudentDebug();
+		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
+		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
+		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
+		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
+		contactParents.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
+		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
+		address.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
 	
 	
 	
