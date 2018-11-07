@@ -50,7 +50,7 @@
 .btn-success:hover {
   -fx-text-fill: #fff;
   -fx-background-color: #218838;
-  -fx-border-color: #1e7e34;
+  -fx-border-color: #1e7e34 !important;
 }
 
 .btn-danger {

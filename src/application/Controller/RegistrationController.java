@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -25,10 +26,10 @@ public class RegistrationController  implements Initializable{
     private TextField tfStdName;
 
     @FXML
-    private TextField tfStdPwd;
+    private PasswordField pfPwd;
 
     @FXML
-    private TextField tfStdConfirmPwd;
+    private PasswordField pfConfirmPwd;
 
     @FXML
     private TextField tfParentName;
@@ -57,8 +58,8 @@ public class RegistrationController  implements Initializable{
     @FXML
     void cmdRegister(ActionEvent event) {
     	String studentName = tfStdName.getText();
-    	String password = tfStdPwd.getText();
-    	String cfmPassword = tfStdConfirmPwd.getText();
+    	String password = pfPwd.getText();
+    	String cfmPassword = pfConfirmPwd.getText();
     	String studentIC = tfStdIC.getText();
     	String parentName = tfParentName.getText();
     	String parentIC = tfParentIC.getText();

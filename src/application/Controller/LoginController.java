@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import application.Database.StudentDB;
@@ -27,14 +28,14 @@ public class LoginController implements Initializable{
   private TextField tfID;
 
   @FXML
-  private TextField tfPwd;
+  private PasswordField pfPassword;
 
   @FXML
   void cmdLogin(ActionEvent event) {
   	AnchorPane newRoot;
   	StudentDB database = new StudentDB();
   	String stdIC = tfID.getText();
-  	String stdPwd = tfPwd.getText();
+  	String stdPwd = pfPassword.getText();
   	
   	int stdID = database.selectStdIDFromIC(stdIC);
   	if(stdID!=0) {
