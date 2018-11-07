@@ -16,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 public class QuizResultController implements Initializable {
 
 	String Diff;
+	String Grade;
+	String Word;
 	@FXML
 	private Button btnExit;
 	@FXML
@@ -53,14 +55,23 @@ public class QuizResultController implements Initializable {
 		}
 	}
 
+	public void getGrade() {
+		int score =  Comms.getInstance().shareVar().getQuizScore();
+		int num = Comms.getInstance().shareVar().getQuizNum();
+		int percent = score/num*100;
+		System.out.println(percent+"% test");
+
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		getDiff();
-		String Score = Integer.toString(Comms.getInstance().shareVar().getQuizDifficulty());
-		String Num = Integer.toString( Comms.getInstance().shareVar().getQuizNum());
+		String Score = Integer.toString(Comms.getInstance().shareVar().getQuizScore());
+		String Num = Integer.toString(Comms.getInstance().shareVar().getQuizNum());
+		getGrade();
 		lblquizDiff.setText(Diff);
-		lblquizScore.setText(Score + "/" +Num);
+		lblquizScore.setText(Score + "/" + Num);
 	}
 
 }
