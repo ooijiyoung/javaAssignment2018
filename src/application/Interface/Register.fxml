@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -10,14 +12,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RegistrationController">
    <children>
       <Label layoutX="539.0" layoutY="80.0" text="Kid Math">
          <font>
             <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <GridPane layoutX="436.0" layoutY="283.0" prefHeight="377.0" prefWidth="542.0">
+      <GridPane hgap="10.0" layoutX="436.0" layoutY="231.0" prefHeight="429.0" prefWidth="542.0" vgap="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -25,6 +27,7 @@
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,78 +40,80 @@
             <RowConstraints maxHeight="51.39999999999998" minHeight="6.600012207031227" prefHeight="36.19998779296873" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="41.0" prefWidth="237.0" text="Name:" GridPane.rowIndex="1">
+            <Label prefHeight="41.0" prefWidth="237.0" styleClass="text-main" text="Name:" GridPane.rowIndex="1">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <Label prefHeight="46.0" prefWidth="224.0" text="Password:" GridPane.rowIndex="3">
+            <Label prefHeight="46.0" prefWidth="224.0" styleClass="text-main" text="Password:" GridPane.rowIndex="4">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="tfStdName" prefWidth="211.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="tfStdIC" prefHeight="25.0" prefWidth="486.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <DatePicker fx:id="dpStdDob" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="tfStdPwd" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Label text="Re-enter Password" GridPane.rowIndex="4">
+            <TextField fx:id="tfStdConfirmPwd" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label styleClass="text-main" text="Re-enter Password" GridPane.rowIndex="5">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Parent's Info" GridPane.rowIndex="6">
+            <Label text="Parent's Info" GridPane.rowIndex="7">
                <font>
                   <Font name="Segoe UI Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label text="Name:" GridPane.rowIndex="7">
+            <Label styleClass="text-main" text="Name:" GridPane.rowIndex="8">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Date of Birth/Age:" GridPane.rowIndex="8">
+            <Label styleClass="text-main" text="Date of Birth:" GridPane.rowIndex="9">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="IC:" GridPane.rowIndex="9">
+            <Label styleClass="text-main" text="IC:" GridPane.rowIndex="10">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Contact Number:" GridPane.rowIndex="10">
+            <Label styleClass="text-main" text="Contact Number:" GridPane.rowIndex="11">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label text="Address:" GridPane.rowIndex="11">
+            <Label styleClass="text-main" text="Address:" GridPane.rowIndex="12">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField prefHeight="23.0" prefWidth="271.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tfParentName" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <DatePicker fx:id="dpParentDOB" prefHeight="25.0" prefWidth="359.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="tfParentIC" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="tfParentContact" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextArea fx:id="tfParentAddr" GridPane.columnIndex="1" GridPane.rowIndex="12" />
             <Label text="Student's Info">
                <font>
                   <Font name="Segoe UI Bold Italic" size="20.0" />
                </font>
             </Label>
-            <Label text="IC:" GridPane.rowIndex="2">
+            <Label styleClass="text-main" text="IC:" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label styleClass="text-main" text="Date Of Birth" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <Label layoutX="622.0" layoutY="191.0" text="Register">
@@ -116,6 +121,10 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="653.0" layoutY="696.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" text="Submit" />
+      <Button fx:id="btnSubmit" layoutX="653.0" layoutY="696.0" mnemonicParsing="false" onAction="#cmdRegister" prefHeight="26.0" prefWidth="108.0" text="Submit">
+         <styleClass>
+            <String fx:value="btn-success" />
+            <String fx:value="btn" />
+         </styleClass></Button>
    </children>
 </AnchorPane>
