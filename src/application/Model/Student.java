@@ -50,4 +50,14 @@ public class Student implements Serializable{
 	public int getParentID() {
 		return parentID;
 	}
+	
+	public boolean verifyPassword(String password) {
+		
+		if(this.password.equals(password)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 }

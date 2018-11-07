@@ -52,6 +52,19 @@ public class StudentDB {
 		return studentDB.get(studentDB.size() - 1).getStdID();
 	}
 	
+	public int selectStdIDFromIC(String ic) {
+		int stdID = 0;
+		for(int x=0;x<studentDB.size();x++) {
+			if(studentDB.get(x).getIC().equals(ic)) {
+				stdID = studentDB.get(x).getStdID();
+			}
+		}
+		return stdID;
+	}
+	
+	public boolean isPwdCorrectFromStdID(int stdID, String password) {
+		return	studentDB.get((stdID-1)).verifyPassword(password);
+	}
 
 
 }
