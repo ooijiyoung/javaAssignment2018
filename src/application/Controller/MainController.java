@@ -34,7 +34,7 @@ public class MainController implements Initializable  {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+		application.Model.Comms.getInstance().shareVar().setID(5);
 	}
 	
 	public void initVariables(String variable) {
