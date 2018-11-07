@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.Timer;
 
+import application.Model.Comms;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -76,12 +77,23 @@ public class QuizController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
 		
 		AnchorPane newRoot = loader.load();
-		QuizQuestionController quizCtrl = loader.getController();
+		
 		
 		RadioButton chk = (RadioButton) group.getSelectedToggle();
+		switch (chk.getText()) {
+		case "Easy":
+			Comms.getInstance().shareVar().setQuizDifficulty(0);;
+			break;
+		case "Medium":
+			Comms.getInstance().shareVar().setQuizDifficulty(1);;
+			break;
+		case "Hard":
+			Comms.getInstance().shareVar().setQuizDifficulty(2);;
+			break;
+		}
+			
 		
 		
-		quizCtrl.setQuizDiff(chk.getText());
 
 		rootPane.getChildren().setAll(newRoot);
 	}

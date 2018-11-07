@@ -71,7 +71,7 @@ public class QuizQuestionController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-
+		System.out.println("Quiz diffuculty is + :" + Comms.getInstance().shareVar().getQuizDifficulty());
 	}
 
 	public void setQuizNum(int newNumQues) throws IOException {
