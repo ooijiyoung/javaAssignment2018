@@ -58,7 +58,8 @@ public class QuizResultController implements Initializable {
 	public void getGrade() {
 		int score = Comms.getInstance().shareVar().getQuizScore();
 		int num = Comms.getInstance().shareVar().getQuizNum();
-		double percent = score / (num * 100);
+		System.out.println(num);
+		double percent = ((double)score / (double) num) * 100;
 		System.out.println(percent + "% test");
 		if (percent >= 80) {
 			Word = "Exellent keep up the good work";
