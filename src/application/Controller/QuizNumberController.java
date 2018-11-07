@@ -19,7 +19,7 @@ import application.Model.Comms;
 
 public class QuizNumberController implements Initializable {
 	// Number of Question
-	
+
 	public int newNumOutside;
 	@FXML
 	private AnchorPane rootPane;
@@ -54,25 +54,20 @@ public class QuizNumberController implements Initializable {
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/EasyQ1.fxml"));
-		//QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
-		//FXMLLoader loader=new FXMLLoader(getClass().getResource("/sample/second_view.fxml"));
+		// QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
+		// FXMLLoader loader=new
+		// FXMLLoader(getClass().getResource("/sample/second_view.fxml"));
 		AnchorPane newRoot = loader.load();
 
-   	QuizQuestionController quizCtrl=loader.getController();
-   	
+		QuizQuestionController quizCtrl = loader.getController();
 
-
-		
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
 
-
-		//System.out.println(newNumQues);
-		//Comms.setQuizNum(newNumQues);
+		// System.out.println(newNumQues);
+		// Comms.setQuizNum(newNumQues);
 		quizCtrl.setQuizNum(newNumQues);
-		
-		
-		
+
 		rootPane.getChildren().setAll(newRoot);
 
 		//

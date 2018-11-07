@@ -53,6 +53,9 @@ public class QuizController implements Initializable {
 
 	@FXML
 	private RadioButton rbHard;
+	
+	@FXML
+	private ToggleGroup group;
 
 	@FXML
 	void cmdHome(MouseEvent event) throws IOException {
@@ -68,7 +71,18 @@ public class QuizController implements Initializable {
 
 	@FXML
 	void cmdNext(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
+//		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
+		
+		AnchorPane newRoot = loader.load();
+		QuizQuestionController quizCtrl = loader.getController();
+		
+		RadioButton chk = (RadioButton) group.getSelectedToggle();
+		
+		
+		quizCtrl.setQuizDiff(chk.getText());
+
 		rootPane.getChildren().setAll(newRoot);
 	}
 

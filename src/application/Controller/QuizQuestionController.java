@@ -27,7 +27,7 @@ public class QuizQuestionController implements Initializable {
 	int oper = 0;
 	int numOfQuiz = 0;
 	int count = 0;
-
+	String diff = null;
 	@FXML
 	private AnchorPane rootPane;
 
@@ -76,19 +76,19 @@ public class QuizQuestionController implements Initializable {
 
 	public void setQuizNum(int newNumQues) throws IOException {
 		numOfQuiz = newNumQues;
-	//	System.out.println(numOfQuiz);
+
 		if (count < numOfQuiz) {
-			
+
 			int fAns = setQuestion();
-			
-			btnNextQues.setOnAction(e->{
+
+			btnNextQues.setOnAction(e -> {
 				String ans = tfAnswer.getText();
 				int newAns = Integer.parseInt(ans);
-			//	System.out.println("test");
-				if(newAns == fAns) {
-					score ++;
+				// System.out.println("test");
+				if (newAns == fAns) {
+					score++;
 				}
-				count ++;
+				count++;
 				System.out.println("Count: " + count);
 				tfAnswer.clear();
 				tfAnswer.setText("0");
@@ -98,20 +98,22 @@ public class QuizQuestionController implements Initializable {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 //				setQuizNum(numOfQuiz);
 			});
 		}
-		
+
 		else {
-			System.out.println("Your Score is: " +score);
+			System.out.println("Your Score is: " + score);
 			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+			rootPane.getChildren().setAll(newRoot);
 		}
-		
+
 	}
 
 	public int setQuestion() {
+//		setQuizDiff(diff);
+//		System.out.println(diff);
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
 		int fAns = addFirst + addSecond;
@@ -121,14 +123,9 @@ public class QuizQuestionController implements Initializable {
 		return fAns;
 	}
 
-//	public void initialize() {
-//		// TODO Auto-generated method stub
-//		Comms.getInstance().getQuizNum();
-//		int addFirst = number.nextInt(35);
-//		int addSecond = number.nextInt(35);
-//		lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-//		System.out.println("Test");
-//		tfAnswer = new TextField();
-//
-//	}
+	public String setQuizDiff(String QuizDiff) {
+		// TODO Auto-generated method stub
+		diff = QuizDiff;
+		return diff;
+	}
 }
