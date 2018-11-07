@@ -57,6 +57,8 @@ public class RegistrationController  implements Initializable{
 
     @FXML
     void cmdRegister(ActionEvent event) {
+    	boolean pwdMatch = false;
+    	
     	String studentName = tfStdName.getText();
     	String password = pfPwd.getText();
     	String cfmPassword = pfConfirmPwd.getText();
@@ -68,7 +70,9 @@ public class RegistrationController  implements Initializable{
     	LocalDate studentDOB = dpStdDob.getValue();
     	LocalDate parentDOB = dpParentDOB.getValue();
     	
-    	
+    	if(password.equals(cfmPassword)) {
+    		pwdMatch = true;
+    	}
     	ParentDB prtDB = new ParentDB();
     	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
     	int parentID = prtDB.getLastID();

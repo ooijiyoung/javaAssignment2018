@@ -41,6 +41,7 @@ public class LoginController implements Initializable{
   	if(stdID!=0) {
   		if(database.isPwdCorrectFromStdID(stdID, stdPwd)) {
   			Comms.getInstance().shareVar().setLoggedIn();
+  			Comms.getInstance().shareVar().setID(stdID);
   			try {
   				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
   				rootPane.getChildren().setAll(newRoot);

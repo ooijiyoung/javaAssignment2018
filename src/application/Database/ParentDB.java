@@ -2,7 +2,6 @@ package application.Database;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import application.Model.Parent;
 
 public class ParentDB {
@@ -44,7 +43,7 @@ public class ParentDB {
 		db.saveDB(fileName, parentDB);
 	}
 	
-	public void listAllStudentDebug() {
+	public void listAllDebug() {
 		for(int x=0;x<parentDB.size();x++) {
 			System.out.println(parentDB.get(x).getName());
 		}
@@ -52,6 +51,10 @@ public class ParentDB {
 	
 	private int getNewEmptyIndex() {
 		return (parentDB.size() + 1);
+	}
+	
+	public Parent selectParentWhereID(int prtID) {
+		return parentDB.get((prtID-1));
 	}
 
 	

@@ -65,6 +65,10 @@ public class StudentDB {
 	public boolean isPwdCorrectFromStdID(int stdID, String password) {
 		return	studentDB.get((stdID-1)).verifyPassword(password);
 	}
+	
+	public Student selectStudentWhereID(int stdID) {
+		return studentDB.get((stdID-1));
+	}
 
 
 }
