@@ -112,8 +112,8 @@ public class QuizQuestionController implements Initializable {
 	}
 
 	public int setQuestion() {
-//		setQuizDiff(diff);
-//		System.out.println(diff);
+		setQuizDiff(diff);
+		System.out.println(diff);
 		int addFirst = number.nextInt(35);
 		int addSecond = number.nextInt(35);
 		int fAns = addFirst + addSecond;
