@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -15,6 +16,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
+			primaryStage.setTitle("Kid's Math");
 			primaryStage.show();
 			
 			
