@@ -20,22 +20,22 @@
                   <Font name="Segoe UI Bold" size="64.0" />
                </font>
             </Label>
-            <Label fx:id="quizDiff" alignment="CENTER" contentDisplay="CENTER" text="Easy" textFill="#89ff8b">
+            <Label fx:id="lblquizDiff" alignment="CENTER" contentDisplay="CENTER" text="Easy" textFill="#89ff8b">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="someWord" text="Better luck next time" textFill="WHITE">
+            <Label fx:id="lblsomeWord" text="Better luck next time" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="quizGrade" text="you got a ..." textFill="WHITE">
+            <Label fx:id="lblquizGrade" text="you got a ..." textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="quizScore" text="0 / 10" textFill="WHITE">
+            <Label fx:id="lblquizScore" text="0 / 10" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>

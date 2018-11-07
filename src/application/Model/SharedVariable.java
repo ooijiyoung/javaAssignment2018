@@ -4,6 +4,7 @@ public class SharedVariable {
 	private int uID;
 	private int quizDifficulty;
 	private int quizScore;
+	private int quizNum;
 	
   public void setID(int n) {
   	uID = n;
@@ -23,12 +24,19 @@ public class SharedVariable {
   }
   
   public void setQuizScore(int n) {
-	  // 0 = easy, 1 = normal, 2 = hard
 	  quizScore = n;
   }
   
   public int getQuizScore() {
 	  return quizScore;
+  }
+  
+  public void setQuizNum(int n) {
+	  quizNum = n;
+  }
+  
+  public int getQuizNum() {
+	  return quizNum;
   }
   
   

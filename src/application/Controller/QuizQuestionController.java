@@ -76,6 +76,7 @@ public class QuizQuestionController implements Initializable {
 
 	public void setQuizNum(int newNumQues) throws IOException {
 		numOfQuiz = newNumQues;
+		Comms.getInstance().shareVar().setQuizNum(numOfQuiz);
 
 		if (count < numOfQuiz) {
 
@@ -106,6 +107,7 @@ public class QuizQuestionController implements Initializable {
 		else {
 			System.out.println("Your Score is: " + score);
 			Comms.getInstance().shareVar().setQuizScore(score);
+			System.out.println(Comms.getInstance().shareVar().getQuizScore());
 			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/AfterQuizResult.fxml"));
 			rootPane.getChildren().setAll(newRoot);
 		}
