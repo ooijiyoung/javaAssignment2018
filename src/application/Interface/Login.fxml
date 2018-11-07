@@ -37,6 +37,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#cmdLogin" prefHeight="26.0" prefWidth="87.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField prefWidth="211.0" GridPane.columnIndex="1">
                <font>
@@ -48,6 +49,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#cmdRegister" prefHeight="27.0" prefWidth="87.0" text="Register" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
