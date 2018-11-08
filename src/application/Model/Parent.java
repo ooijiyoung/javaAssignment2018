@@ -52,6 +52,14 @@ public class Parent implements Serializable {
 		return address;
 	}
 	
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	public int getID() {
 		return parentID;
 	}

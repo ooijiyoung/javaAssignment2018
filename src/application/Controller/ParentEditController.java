@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Database.ParentDB;
+import application.Database.StudentDB;
+import application.Model.Comms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class ParentEditController implements Initializable  {
-
+	StudentDB stdDB = new StudentDB();
+	ParentDB prtDB = new ParentDB();
 	@FXML
     private AnchorPane rootPane;
 
@@ -55,13 +59,14 @@ public class ParentEditController implements Initializable  {
     	 * 
     	 */
     	
+    	int stdID = Comms.getInstance().shareVar().getID();
     	String newAddressField = (addressField.getText()).toString();
     	String newcontactField = contactField.getText();
     	
     	System.out.println(newAddressField);
     	System.out.println(newcontactField);
 
-    	
+    	prtDB.updateParentProfileByID(stdDB.selectStudentWhereID(stdID).getParentID(), newcontactField, newAddressField);
     	AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Profile.fxml"));
   		rootPane.getChildren().setAll(newRoot);
     }
@@ -70,6 +75,18 @@ public class ParentEditController implements Initializable  {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		int stdID = Comms.getInstance().shareVar().getID();
+		System.out.println(stdID);
+		
+		
+		stdDB.listAllStudentDebug();
+		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
+		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
+		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
+		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
+		addressField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
+		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
+		contactField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
 		
 	}
 
