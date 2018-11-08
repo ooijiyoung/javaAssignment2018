@@ -26,7 +26,7 @@
                   <Font name="Segoe UI Bold" size="64.0" />
                </font>
             </Label>
-            <Label fx:id="txtDifficulty" text="Easy" textFill="#89ff8b">
+            <Label fx:id="lblDifficulty" text="Easy" textFill="#89ff8b">
                <font>
                   <Font name="Segoe UI Bold" size="35.0" />
                </font>

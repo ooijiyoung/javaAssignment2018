@@ -27,6 +27,7 @@ public class QuizQuestionController implements Initializable {
 	int oper = 0;
 	int numOfQuiz = 0;
 	int count = 0;
+	String Diff;
 
 	@FXML
 	private AnchorPane rootPane;
@@ -117,15 +118,32 @@ public class QuizQuestionController implements Initializable {
 	public int setQuestion() {
 		int fAns = 0;
 		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
+		switch (diff) {
+		case 0:{
+			Diff = "Easy";
+			break;
+		}
+		case 1:{
+			Diff = "Medium";
+			break;
+		}
+		case 2:{
+			Diff = "Hard";
+			break;
+		}
+			
+		}
 		lblQuizQuesNo.setText("Quiz Question " + (count+1));
 		switch (diff) {
 		case 0: {
+			lblDifficulty.setText(Diff);
 			int First = number.nextInt(35);
 			int Second = number.nextInt(35);
 			fAns = First + Second;
 			lblQuestion.setText(First + " + " + Second + " = ?");
 		}
 		case 1: {
+			lblDifficulty.setText(Diff);
 			int oper = operation.nextInt(2);
 
 			switch (oper) {
@@ -150,6 +168,7 @@ public class QuizQuestionController implements Initializable {
 			break;
 		}
 		case 2: {
+			lblDifficulty.setText(Diff);
 			int oper = operation.nextInt(4);
 
 			switch (oper) {
