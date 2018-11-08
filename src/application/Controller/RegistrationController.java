@@ -1,6 +1,5 @@
 package application.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -54,12 +53,12 @@ public class RegistrationController  implements Initializable{
     private DatePicker dpParentDOB;
 
     @FXML
-    private Button btnSubmit;
+    private Button btnSubmit, btnCancel;
 
     @FXML
     void cmdRegister(ActionEvent event) {
     	boolean pwdMatch = false;
-    	
+    	boolean verification = false;
     	String studentName = tfStdName.getText();
     	String password = pfPwd.getText();
     	String cfmPassword = pfConfirmPwd.getText();
@@ -71,27 +70,104 @@ public class RegistrationController  implements Initializable{
     	LocalDate studentDOB = dpStdDob.getValue();
     	LocalDate parentDOB = dpParentDOB.getValue();
     	
-    	if(password.equals(cfmPassword)) {
-    		pwdMatch = true;
+    	
+    	
+    	if(studentName.isEmpty()) {
+    		tfStdName.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfStdName.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
     	}
     	
-    	ParentDB prtDB = new ParentDB();
-    	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
-    	int parentID = prtDB.getLastID();
+    	if(studentIC.isEmpty()) {
+    		tfStdIC.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfStdIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
     	
-    	StudentDB stdDB = new StudentDB();
-    	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
+    	if(parentName.isEmpty()) {
+    		tfParentName.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentName.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
     	
-    	stdDB.listAllStudentDebug();
+    	if(parentIC.isEmpty()) {
+    		tfParentIC.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
     	
-    	AlertBox.infoAlert();
-    	AnchorPane newRoot;
-    	try {
-				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
-				rootPane.getChildren().setAll(newRoot);
-	    	} catch (Exception e) {
-					AlertBox.exceptionAlert(e);
-	    	}    	
+    	if(parentAddr.isEmpty()) {
+    		tfParentAddr.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentAddr.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+
+    	if(parentContact.isEmpty()) {
+    		tfParentContact.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentContact.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+    	
+    	if(studentDOB==null) {
+    		dpStdDob.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		dpStdDob.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+    	
+    	if(parentDOB==null) {
+    		dpParentDOB.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		dpParentDOB.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+    	
+    	
+    	if(!password.equals(cfmPassword) || password.isEmpty()) {
+    		pfPwd.getStyleClass().add("is-invalid");
+    		pfConfirmPwd.getStyleClass().add("is-invalid");
+    		
+    	}else {
+    		pwdMatch = true;
+    		System.out.println(pfPwd.getStyleClass().toString());
+    		pfPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
+    		pfConfirmPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
+    	}
+    	
+    	if(verification == true && pwdMatch==true) {
+    		ParentDB prtDB = new ParentDB();
+      	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
+      	int parentID = prtDB.getLastID();
+      	
+      	StudentDB stdDB = new StudentDB();
+      	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
+      	
+      	stdDB.listAllStudentDebug();
+      	
+      	AlertBox.infoAlert();
+      	AnchorPane newRoot;
+      	try {
+  				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
+  				rootPane.getChildren().setAll(newRoot);
+  	    	} catch (Exception e) {
+  					AlertBox.exceptionAlert(e);
+  	    	}    	
+    	}
+    	
     }
     @FXML
     void cmdCancel(ActionEvent event) {
@@ -99,8 +175,7 @@ public class RegistrationController  implements Initializable{
     		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
 				rootPane.getChildren().setAll(newRoot);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				AlertBox.exceptionAlert(e);
 			}
     }
 
