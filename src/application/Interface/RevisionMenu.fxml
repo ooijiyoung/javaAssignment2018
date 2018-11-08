@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizController">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RevisionMenuController">
    <children>
       <Button fx:id="btnNext" layoutX="588.0" layoutY="550.0" mnemonicParsing="false" onAction="#cmdNext" prefHeight="44.0" prefWidth="190.0" text="Next">
          <font>
@@ -37,26 +37,23 @@
             </Label>
             <RadioButton fx:id="rbAddition" mnemonicParsing="false" selected="true" text="Addition">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Segoe UI" size="20.0" />
                </font>
                <toggleGroup>
-                  <ToggleGroup fx:id="group" />
+                  <ToggleGroup fx:id="groupMenu" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbSubtraction" mnemonicParsing="false" text="Subtraction" toggleGroup="$group">
+            <RadioButton fx:id="rbSubtraction" mnemonicParsing="false" text="Subtraction" toggleGroup="$groupMenu">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Segoe UI" size="20.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbMultiplication" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Multiplication" toggleGroup="$group">
+            <RadioButton fx:id="rbMultiplication" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Multiplication" toggleGroup="$groupMenu">
                <font>
-                  <Font size="20.0" />
+                  <Font name="Segoe UI" size="20.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbDivision" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Division">
-               <toggleGroup>
-                  <ToggleGroup fx:id="group1" />
-               </toggleGroup>
+            <RadioButton fx:id="rbDivision" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Division" toggleGroup="$groupMenu">
                <font>
                   <Font size="20.0" />
                </font>
