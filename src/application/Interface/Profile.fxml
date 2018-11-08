@@ -134,7 +134,7 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="editButton" layoutX="647.0" layoutY="650.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="40.0" prefWidth="78.0" styleClass="btn-warning" text="Edit">
+      <Button fx:id="editButton" layoutX="627.0" layoutY="650.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="40.0" prefWidth="78.0" styleClass="btn-warning" text="Edit">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>
