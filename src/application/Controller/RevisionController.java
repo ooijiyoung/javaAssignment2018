@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import application.Model.Comms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,162 +15,87 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class RevisionController implements Initializable{
+public class RevisionController implements Initializable {
 
-    @FXML
-    private AnchorPane rootPane;
+	@FXML
+	private AnchorPane rootPane;
 
-    @FXML
-    private RadioButton rbRev5;
+	@FXML
+	private Label lblQuizQuesNo;
 
-    @FXML
-    private RadioButton rbRev10;
+	@FXML
+	private Label lblQuestion;
 
-    @FXML
-    private RadioButton rbRev20;
+	@FXML
+	private TextField tfAnswer;
 
-    @FXML
-    private Button btnRevStart;
+	@FXML
+	private Button btnNextQues;
 
-    @FXML
-    private ImageView imgHome;
-    
-    @FXML
-    private TextField tfAnswer;
-    
-    @FXML
-    private Button btnNext;
-    
-    @FXML
-    private Button btnPrev;
-    
-    @FXML
-    private Button btnExit;
+	@FXML
+	private Button btnStart;
 
-    @FXML
-    void cmdHome(MouseEvent event) throws IOException {
-    	AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
-  		rootPane.getChildren().setAll(newRoot);
-    }
-    
-    @FXML
-	void cmdStart(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionQ1.fxml"));
+	@FXML
+	private Button btnPrevious;
+
+	@FXML
+	private ToggleGroup tgQuestionNum;
+
+	@FXML
+	void cmdExit(ActionEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
 		rootPane.getChildren().setAll(newRoot);
-		if (rbRev5.isSelected()) {
-			
-		}
-		else if (rbRev10.isSelected()) {
-			
-		}
-		else if (rbRev20.isSelected()) {
-			
-		}
 	}
 
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
-			// TODO Auto-generated method stub
-			
+	@FXML
+	void cmdStart(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/RevisionQ1.fxml"));
+		AnchorPane newRoot = loader.load();
+
+		RadioButton chk = (RadioButton) tgQuestionNum.getSelectedToggle();
+		String quizNum = chk.getText();
+		switch (quizNum) {
+		case "10": {
+			System.out.println("test 10");
+			Comms.getInstance().shareVar().setQuizNum(10);
+			RevisionQuestionController quizCtrl = loader.getController();
+			quizCtrl.setQuizNum();
+			break;
+		}
+		case "15": {
+			System.out.println("test 15");
+			Comms.getInstance().shareVar().setQuizNum(15);
+			RevisionQuestionController quizCtrl = loader.getController();
+			quizCtrl.setQuizNum();
+			break;
+		}
+		case "20": {
+			Comms.getInstance().shareVar().setQuizNum(20);
+			RevisionQuestionController quizCtrl = loader.getController();
+			quizCtrl.setQuizNum();
+			break;
+		}
+		case "25": {
+			Comms.getInstance().shareVar().setQuizNum(25);
+			RevisionQuestionController quizCtrl = loader.getController();
+			quizCtrl.setQuizNum();
+			break;
+		}
 		}
 
-}
+		rootPane.getChildren().setAll(newRoot);
 
-/*		Random operation = new Random();
-		Random number = new Random();
-		int score = 0;
-		int count = 0;
-		int ans;
+	}
 
-		System.out.println("How many questions? :");
-		Scanner keyboard = new Scanner(System.in);
-		int QuestionNo = keyboard.nextInt();
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
 
-		for (int i = 1; i <= QuestionNo; i++) {
-			int oper = operation.nextInt(1);
-			switch (oper) {
-			case 0:
-				int addFirst = number.nextInt(35);
-				int addSecond = number.nextInt(35);
-				System.out.println(i + ")" + addFirst + " + " + addSecond + "= ?");
-				count++;
-				int addTotal = addFirst + addSecond;
-				ans = 0;
-				System.out.println("Answer:");
-				ans = keyboard.nextInt();
-				if (ans == addTotal) {
-					System.out.println("That is correct!");
-					score++;
-				} else {
-					System.out.println("That is incorrect. The answer is " + addTotal);
-				}
-			case 1:
-				int subFirst = number.nextInt(35);
-				int subSecond = number.nextInt(35);
-				while (subSecond >= subFirst) {
-					subSecond = number.nextInt(35);
-				}
-				System.out.println(i + ")" + subFirst + " - " + subSecond + "= ?");
-				count++;
-				int subTotal = subFirst - subSecond;
-				ans = 0;
-				System.out.println("Answer:");
-				ans = keyboard.nextInt();
-				if (ans == subTotal) {
-					System.out.println("That is correct!");
-					score++;
-				} else {
-
-					System.out.println("That is incorrect. The answer is " + subTotal);
-				}
-
-			case 2:
-				int mulFirst = number.nextInt(35);
-				int mulSecond = number.nextInt(35);
-				System.out.println(i + ")" + mulFirst + " * " + mulSecond + "= ?");
-				count++;
-				int mulTotal = mulFirst * mulSecond;
-				ans = 0;
-				System.out.println("Answer:");
-				ans = keyboard.nextInt();
-				if (ans == mulTotal) {
-					System.out.println("That is correct!");
-					score++;
-				} else {
-
-					System.out.println("That is incorrect. The answer is " + mulTotal);
-				}
-
-			case 3:
-				int divFirst = number.nextInt(144);
-				int divSecond = number.nextInt(12);
-				while ((divSecond == 0) || (divSecond >= divFirst)) {
-					divSecond = number.nextInt(12);
-				}
-				System.out.println(i + ")" + divFirst + " / " + divSecond + "= ?");
-				count++;
-				int divTotal = divFirst / divSecond;
-				ans = 0;
-				System.out.println("Answer:");
-				ans = keyboard.nextInt();
-				if (ans == divTotal) {
-					System.out.println("That is correct!");
-					score++;
-				} else {
-
-					System.out.println("That is incorrect. The answer is " + divTotal);
-				}
-				break;
-
-			}
-			System.out.println("You got " + score + " correct answers out of " + count);
-		}
-		
 	}
 
 }
-*/

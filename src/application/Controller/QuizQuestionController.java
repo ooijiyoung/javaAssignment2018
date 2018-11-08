@@ -74,8 +74,6 @@ public class QuizQuestionController implements Initializable {
 		// TODO Auto-generated method stub
 		System.out.println("Quiz diffuculty is :" + Comms.getInstance().shareVar().getQuizDifficulty());
 	}
-	
-	
 
 	public void setQuizNum(int newNumQues) throws IOException {
 		numOfQuiz = newNumQues;
@@ -88,7 +86,6 @@ public class QuizQuestionController implements Initializable {
 			btnNextQues.setOnAction(e -> {
 				String ans = tfAnswer.getText();
 				int newAns = Integer.parseInt(ans);
-				// System.out.println("test");
 				if (newAns == fAns) {
 					score++;
 				}
@@ -103,7 +100,6 @@ public class QuizQuestionController implements Initializable {
 					e1.printStackTrace();
 				}
 
-//				setQuizNum(numOfQuiz);
 			});
 		}
 
@@ -121,21 +117,21 @@ public class QuizQuestionController implements Initializable {
 		int fAns = 0;
 		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
 		switch (diff) {
-		case 0:{
+		case 0: {
 			Diff = "Easy";
 			break;
 		}
-		case 1:{
+		case 1: {
 			Diff = "Medium";
 			break;
 		}
-		case 2:{
+		case 2: {
 			Diff = "Hard";
 			break;
 		}
-			
+
 		}
-		lblQuizQuesNo.setText("Quiz Question " + (count+1));
+		lblQuizQuesNo.setText("Quiz Question " + (count + 1));
 		switch (diff) {
 		case 0: {
 			lblDifficulty.setText(Diff);
@@ -211,7 +207,7 @@ public class QuizQuestionController implements Initializable {
 				while (First % 2 != 0 || Second > First) {
 					First = number.nextInt(101);
 				}
-				
+
 				fAns = First / Second;
 				lblQuestion.setText(First + " / " + Second + " = ?");
 				break;
