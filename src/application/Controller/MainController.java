@@ -43,7 +43,7 @@ public class MainController implements Initializable  {
 	
 	public void cmdQuiz(ActionEvent event) {
 		try {
-			AnchorPanenewRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
 			rootPane.getChildren().setAll(newRoot);
 		} catch (Exception e) {
 			AlertBox.exceptionAlert(e);

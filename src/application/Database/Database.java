@@ -53,7 +53,7 @@ public class Database<T> {
 	    save.writeObject(object);
 	    save.close(); 
     } catch(Exception exc){
-        exc.printStackTrace();
+    		AlertBox.exceptionAlert(exc);
     }
 	}
 
@@ -65,7 +65,7 @@ public class Database<T> {
 	    save.writeObject(arrayObj);
 	    save.close(); 
     } catch(Exception exc){
-    	exc.printStackTrace();
+    	AlertBox.exceptionAlert(exc);
     }
 		
 	}
