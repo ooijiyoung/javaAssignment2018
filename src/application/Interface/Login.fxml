@@ -28,7 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="41.0" prefWidth="237.0" text="ID:">
+            <Label prefHeight="41.0" prefWidth="237.0" text="Email:">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>

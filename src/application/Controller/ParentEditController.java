@@ -85,12 +85,11 @@ public class ParentEditController implements Initializable  {
 		
 		stdDB.listAllStudentDebug();
 		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
-	
 		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
 		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
 		addressField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
 		contactField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
-		//emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
+		emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
 		
 		
 		// Discarded
