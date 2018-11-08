@@ -1,8 +1,7 @@
 package application.Database;
 import java.util.ArrayList;
-
-import application.Model.Parent;
 import application.Model.Result;
+
 public class ResultDB {
 	
 	ArrayList<Result> resultDB = new ArrayList <>();
