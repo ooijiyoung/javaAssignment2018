@@ -78,6 +78,16 @@ public class ParentEditController implements Initializable  {
   		rootPane.getChildren().setAll(newRoot);
     }
     
+    @FXML
+    void cancelEdit(ActionEvent event) throws IOException{
+    
+    	
+    	AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Profile.fxml"));
+  		rootPane.getChildren().setAll(newRoot);
+    }
+    
+    
+    
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
