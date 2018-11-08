@@ -22,8 +22,8 @@ public class ParentDB {
 	}
 	
 
-	public void add(String name, LocalDate dob, String ic_no, String contact, String address) {
-		Parent prt = new Parent(getNewEmptyIndex(), name,dob,ic_no,contact,address);
+	public void add(String name, LocalDate dob, String contact, String address) {
+		Parent prt = new Parent(getNewEmptyIndex(), name, dob, contact,address);
 		parentDB.add(prt);
 		save();
 	}
@@ -46,7 +46,7 @@ public class ParentDB {
 	
 	public void listAllDebug() {
 		for(int x=0;x<parentDB.size();x++) {
-			System.out.println(parentDB.get(x).getID() + " " + parentDB.get(x).getName() + " "+ parentDB.get(x).getIC());
+			System.out.println(parentDB.get(x).getID() + " " + parentDB.get(x).getName());
 		}
 
 	}
