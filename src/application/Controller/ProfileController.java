@@ -85,6 +85,7 @@ public class ProfileController implements Initializable {
 		emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
 		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
 		prtDB.listAllDebug();
+		
 		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
 		contactParents.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
 		address.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
