@@ -74,6 +74,7 @@ public class RegistrationController  implements Initializable{
     	if(password.equals(cfmPassword)) {
     		pwdMatch = true;
     	}
+    	
     	ParentDB prtDB = new ParentDB();
     	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
     	int parentID = prtDB.getLastID();
@@ -82,15 +83,15 @@ public class RegistrationController  implements Initializable{
     	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
     	
     	stdDB.listAllStudentDebug();
+    	
+    	AlertBox.infoAlert();
     	AnchorPane newRoot;
     	try {
-				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
 				rootPane.getChildren().setAll(newRoot);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				AlertBox.
-			}
-    	
+	    	} catch (Exception e) {
+					AlertBox.exceptionAlert(e);
+	    	}    	
     }
     @FXML
     void cmdCancel(ActionEvent event) {
