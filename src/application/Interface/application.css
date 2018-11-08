@@ -31,13 +31,14 @@
   -fx-text-alignment: center;
   -fx-cursor: default;
   -fx-border-color: transparent;
-  -fx-border-width: 5px;
+  -fx-border-width: 1px;
   -fx-border-style: solid;
+  -fx-border-radius: 5px;
   -fx-background-insets: 0, 0, -1, 0;
   -fx-font-size: 16px;
  }
  
- .btn:pressed, .btn.pressed {
+ .btn:pressed {
  	-fx-effect: innershadow(gaussian, rgba(0, 123, 255, 0.25), 0, 0, 0, 5px);
 }
 
@@ -53,6 +54,18 @@
   -fx-border-color: #1e7e34 !important;
 }
 
+.btn-warning {
+	-fx-text-fill: #212529;
+  -fx-background-color: #ffc107;
+  -fx-border-color: #ffc107;
+}
+
+.btn-warning:hover {
+ 	-fx-text-fill: #212529;
+  -fx-background-color: #e0a800;
+  -fx-border-color: #d39e00;
+}
+
 .btn-danger {
   -fx-text-fill: #fff;
   -fx-background-color: #dc3545;
@@ -62,4 +75,14 @@
 
 .bg-white {
   -fx-background-color: #fff !important;
+}
+
+.form-control {
+  -fx-padding: 6px 12px;
+  -fx-text-fill: #495057;
+  -fx-background-color: #fff;
+  -fx-border-color: #ced4da;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-border-radius: 5px;
 }

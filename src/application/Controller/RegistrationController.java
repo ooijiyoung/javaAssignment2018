@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import application.Database.ParentDB;
 import application.Database.StudentDB;
+import application.Interface.AlertBox;
 
 public class RegistrationController  implements Initializable{
 
@@ -83,13 +84,23 @@ public class RegistrationController  implements Initializable{
     	stdDB.listAllStudentDebug();
     	AnchorPane newRoot;
     	try {
-			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
-			rootPane.getChildren().setAll(newRoot);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+				rootPane.getChildren().setAll(newRoot);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				AlertBox.
+			}
     	
+    }
+    @FXML
+    void cmdCancel(ActionEvent event) {
+    	try {
+    		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+				rootPane.getChildren().setAll(newRoot);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     }
 
 	@Override
