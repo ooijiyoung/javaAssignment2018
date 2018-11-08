@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
+import application.Interface.AlertBox;
+
 
 
 public class Database<T> {
@@ -35,6 +37,7 @@ public class Database<T> {
       	//TODO: implement error message
          //error dont do anything, just keep quiet (either database file empty or cannot load)
       	//screw the user anyway. 
+      	AlertBox.exceptionAlert(exc);
     }
 		
 		return returnObj;
@@ -50,7 +53,7 @@ public class Database<T> {
 	    save.writeObject(object);
 	    save.close(); 
     } catch(Exception exc){
-        exc.printStackTrace();
+    		AlertBox.exceptionAlert(exc);
     }
 	}
 
@@ -62,7 +65,7 @@ public class Database<T> {
 	    save.writeObject(arrayObj);
 	    save.close(); 
     } catch(Exception exc){
-    	exc.printStackTrace();
+    	AlertBox.exceptionAlert(exc);
     }
 		
 	}
