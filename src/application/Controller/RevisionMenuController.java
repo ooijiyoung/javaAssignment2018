@@ -60,7 +60,7 @@ public class RevisionMenuController implements Initializable{
 	
 	@FXML
 	void cmdBack(MouseEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionMenu.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
 
