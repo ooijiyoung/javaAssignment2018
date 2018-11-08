@@ -70,9 +70,12 @@ public class QuizResultController implements Initializable {
 		} else if (percent >= 40 && percent < 60) {
 			Word = "You can do it";
 			Grade = "You got a C";
-		} else {
-			Word = "Don't give up";
+		} else if (percent >= 30 && percent < 40){
+			Word = "Don't give up, little bit more";
 			Grade = "You got a D";
+		}else {
+			Word = "Don't give up";
+			Grade = "You got a F";
 		}
 
 	}
