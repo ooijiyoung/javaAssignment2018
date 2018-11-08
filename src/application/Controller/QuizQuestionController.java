@@ -117,6 +117,7 @@ public class QuizQuestionController implements Initializable {
 	public int setQuestion() {
 		int fAns = 0;
 		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
+		lblQuizQuesNo.setText("Quiz Question " + (count+1));
 		switch (diff) {
 		case 0: {
 			int First = number.nextInt(35);
