@@ -27,6 +27,7 @@ public class QuizQuestionController implements Initializable {
 	int oper = 0;
 	int numOfQuiz = 0;
 	int count = 0;
+	String Diff;
 
 	@FXML
 	private AnchorPane rootPane;
@@ -73,6 +74,8 @@ public class QuizQuestionController implements Initializable {
 		// TODO Auto-generated method stub
 		System.out.println("Quiz diffuculty is :" + Comms.getInstance().shareVar().getQuizDifficulty());
 	}
+	
+	
 
 	public void setQuizNum(int newNumQues) throws IOException {
 		numOfQuiz = newNumQues;
@@ -118,13 +121,32 @@ public class QuizQuestionController implements Initializable {
 		int fAns = 0;
 		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
 		switch (diff) {
+		case 0:{
+			Diff = "Easy";
+			break;
+		}
+		case 1:{
+			Diff = "Medium";
+			break;
+		}
+		case 2:{
+			Diff = "Hard";
+			break;
+		}
+			
+		}
+		lblQuizQuesNo.setText("Quiz Question " + (count+1));
+		switch (diff) {
 		case 0: {
+			lblDifficulty.setText(Diff);
 			int First = number.nextInt(35);
 			int Second = number.nextInt(35);
 			fAns = First + Second;
 			lblQuestion.setText(First + " + " + Second + " = ?");
+			break;
 		}
 		case 1: {
+			lblDifficulty.setText(Diff);
 			int oper = operation.nextInt(2);
 
 			switch (oper) {
@@ -149,6 +171,7 @@ public class QuizQuestionController implements Initializable {
 			break;
 		}
 		case 2: {
+			lblDifficulty.setText(Diff);
 			int oper = operation.nextInt(4);
 
 			switch (oper) {
@@ -181,16 +204,17 @@ public class QuizQuestionController implements Initializable {
 				break;
 			}
 			case 3: {
-				int First = number.nextInt(36);
+				int First = number.nextInt(101);
 				int Second = number.nextInt(11);
-				while (First % 2 != 0) {
-					First = number.nextInt(36);
-				}
-				while (Second % 2 != 0) {
+				while (Second % 2 != 0 || Second == 0) {
 					Second = number.nextInt(11);
 				}
+				while (First % 2 != 0 || Second > First) {
+					First = number.nextInt(101);
+				}
+				
 				fAns = First / Second;
-				lblQuestion.setText(First + " ÷ " + Second + " = ?");
+				lblQuestion.setText(First + " / " + Second + " = ?");
 				break;
 			}
 			}

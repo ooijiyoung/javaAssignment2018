@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import application.Database.StudentDB;
+import application.Interface.AlertBox;
 import application.Model.Comms;
 
 public class LoginController implements Initializable{
@@ -32,6 +33,7 @@ public class LoginController implements Initializable{
 
   @FXML
   void cmdLogin(ActionEvent event) {
+  	
   	AnchorPane newRoot;
   	StudentDB database = new StudentDB();
   	String stdIC = tfID.getText();
@@ -52,9 +54,11 @@ public class LoginController implements Initializable{
   			}
   		}else {
   			System.out.println("incorrect pass");
+  			AlertBox.errorAlertNoHeader("Either Invalid Username or Password");
   		}
   		
   	}else {
+  		AlertBox.errorAlertNoHeader("Either Invalid Username or Password");
   		System.out.println("Invalid Username");
   	}
   	

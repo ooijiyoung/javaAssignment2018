@@ -146,7 +146,7 @@ public class RegistrationController  implements Initializable{
     	if(!password.equals(cfmPassword) || password.isEmpty()) {
     		pfPwd.getStyleClass().add("is-invalid");
     		pfConfirmPwd.getStyleClass().add("is-invalid");
-    		
+    		pwdMatch = false;
     	}else {
     		pwdMatch = true;
     		
@@ -156,22 +156,35 @@ public class RegistrationController  implements Initializable{
     	
     	if(verification == true && pwdMatch==true) {
     		ParentDB prtDB = new ParentDB();
-      	prtDB.add(parentName, parentDOB, parentContact, parentAddr);
-      	int parentID = prtDB.getLastID();
+    		StudentDB stdDB = new StudentDB();
+    		int stdID = stdDB.selectStdIDFromEmail(stdEmail);
+    		if(stdID == 0) {
+    			prtDB.add(parentName, parentDOB, parentContact, parentAddr);
+        	int parentID = prtDB.getLastID();
+        	stdDB.add(studentName,studentDOB, stdEmail, password, parentID);
+        	stdDB.listAllStudentDebug();
+        	
+        	AlertBox.infoAlert("User Successfully Registered");
+        	AnchorPane newRoot;
+        	try {
+    				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
+    				rootPane.getChildren().setAll(newRoot);
+    	    	} catch (Exception e) {
+    					AlertBox.exceptionAlert(e);
+    	    	}    	
+    		}else {
+    			verification = false;
+    			AlertBox.errorAlertNoHeader("E-Mail Already Registered");
+    			tfEmail.getStyleClass().add("is-invalid");
+    		}
       	
-      	StudentDB stdDB = new StudentDB();
-      	stdDB.add(studentName,studentDOB, stdEmail, password, parentID);
-      	
-      	stdDB.listAllStudentDebug();
-      	
-      	AlertBox.infoAlert("User Successfully Registered");
-      	AnchorPane newRoot;
-      	try {
-  				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
-  				rootPane.getChildren().setAll(newRoot);
-  	    	} catch (Exception e) {
-  					AlertBox.exceptionAlert(e);
-  	    	}    	
+    	}else {
+    		String errmsg = "Please make sure all the fields are filled.";
+    		if(pwdMatch == false && verification == true) {
+    			errmsg = "Password and Confirm Password does not match";
+    		}
+    		AlertBox.errorAlert(errmsg);
+
     	}
     	
     }

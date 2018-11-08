@@ -38,6 +38,12 @@
   -fx-font-size: 16px;
  }
  
+
+ .btn-lg{
+ 	-fx-font-size: 20px !important;	
+ }
+ 
+
  .btn:pressed {
  	-fx-effect: innershadow(gaussian, rgba(0, 123, 255, 0.25), 0, 0, 0, 5px);
 }
@@ -70,6 +76,49 @@
   -fx-text-fill: #fff;
   -fx-background-color: #dc3545;
   -fx-border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #c82333;
+  -fx-border-color: #bd2130;
+}
+
+.btn-primary {
+  -fx-text-fill: #fff;
+  -fx-background-color: #007bff;
+  -fx-border-color: #007bff;
+}
+
+.btn-primary:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #0069d9;
+  -fx-border-color: #0062cc;
+}
+
+.btn-info {
+  -fx-text-fill: #fff;
+  -fx-background-color: #17a2b8;
+  -fx-border-color: #17a2b8;
+}
+
+.btn-info:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #138496;
+  -fx-border-color: #117a8b;
+}
+
+.btn-outline-secondary {
+  -fx-text-fill: #6c757d;
+  -fx-background-color: transparent;
+  -fx-background-image: none;
+  -fx-border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #6c757d;
+  -fx-border-color: #6c757d;
 }
 
 
