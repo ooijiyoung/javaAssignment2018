@@ -28,8 +28,8 @@ public class ProfileController implements Initializable {
 	    @FXML
 	    private Label nameStudent;
 	    
-	    @FXML
-	    private Label icStudent;
+	  //  @FXML
+	  //  private Label icStudent;
 	    
 	    @FXML
 	    private Label dobStudent;
@@ -40,11 +40,14 @@ public class ProfileController implements Initializable {
 	    @FXML
 	    private Label contactParents;
 	    
-	    @FXML
-	    private Label icParent;
+	 //   @FXML
+	 //   private Label icParent;
 	    
 	    @FXML
 	    private Label address;
+	    
+	    @FXML
+	    private Label emailStudent;
 	    
 	    @FXML
 	    private Button editButton;
@@ -72,15 +75,16 @@ public class ProfileController implements Initializable {
 		
 		stdDB.listAllStudentDebug();
 		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
-		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
+		//emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
 		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
 		prtDB.listAllDebug();
 		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
 		contactParents.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
-		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
 		address.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
 	
-	
+		// Discarded
+//		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
+//		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
 	
 		
 	}
