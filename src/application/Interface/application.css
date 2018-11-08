@@ -87,10 +87,10 @@
   -fx-border-radius: 5px;
 }
 
-.form-control.is-valid {
+.form-control.is-valid , .date-picker.is-valid, .text-area.is-valid{
    -fx-border-color: #28a745;
 }
 
-.form-control.is-invalid {
+.form-control.is-invalid , .date-picker.is-invalid, .text-area.is-invalid {
   -fx-border-color: #dc3545;
 }

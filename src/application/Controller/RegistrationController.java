@@ -105,10 +105,11 @@ public class RegistrationController  implements Initializable{
     	}
     	
     	if(parentAddr.isEmpty()) {
+    		System.out.println(tfParentAddr.getStyleClass());
     		tfParentAddr.getStyleClass().add("is-invalid");
     		verification = false;
     	}else {
-    		tfParentAddr.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		tfParentAddr.getStyleClass().setAll("text-input", "text-area","is-valid");
     		verification = true;
     	}
 
@@ -120,19 +121,19 @@ public class RegistrationController  implements Initializable{
     		verification = true;
     	}
     	
-    	if(studentDOB==null) {
+    	if(dpStdDob.getValue() == null) {
     		dpStdDob.getStyleClass().add("is-invalid");
     		verification = false;
     	}else {
-    		dpStdDob.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		dpStdDob.getStyleClass().setAll("combo-box-base", "date-picker","is-valid");
     		verification = true;
     	}
     	
-    	if(parentDOB==null) {
+    	if(dpParentDOB.getValue() == null) {
     		dpParentDOB.getStyleClass().add("is-invalid");
     		verification = false;
     	}else {
-    		dpParentDOB.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		dpParentDOB.getStyleClass().setAll("combo-box-base", "date-picker","is-valid");
     		verification = true;
     	}
     	
@@ -143,7 +144,7 @@ public class RegistrationController  implements Initializable{
     		
     	}else {
     		pwdMatch = true;
-    		System.out.println(pfPwd.getStyleClass().toString());
+    		
     		pfPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
     		pfConfirmPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
     	}
@@ -158,7 +159,7 @@ public class RegistrationController  implements Initializable{
       	
       	stdDB.listAllStudentDebug();
       	
-      	AlertBox.infoAlert();
+      	AlertBox.infoAlert("User Successfully Registered");
       	AnchorPane newRoot;
       	try {
   				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
