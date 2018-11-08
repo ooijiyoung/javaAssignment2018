@@ -51,6 +51,12 @@ public class RevisionController implements Initializable {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
+	
+	@FXML
+	void cmdBack(MouseEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionMenu.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
 
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
