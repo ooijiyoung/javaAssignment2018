@@ -17,10 +17,10 @@
             <Font name="Segoe UI" size="64.0" />
          </font>
       </Label>
-      <GridPane layoutX="448.0" layoutY="236.0" prefHeight="230.0" prefWidth="541.0">
+      <GridPane layoutX="397.0" layoutY="239.0" prefHeight="230.0" prefWidth="541.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -38,15 +38,14 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="87.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#cmdLogin" prefHeight="26.0" prefWidth="87.0" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="tfID" prefWidth="211.0" GridPane.columnIndex="1">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#cmdRegister" prefHeight="27.0" prefWidth="87.0" text="Register" GridPane.rowIndex="2" />
             <PasswordField fx:id="pfPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="TEXT_ONLY" mnemonicParsing="false" onAction="#cmdLogin" prefHeight="47.0" prefWidth="99.0" styleClass="btn" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#cmdRegister" prefHeight="47.0" prefWidth="123.0" styleClass="btn" text="Register" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

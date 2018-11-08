@@ -11,6 +11,7 @@ public class ParentDB {
 	
 	public ParentDB() {
 		load();
+		listAllDebug();
 	}
 	
 	public void add() {
@@ -45,8 +46,15 @@ public class ParentDB {
 	
 	public void listAllDebug() {
 		for(int x=0;x<parentDB.size();x++) {
-			System.out.println(parentDB.get(x).getName());
+			System.out.println(parentDB.get(x).getID() + " " + parentDB.get(x).getName() + " "+ parentDB.get(x).getIC());
 		}
+
+	}
+	
+	public void updateParentProfileByID(int id, String contact, String address) {
+		parentDB.get((id-1)).setAddress(address);
+		parentDB.get((id-1)).setContact(contact);
+		save();
 	}
 	
 	private int getNewEmptyIndex() {
