@@ -146,7 +146,7 @@ public class RegistrationController  implements Initializable{
     	if(!password.equals(cfmPassword) || password.isEmpty()) {
     		pfPwd.getStyleClass().add("is-invalid");
     		pfConfirmPwd.getStyleClass().add("is-invalid");
-    		
+    		pwdMatch = false;
     	}else {
     		pwdMatch = true;
     		
@@ -172,6 +172,12 @@ public class RegistrationController  implements Initializable{
   	    	} catch (Exception e) {
   					AlertBox.exceptionAlert(e);
   	    	}    	
+    	}else {
+    		String errmsg = "Please make sure all the fields are filled.";
+    		if(pwdMatch == false && verification == true) {
+    			errmsg = "Password and Confirm Password does not match";
+    		}
+    		AlertBox.errorAlert(errmsg);
     	}
     	
     }

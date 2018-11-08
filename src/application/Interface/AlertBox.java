@@ -22,6 +22,14 @@ public class AlertBox {
 		alert.showAndWait();
 	}
 	
+	public static void errorAlertNoHeader(String msg) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error!");
+		alert.setHeaderText(null);
+		alert.setContentText(msg);
+		alert.showAndWait(); 
+	}
+	
 	public static void infoAlert() {
 		infoAlert("Developer Forgot To Parse Message");
 	}
