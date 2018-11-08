@@ -12,7 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class RevisionMenuController implements Initializable{
@@ -42,8 +44,23 @@ public class RevisionMenuController implements Initializable{
 	private Button btnNext;
 	
 	@FXML
+	private ToggleGroup groupMenu;
+	
+	@FXML
+	void cmdHome(MouseEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	@FXML
+	void cmdBack(MouseEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
 
@@ -57,28 +74,34 @@ public class RevisionMenuController implements Initializable{
 	void cmdNext(ActionEvent event) throws IOException {
 //		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/Revision.fxml"));
 
 		AnchorPane newRoot = loader.load();
 
 		RadioButton chk = (RadioButton) groupMenu.getSelectedToggle();
 		switch (chk.getText()) {
-		case "Easy":
+		case "Addition":
 			Comms.getInstance().shareVar().setQuizDifficulty(0);
 			;
 			break;
-		case "Medium":
+		case "Subtractioni":
 			Comms.getInstance().shareVar().setQuizDifficulty(1);
 			;
 			break;
-		case "Hard":
+		case "Multiplicaiton":
 			Comms.getInstance().shareVar().setQuizDifficulty(2);
+			;
+			break;
+		case "Division":
+			Comms.getInstance().shareVar().setQuizDifficulty(3);
 			;
 			break;
 		}
 
 		rootPane.getChildren().setAll(newRoot);
 	}
+	
+	
 	
 	
 	@Override
