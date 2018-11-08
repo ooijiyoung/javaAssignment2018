@@ -46,6 +46,7 @@ public class ProfileController implements Initializable {
 	    @FXML
 	    private Label address;
 	    
+	    
 	    @FXML
 	    private Button editButton;
 
