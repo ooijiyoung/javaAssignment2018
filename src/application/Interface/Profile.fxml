@@ -39,42 +39,30 @@
             <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
             <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
             <RowConstraints fillHeight="false" minHeight="-Infinity" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="45.0" prefWidth="156.0" text="Student's Info">
+            <Label alignment="TOP_CENTER" prefHeight="45.0" prefWidth="156.0" text="Student's Info">
                <font>
                   <Font name="Segoe UI Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="41.0" prefWidth="237.0" text="Name" textFill="#686868" GridPane.rowIndex="2">
+            <Label prefHeight="45.0" prefWidth="237.0" text="Name" textFill="#686868" GridPane.rowIndex="2">
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="201.0" text="IC" textFill="#686868" GridPane.rowIndex="4">
+            <Label prefHeight="45.0" prefWidth="224.0" text="Date Of Birth" textFill="#686868" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="46.0" prefWidth="224.0" text="Date Of Birth" textFill="#686868" GridPane.rowIndex="6">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="nameStudent" prefHeight="41.0" prefWidth="237.0" text="ALI NAZHAN" GridPane.rowIndex="3">
+            <Label fx:id="nameStudent" alignment="TOP_LEFT" prefHeight="45.0" prefWidth="237.0" text="ALI NAZHAN" GridPane.rowIndex="3">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="icStudent" prefHeight="41.0" prefWidth="237.0" text="980202020202" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Segoe UI Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="dobStudent" prefHeight="41.0" prefWidth="237.0" text="02/02/1998" GridPane.rowIndex="7">
+            <Label fx:id="dobStudent" alignment="TOP_LEFT" prefHeight="45.0" prefWidth="237.0" text="02/02/1998" GridPane.rowIndex="5">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
@@ -84,50 +72,54 @@
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="46.0" prefWidth="224.0" text="Contact Info" textFill="#686868" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label prefHeight="45.0" prefWidth="224.0" text="Contact Info" textFill="#686868" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="30.0" prefWidth="201.0" text="IC" textFill="#686868" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label prefHeight="45.0" prefWidth="155.0" text="Parents's Info" GridPane.columnIndex="1">
+            <Label alignment="TOP_CENTER" prefHeight="45.0" prefWidth="155.0" text="Parents's Info" GridPane.columnIndex="1">
                <font>
                   <Font name="Segoe UI Bold Italic" size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="46.0" prefWidth="224.0" text="Address" textFill="#686868" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label prefHeight="45.0" prefWidth="224.0" text="Address" textFill="#686868" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="nameParent" prefHeight="41.0" prefWidth="237.0" text="AZMI" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="nameParent" alignment="TOP_LEFT" prefHeight="41.0" prefWidth="237.0" text="AZMI" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="contactParents" prefHeight="41.0" prefWidth="237.0" text="123215" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Label fx:id="contactParents" alignment="TOP_LEFT" prefHeight="41.0" prefWidth="237.0" text="123215" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="icParent" prefHeight="41.0" prefWidth="237.0" text="980202020202" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Segoe UI Bold" size="18.0" />
-               </font>
-            </Label>
-            <FlowPane prefHeight="100.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <FlowPane prefHeight="100.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
-                  <Label fx:id="address" prefHeight="100.0" prefWidth="393.0" text="No 55 Jalan Nasi Lemak, U7/88, Bukit Bobo" wrapText="true">
+                  <Label fx:id="address" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="393.0" text="No 55 Jalan Nasi Lemak, U7/88, Bukit Bobo" wrapText="true">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
             </FlowPane>
+            <FlowPane prefHeight="100.0" prefWidth="401.0" GridPane.rowIndex="7">
+               <children>
+                  <Label fx:id="emailStudent" alignment="TOP_LEFT" prefHeight="104.0" prefWidth="237.0" text="student30@gmail.com">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
+            <Label prefHeight="45.0" prefWidth="224.0" text="E-Mail" textFill="#686868" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <Button fx:id="editButton" layoutX="657.0" layoutY="630.0" mnemonicParsing="false" onAction="#editProfile" styleClass="btn" text="Edit">
