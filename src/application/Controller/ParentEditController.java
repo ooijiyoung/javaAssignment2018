@@ -36,6 +36,9 @@ public class ParentEditController implements Initializable  {
     private Label dobStudent;
     
     @FXML
+    private Label dobParent;
+    
+    @FXML
     private Label nameParent;
     
     @FXML
@@ -85,13 +88,12 @@ public class ParentEditController implements Initializable  {
 		
 		stdDB.listAllStudentDebug();
 		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
-	
 		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
 		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
 		addressField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
 		contactField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
-		//emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
-		
+		emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
+		dobParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getDOB().toString());
 		
 		// Discarded
 //		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
