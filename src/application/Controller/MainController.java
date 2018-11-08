@@ -42,9 +42,8 @@ public class MainController implements Initializable  {
 	}
 	
 	public void cmdQuiz(ActionEvent event) {
-		AnchorPane newRoot;
 		try {
-			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
+			AnchorPanenewRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
 			rootPane.getChildren().setAll(newRoot);
 		} catch (Exception e) {
 			AlertBox.exceptionAlert(e);
@@ -52,29 +51,54 @@ public class MainController implements Initializable  {
 		
 	}
 	
-	public void cmdRevision(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Revision.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+	public void cmdRevision(ActionEvent event){
+		try {
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Revision.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (Exception e) {
+			AlertBox.exceptionAlert(e);
+		}
+		
 	}
 	
-	public void cmdResults(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Result.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+	public void cmdResults(ActionEvent event) {
+		try {
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Result.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (Exception e) {
+			AlertBox.exceptionAlert(e);
+		}
+		
 	}
 	
-	public void cmdProfile(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Profile.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+	public void cmdProfile(ActionEvent event) {
+		try {
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Profile.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (Exception e) {
+			AlertBox.exceptionAlert(e);
+		}
+		
 	}
 	
-	public void cmdRanking(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Ranking.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+	public void cmdRanking(ActionEvent event) {
+		try {
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Ranking.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (Exception e) {
+			AlertBox.exceptionAlert(e);
+		}
+		
 	}
 	
-	public void cmdLogout(ActionEvent event) throws IOException{
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
-		rootPane.getChildren().setAll(newRoot);
+	public void cmdLogout(ActionEvent event){
+		try {
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (Exception e) {
+			AlertBox.exceptionAlert(e);
+		}
+		
 	}
 
 }

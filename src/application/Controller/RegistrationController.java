@@ -86,13 +86,11 @@ public class RegistrationController  implements Initializable{
     	AlertBox.infoAlert();
     	AnchorPane newRoot;
     	try {
-			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
 			rootPane.getChildren().setAll(newRoot);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			AlertBox.errorAlert();
-		}
+    	} catch (Exception e) {
+				AlertBox.exceptionAlert(e);
+    	}
     	
     }
 
