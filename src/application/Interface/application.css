@@ -38,10 +38,12 @@
   -fx-font-size: 16px;
  }
  
+
  .btn-lg{
  	-fx-font-size: 20px !important;	
  }
  
+
  .btn:pressed {
  	-fx-effect: innershadow(gaussian, rgba(0, 123, 255, 0.25), 0, 0, 0, 5px);
 }

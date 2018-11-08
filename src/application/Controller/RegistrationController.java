@@ -184,6 +184,7 @@ public class RegistrationController  implements Initializable{
     			errmsg = "Password and Confirm Password does not match";
     		}
     		AlertBox.errorAlert(errmsg);
+
     	}
     	
     }
