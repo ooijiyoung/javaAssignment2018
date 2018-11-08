@@ -181,16 +181,17 @@ public class QuizQuestionController implements Initializable {
 				break;
 			}
 			case 3: {
-				int First = number.nextInt(36);
+				int First = number.nextInt(101);
 				int Second = number.nextInt(11);
-				while (First % 2 != 0) {
-					First = number.nextInt(36);
-				}
-				while (Second % 2 != 0) {
+				while (Second % 2 != 0 || Second == 0) {
 					Second = number.nextInt(11);
 				}
+				while (First % 2 != 0 || Second > First) {
+					First = number.nextInt(101);
+				}
+				
 				fAns = First / Second;
-				lblQuestion.setText(First + " ÷ " + Second + " = ?");
+				lblQuestion.setText(First + " / " + Second + " = ?");
 				break;
 			}
 			}
