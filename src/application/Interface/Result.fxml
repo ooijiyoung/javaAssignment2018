@@ -16,7 +16,7 @@
             <Font name="Segoe UI Bold" size="64.0" />
          </font>
       </Label>
-      <GridPane layoutX="265.0" layoutY="250.0" prefHeight="90.0" prefWidth="724.0" style="-fx-background-color: white;">
+      <GridPane alignment="CENTER" layoutX="265.0" layoutY="250.0" prefHeight="90.0" prefWidth="724.0" style="-fx-background-color: white;">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.0" minWidth="0.0" prefWidth="42.0" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="402.0" />

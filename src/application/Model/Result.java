@@ -16,6 +16,7 @@ public class Result implements Serializable {
 	}
 	
 	//make your own getter and setter
+	public void setResult(int stdID, String )
 	
 
 }
