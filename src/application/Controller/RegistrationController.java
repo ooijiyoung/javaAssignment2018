@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import application.Database.ParentDB;
 import application.Database.StudentDB;
-
+import application.Interface.AlertBox;
 public class RegistrationController  implements Initializable{
 
     @FXML
@@ -73,6 +73,7 @@ public class RegistrationController  implements Initializable{
     	if(password.equals(cfmPassword)) {
     		pwdMatch = true;
     	}
+    	
     	ParentDB prtDB = new ParentDB();
     	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
     	int parentID = prtDB.getLastID();
@@ -81,14 +82,15 @@ public class RegistrationController  implements Initializable{
     	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
     	
     	stdDB.listAllStudentDebug();
+    	
+    	AlertBox.infoAlert();
     	AnchorPane newRoot;
     	try {
-			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
 			rootPane.getChildren().setAll(newRoot);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	} catch (Exception e) {
+				AlertBox.exceptionAlert(e);
+    	}
     	
     }
 
