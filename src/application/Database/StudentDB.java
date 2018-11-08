@@ -21,8 +21,8 @@ public class StudentDB {
 		studentDB.add(std);
 	}
 	
-	public void add(String name, LocalDate dob, String ic_no, String password, int parentID) {
-		Student std = new Student(getNewEmptyIndex(), name, dob, ic_no, password, parentID);
+	public void add(String name, LocalDate dob, String email, String password, int parentID) {
+		Student std = new Student(getNewEmptyIndex(), name, dob, email, password, parentID);
 		studentDB.add(std);
 		save();
 	}
@@ -40,7 +40,7 @@ public class StudentDB {
 	
 	public void listAllStudentDebug() {
 		for(int x=0;x<studentDB.size();x++) {
-			System.out.println(studentDB.get(x).getStdID() + " " + studentDB.get(x).getName() + " "+ studentDB.get(x).getIC());
+			System.out.println(studentDB.get(x).getStdID() + " " + studentDB.get(x).getName() + " "+ studentDB.get(x).getEmail());
 		}
 	}
 	
@@ -52,10 +52,10 @@ public class StudentDB {
 		return studentDB.get(studentDB.size() - 1).getStdID();
 	}
 	
-	public int selectStdIDFromIC(String ic) {
+	public int selectStdIDFromEmail(String email) {
 		int stdID = 0;
 		for(int x=0;x<studentDB.size();x++) {
-			if(studentDB.get(x).getIC().equals(ic)) {
+			if(studentDB.get(x).getEmail().equals(email)) {
 				stdID = studentDB.get(x).getStdID();
 			}
 		}

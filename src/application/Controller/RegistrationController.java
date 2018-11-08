@@ -1,6 +1,5 @@
 package application.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -16,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import application.Database.ParentDB;
 import application.Database.StudentDB;
+import application.Interface.AlertBox;
 
 public class RegistrationController  implements Initializable{
 
@@ -35,16 +35,13 @@ public class RegistrationController  implements Initializable{
     private TextField tfParentName;
 
     @FXML
-    private TextField tfParentIC;
-
-    @FXML
     private TextField tfParentContact;
 
     @FXML
     private TextArea tfParentAddr;
 
     @FXML
-    private TextField tfStdIC;
+    private TextField tfEmail;
 
     @FXML
     private DatePicker dpStdDob;
@@ -53,43 +50,152 @@ public class RegistrationController  implements Initializable{
     private DatePicker dpParentDOB;
 
     @FXML
-    private Button btnSubmit;
+    private Button btnSubmit, btnCancel;
 
     @FXML
     void cmdRegister(ActionEvent event) {
     	boolean pwdMatch = false;
-    	
+    	boolean verification = false;
     	String studentName = tfStdName.getText();
     	String password = pfPwd.getText();
     	String cfmPassword = pfConfirmPwd.getText();
-    	String studentIC = tfStdIC.getText();
+//    	String studentIC = tfStdIC.getText();
     	String parentName = tfParentName.getText();
-    	String parentIC = tfParentIC.getText();
+//    	String parentIC = tfParentIC.getText();
     	String parentAddr = tfParentAddr.getText();
     	String parentContact = tfParentContact.getText();
+    	String stdEmail = tfEmail.getText();
     	LocalDate studentDOB = dpStdDob.getValue();
     	LocalDate parentDOB = dpParentDOB.getValue();
     	
-    	if(password.equals(cfmPassword)) {
-    		pwdMatch = true;
+    	
+    	
+    	if(studentName.isEmpty()) {
+    		tfStdName.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfStdName.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
     	}
-    	ParentDB prtDB = new ParentDB();
-    	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
-    	int parentID = prtDB.getLastID();
+	  	if(stdEmail.isEmpty()) {
+	  		tfEmail.getStyleClass().add("is-invalid");
+				verification = false;
+			}else {
+				tfEmail.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+				verification = true;
+			}
     	
-    	StudentDB stdDB = new StudentDB();
-    	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
+//    	if(studentIC.isEmpty()) {
+//    		tfStdIC.getStyleClass().add("is-invalid");
+//    		verification = false;
+//    	}else {
+//    		tfStdIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+//    		verification = true;
+//    	}
     	
-    	stdDB.listAllStudentDebug();
-    	AnchorPane newRoot;
+    	if(parentName.isEmpty()) {
+    		tfParentName.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentName.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+    	
+//    	if(parentIC.isEmpty()) {
+//    		tfParentIC.getStyleClass().add("is-invalid");
+//    		verification = false;
+//    	}else {
+//    		tfParentIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+//    		verification = true;
+//    	}
+    	
+    	if(parentAddr.isEmpty()) {
+    		System.out.println(tfParentAddr.getStyleClass());
+    		tfParentAddr.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentAddr.getStyleClass().setAll("text-input", "text-area","is-valid");
+    		verification = true;
+    	}
+
+    	if(parentContact.isEmpty()) {
+    		tfParentContact.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		tfParentContact.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+    		verification = true;
+    	}
+    	
+    	if(dpStdDob.getValue() == null) {
+    		dpStdDob.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		dpStdDob.getStyleClass().setAll("combo-box-base", "date-picker","is-valid");
+    		verification = true;
+    	}
+    	
+    	if(dpParentDOB.getValue() == null) {
+    		dpParentDOB.getStyleClass().add("is-invalid");
+    		verification = false;
+    	}else {
+    		dpParentDOB.getStyleClass().setAll("combo-box-base", "date-picker","is-valid");
+    		verification = true;
+    	}
+    	
+    	
+    	if(!password.equals(cfmPassword) || password.isEmpty()) {
+    		pfPwd.getStyleClass().add("is-invalid");
+    		pfConfirmPwd.getStyleClass().add("is-invalid");
+    		pwdMatch = false;
+    	}else {
+    		pwdMatch = true;
+    		
+    		pfPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
+    		pfConfirmPwd.getStyleClass().setAll("text-input", "text-field" , "password-field",  "form-control","is-valid");
+    	}
+    	
+    	if(verification == true && pwdMatch==true) {
+    		ParentDB prtDB = new ParentDB();
+    		StudentDB stdDB = new StudentDB();
+    		int stdID = stdDB.selectStdIDFromEmail(stdEmail);
+    		if(stdID == 0) {
+    			prtDB.add(parentName, parentDOB, parentContact, parentAddr);
+        	int parentID = prtDB.getLastID();
+        	stdDB.add(studentName,studentDOB, stdEmail, password, parentID);
+        	stdDB.listAllStudentDebug();
+        	
+        	AlertBox.infoAlert("User Successfully Registered");
+        	AnchorPane newRoot;
+        	try {
+    				newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
+    				rootPane.getChildren().setAll(newRoot);
+    	    	} catch (Exception e) {
+    					AlertBox.exceptionAlert(e);
+    	    	}    	
+    		}else {
+    			verification = false;
+    			AlertBox.errorAlertNoHeader("E-Mail Already Registered");
+    			tfEmail.getStyleClass().add("is-invalid");
+    		}
+      	
+    	}else {
+    		String errmsg = "Please make sure all the fields are filled.";
+    		if(pwdMatch == false && verification == true) {
+    			errmsg = "Password and Confirm Password does not match";
+    		}
+    		AlertBox.errorAlert(errmsg);
+
+    	}
+    	
+    }
+    @FXML
+    void cmdCancel(ActionEvent event) {
     	try {
-			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
-			rootPane.getChildren().setAll(newRoot);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
+    		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
+				rootPane.getChildren().setAll(newRoot);
+			} catch (Exception e) {
+				AlertBox.exceptionAlert(e);
+			}
     }
 
 	@Override

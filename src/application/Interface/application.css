@@ -31,13 +31,20 @@
   -fx-text-alignment: center;
   -fx-cursor: default;
   -fx-border-color: transparent;
-  -fx-border-width: 5px;
+  -fx-border-width: 1px;
   -fx-border-style: solid;
+  -fx-border-radius: 5px;
   -fx-background-insets: 0, 0, -1, 0;
   -fx-font-size: 16px;
  }
  
- .btn:pressed, .btn.pressed {
+
+ .btn-lg{
+ 	-fx-font-size: 20px !important;	
+ }
+ 
+
+ .btn:pressed {
  	-fx-effect: innershadow(gaussian, rgba(0, 123, 255, 0.25), 0, 0, 0, 5px);
 }
 
@@ -53,13 +60,86 @@
   -fx-border-color: #1e7e34 !important;
 }
 
+.btn-warning {
+	-fx-text-fill: #212529;
+  -fx-background-color: #ffc107;
+  -fx-border-color: #ffc107;
+}
+
+.btn-warning:hover {
+ 	-fx-text-fill: #212529;
+  -fx-background-color: #e0a800;
+  -fx-border-color: #d39e00;
+}
+
 .btn-danger {
   -fx-text-fill: #fff;
   -fx-background-color: #dc3545;
   -fx-border-color: #dc3545;
 }
 
+.btn-danger:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #c82333;
+  -fx-border-color: #bd2130;
+}
+
+.btn-primary {
+  -fx-text-fill: #fff;
+  -fx-background-color: #007bff;
+  -fx-border-color: #007bff;
+}
+
+.btn-primary:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #0069d9;
+  -fx-border-color: #0062cc;
+}
+
+.btn-info {
+  -fx-text-fill: #fff;
+  -fx-background-color: #17a2b8;
+  -fx-border-color: #17a2b8;
+}
+
+.btn-info:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #138496;
+  -fx-border-color: #117a8b;
+}
+
+.btn-outline-secondary {
+  -fx-text-fill: #6c757d;
+  -fx-background-color: transparent;
+  -fx-background-image: none;
+  -fx-border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  -fx-text-fill: #fff;
+  -fx-background-color: #6c757d;
+  -fx-border-color: #6c757d;
+}
+
 
 .bg-white {
   -fx-background-color: #fff !important;
+}
+
+.form-control {
+  -fx-padding: 6px 12px;
+  -fx-text-fill: #495057;
+  /*-fx-background-color: #fff;*/
+  -fx-border-color: #ced4da;
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
+  -fx-border-radius: 5px;
+}
+
+.form-control.is-valid , .date-picker.is-valid, .text-area.is-valid{
+   -fx-border-color: #28a745;
+}
+
+.form-control.is-invalid , .date-picker.is-invalid, .text-area.is-invalid {
+  -fx-border-color: #dc3545;
 }
