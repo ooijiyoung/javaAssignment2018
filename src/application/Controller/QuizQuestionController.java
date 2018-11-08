@@ -139,6 +139,7 @@ public class QuizQuestionController implements Initializable {
 			int Second = number.nextInt(35);
 			fAns = First + Second;
 			lblQuestion.setText(First + " + " + Second + " = ?");
+			break;
 		}
 		case 1: {
 			lblDifficulty.setText(Diff);
