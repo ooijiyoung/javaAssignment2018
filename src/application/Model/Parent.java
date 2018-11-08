@@ -20,6 +20,15 @@ public class Parent {
 		this.address = address;
 	}
 	
+	public Parent() {
+		name = "Default";
+		dob = new Date();
+		ic_no = "00";
+		contact = "00";
+		address = "Jalan Duta, Taman Duta";
+		
+	}
+
 	public String getName() {
 		return name;
 	}

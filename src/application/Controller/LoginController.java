@@ -17,6 +17,9 @@ public class LoginController implements Initializable{
 
   @FXML
   private Button btnLogin;
+  
+  @FXML
+  private Button btnRegister;
 
   @FXML
   void cmdLogin(ActionEvent event) {
@@ -30,8 +33,19 @@ public class LoginController implements Initializable{
 		}
 		
   }
-	
-	
+  
+	@FXML
+  void cmdRegister(ActionEvent event) {
+  	AnchorPane newRoot;
+		try {
+			newRoot = FXMLLoader.load(getClass().getResource("../Interface/Register.fxml"));
+			rootPane.getChildren().setAll(newRoot);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+  }
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

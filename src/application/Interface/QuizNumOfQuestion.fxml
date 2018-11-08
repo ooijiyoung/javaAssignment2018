@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizController">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.QuizNumberController">
    <children>
       <Label fx:id="lblNumQuesion" contentDisplay="CENTER" layoutX="376.0" layoutY="185.0" text="Number of Question?">
          <font>
@@ -54,7 +54,7 @@
             </RadioButton>
          </children>
       </HBox>
-      <ImageView fx:id="imgBack" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0">
+      <ImageView fx:id="imgBack" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdBack">
          <image>
             <Image url="@../Resources/Images/back.png" />
          </image>

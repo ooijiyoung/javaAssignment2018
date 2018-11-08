@@ -29,6 +29,8 @@ public class RankingController implements Initializable{
 		public void initialize(URL location, ResourceBundle resources) {
 			// TODO Auto-generated method stub
 			
+			int x = application.Model.Comms.getInstance().shareVar().getID();
+			System.out.println(x);
 		}
 
 }

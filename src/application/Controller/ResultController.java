@@ -18,6 +18,8 @@ public class ResultController implements Initializable{
 
     @FXML
     private ImageView imgHome;
+    
+    
 
     @FXML
     void cmdHome(MouseEvent event) throws IOException {
