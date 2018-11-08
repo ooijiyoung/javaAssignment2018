@@ -49,6 +49,10 @@ public class ParentEditController implements Initializable  {
     
     @FXML
     private Button editButton;
+    
+    @FXML
+    private Label emailStudent;
+    
 
     @FXML
     void doneEdit(ActionEvent event) throws IOException{
@@ -81,13 +85,17 @@ public class ParentEditController implements Initializable  {
 		
 		stdDB.listAllStudentDebug();
 		nameStudent.setText(stdDB.selectStudentWhereID(stdID).getName());
-		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
+	
 		dobStudent.setText(stdDB.selectStudentWhereID(stdID).getDOB().toString());
 		nameParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getName());
 		addressField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getAddress());
-		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
 		contactField.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getContact());
+		//emailStudent.setText(stdDB.selectStudentWhereID(stdID).getEmail());
 		
+		
+		// Discarded
+//		icParent.setText(prtDB.selectParentWhereID(stdDB.selectStudentWhereID(stdID).getParentID()).getIC());
+//		icStudent.setText(stdDB.selectStudentWhereID(stdID).getIC());
 	}
 
 }
