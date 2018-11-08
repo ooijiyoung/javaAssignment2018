@@ -37,7 +37,7 @@ public class LoginController implements Initializable{
   	String stdIC = tfID.getText();
   	String stdPwd = pfPassword.getText();
   	database.listAllStudentDebug();
-  	int stdID = database.selectStdIDFromIC(stdIC);
+  	int stdID = database.selectStdIDFromEmail(stdIC);
   	if(stdID!=0) {
   		if(database.isPwdCorrectFromStdID(stdID, stdPwd)) {
   			Comms.getInstance().shareVar().setLoggedIn();

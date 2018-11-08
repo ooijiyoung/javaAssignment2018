@@ -35,16 +35,13 @@ public class RegistrationController  implements Initializable{
     private TextField tfParentName;
 
     @FXML
-    private TextField tfParentIC;
-
-    @FXML
     private TextField tfParentContact;
 
     @FXML
     private TextArea tfParentAddr;
 
     @FXML
-    private TextField tfStdIC;
+    private TextField tfEmail;
 
     @FXML
     private DatePicker dpStdDob;
@@ -62,11 +59,12 @@ public class RegistrationController  implements Initializable{
     	String studentName = tfStdName.getText();
     	String password = pfPwd.getText();
     	String cfmPassword = pfConfirmPwd.getText();
-    	String studentIC = tfStdIC.getText();
+//    	String studentIC = tfStdIC.getText();
     	String parentName = tfParentName.getText();
-    	String parentIC = tfParentIC.getText();
+//    	String parentIC = tfParentIC.getText();
     	String parentAddr = tfParentAddr.getText();
     	String parentContact = tfParentContact.getText();
+    	String stdEmail = tfEmail.getText();
     	LocalDate studentDOB = dpStdDob.getValue();
     	LocalDate parentDOB = dpParentDOB.getValue();
     	
@@ -79,14 +77,21 @@ public class RegistrationController  implements Initializable{
     		tfStdName.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
     		verification = true;
     	}
+	  	if(stdEmail.isEmpty()) {
+	  		tfEmail.getStyleClass().add("is-invalid");
+				verification = false;
+			}else {
+				tfEmail.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+				verification = true;
+			}
     	
-    	if(studentIC.isEmpty()) {
-    		tfStdIC.getStyleClass().add("is-invalid");
-    		verification = false;
-    	}else {
-    		tfStdIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
-    		verification = true;
-    	}
+//    	if(studentIC.isEmpty()) {
+//    		tfStdIC.getStyleClass().add("is-invalid");
+//    		verification = false;
+//    	}else {
+//    		tfStdIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+//    		verification = true;
+//    	}
     	
     	if(parentName.isEmpty()) {
     		tfParentName.getStyleClass().add("is-invalid");
@@ -96,13 +101,13 @@ public class RegistrationController  implements Initializable{
     		verification = true;
     	}
     	
-    	if(parentIC.isEmpty()) {
-    		tfParentIC.getStyleClass().add("is-invalid");
-    		verification = false;
-    	}else {
-    		tfParentIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
-    		verification = true;
-    	}
+//    	if(parentIC.isEmpty()) {
+//    		tfParentIC.getStyleClass().add("is-invalid");
+//    		verification = false;
+//    	}else {
+//    		tfParentIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
+//    		verification = true;
+//    	}
     	
     	if(parentAddr.isEmpty()) {
     		System.out.println(tfParentAddr.getStyleClass());
@@ -151,11 +156,11 @@ public class RegistrationController  implements Initializable{
     	
     	if(verification == true && pwdMatch==true) {
     		ParentDB prtDB = new ParentDB();
-      	prtDB.add(parentName, parentDOB, parentIC, parentContact, parentAddr);
+      	prtDB.add(parentName, parentDOB, parentContact, parentAddr);
       	int parentID = prtDB.getLastID();
       	
       	StudentDB stdDB = new StudentDB();
-      	stdDB.add(studentName,studentDOB, studentIC, password, parentID);
+      	stdDB.add(studentName,studentDOB, stdEmail, password, parentID);
       	
       	stdDB.listAllStudentDebug();
       	
@@ -173,7 +178,7 @@ public class RegistrationController  implements Initializable{
     @FXML
     void cmdCancel(ActionEvent event) {
     	try {
-    		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+    		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Login.fxml"));
 				rootPane.getChildren().setAll(newRoot);
 			} catch (Exception e) {
 				AlertBox.exceptionAlert(e);
