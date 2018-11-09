@@ -9,7 +9,6 @@ public class ResultDB {
 	ArrayList<Result> resultDB = new ArrayList <>();
 	final String fileName = "Results.dat";
 	Database<Result> db = new Database<Result>();
-	ArrayList<Result> displayResult = new ArrayList<>();
 	
 	public ResultDB() {
 		load();
@@ -33,13 +32,15 @@ public class ResultDB {
 		save();
 	}
 	
-	public Result selectStudentWhereID(int stdID) {
-		if (resultDB.contains(stdID)) {
-			String result;
-			Sting diff;
+	public ArrayList<Result> selectResultWhereStdID(int stdID) {
+		ArrayList<Result> tmpAsList = new ArrayList<Result>();
+		for (int x = 0; x < resultDB.size(); x++) {
+			if (resultDB.get(x).getStdID() == stdID) {
+				tmpAsList.add(resultDB.get(x));
+			}
 		}
 		
-		return resultDB.get((stdID - 1));
+		return tmpAsList;
 	}
 	
 }

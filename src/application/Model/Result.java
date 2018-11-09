@@ -16,19 +16,19 @@ public class Result implements Serializable {
 	}
 	
 	//make your own getter and setter
-	public int getResultstdID() {
+	public int getStdID() {
 		return stdID;
 	}
 	
-	public String getResultDiff() {
+	public String getDiff() {
 		return diff;
 	}
 	
-	public String getResultgrade() {
+	public String getGrade() {
 		return grade;
 	}
 	
-	public String getResultresult() {
+	public String getResult() {
 		return result;
 	}
 	
