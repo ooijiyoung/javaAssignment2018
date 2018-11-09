@@ -16,7 +16,21 @@ public class Result implements Serializable {
 	}
 	
 	//make your own getter and setter
-	public void setResult(int stdID, String )
+	public int getResultstdID() {
+		return stdID;
+	}
+	
+	public String getResultDiff() {
+		return diff;
+	}
+	
+	public String getResultgrade() {
+		return grade;
+	}
+	
+	public String getResultresult() {
+		return result;
+	}
 	
 
 }
