@@ -47,11 +47,11 @@ public class RevisionController implements Initializable {
 	private ToggleGroup tgQuestionNum;
 
 	@FXML
-	void cmdExit(ActionEvent event) throws IOException {
-		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+	void cmdBack(MouseEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionMenu.fxml"));
 		rootPane.getChildren().setAll(newRoot);
 	}
-
+	
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/RevisionQ1.fxml"));

@@ -13,66 +13,62 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RevisionController">
-   <children>
-      <ImageView fx:id="imgBack" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdExit">
-         <image>
-            <Image url="@../Resources/Images/home.png" />
-         </image>
-      </ImageView>
-      <VBox alignment="CENTER" layoutX="327.0" layoutY="283.0" prefHeight="200.0" prefWidth="712.0" spacing="50.0">
-         <children>
-            <Label contentDisplay="CENTER" text="Number of Question?">
-               <font>
-                  <Font name="Segoe UI Bold" size="64.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
-               <children>
-                  <RadioButton fx:id="rb10" mnemonicParsing="false" selected="true" text="10">
-                     <font>
-                        <Font name="Segoe UI" size="20.0" />
-                     </font>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="tgQuestionNum" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="rb15" mnemonicParsing="false" text="15" toggleGroup="$tgQuestionNum">
-                     <font>
-                        <Font name="Segoe UI" size="20.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton fx:id="rb20" mnemonicParsing="false" text="20" toggleGroup="$tgQuestionNum">
-                     <font>
-                        <Font name="Segoe UI" size="20.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton fx:id="rb25" mnemonicParsing="false" text="25" toggleGroup="$tgQuestionNum">
-                     <font>
-                        <Font name="Segoe UI" size="20.0" />
-                     </font>
-                  </RadioButton>
-               </children>
-            </HBox>
-            <Button fx:id="btnRevStart" mnemonicParsing="false" prefHeight="44.0" prefWidth="106.0" text="Start">
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-               <styleClass>
-                  <String fx:value="btn" />
-                  <String fx:value="btn-lg" />
-                  <String fx:value="btn-success" />
-               </styleClass>
-            </Button>
-         </children>
-      </VBox>
-      <Label layoutX="522.0" layoutY="206.0" text="Choose how many Question?">
-         <font>
-            <Font size="25.0" />
-         </font></Label>
-      <ImageView fx:id="imgHome" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdHome">
-         <image>
-            <Image url="@../Resources/Images/home.png" />
-         </image>
-      </ImageView>
-   </children>
+	<children>
+		<ImageView fx:id="imgBack" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdBack">
+			<image>
+				<Image url="@../Resources/Images/back.png" />
+			</image>
+		</ImageView>
+		<VBox alignment="CENTER" layoutX="327.0" layoutY="216.0" prefHeight="200.0" prefWidth="712.0" spacing="50.0">
+			<children>
+				<Label text="Choose how many Question?">
+					<font>
+						<Font size="25.0" />
+					</font>
+				</Label>
+				<Label contentDisplay="CENTER" text="Number of Question?">
+					<font>
+						<Font name="Segoe UI Bold" size="64.0" />
+					</font>
+				</Label>
+				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+					<children>
+						<RadioButton fx:id="rb10" mnemonicParsing="false" selected="true" text="10">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+							<toggleGroup>
+								<ToggleGroup fx:id="tgQuestionNum" />
+							</toggleGroup>
+						</RadioButton>
+						<RadioButton fx:id="rb15" mnemonicParsing="false" text="15" toggleGroup="$tgQuestionNum">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+						<RadioButton fx:id="rb20" mnemonicParsing="false" text="20" toggleGroup="$tgQuestionNum">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+						<RadioButton fx:id="rb25" mnemonicParsing="false" text="25" toggleGroup="$tgQuestionNum">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+					</children>
+				</HBox>
+				<Button fx:id="btnRevStart" mnemonicParsing="false" onAction="#cmdStart" prefHeight="44.0" prefWidth="106.0" text="Start">
+					<font>
+						<Font name="Segoe UI" size="18.0" />
+					</font>
+					<styleClass>
+						<String fx:value="btn" />
+						<String fx:value="btn-lg" />
+						<String fx:value="btn-success" />
+					</styleClass>
+				</Button>
+			</children>
+		</VBox>
+	</children>
 </AnchorPane>

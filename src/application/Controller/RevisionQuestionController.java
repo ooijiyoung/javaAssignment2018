@@ -22,6 +22,7 @@ public class RevisionQuestionController implements Initializable {
 	int count = 0;
 	int numOfQuiz = 0;
 	int score = 0;
+	int fAns = 0;
 
 	@FXML
 	private Label lblRevisionQuesNo;
@@ -40,6 +41,12 @@ public class RevisionQuestionController implements Initializable {
 
 	@FXML
 	private Label lblQuestion;
+	
+	@FXML
+	private Label lblAnswer;
+	
+	@FXML
+	private Label lblQAnswer;
 
 	@FXML
 	void cmdExit(ActionEvent event) throws IOException {
@@ -51,6 +58,14 @@ public class RevisionQuestionController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@FXML
+	void cmdRA(ActionEvent event) throws IOException {
+		
+		lblAnswer.setText("Answer");
+		String AnsStr = Integer.toString(fAns);
+		lblQAnswer.setText(AnsStr);
 	}
 
 	public void setQuizNum() throws IOException {
@@ -69,6 +84,8 @@ public class RevisionQuestionController implements Initializable {
 				System.out.println("Count: " + count);
 				tfAnswer.clear();
 				tfAnswer.setText("0");
+				lblAnswer.setText("");
+				lblQAnswer.setText("");
 				try {
 					setQuizNum();
 				} catch (IOException e1) {
@@ -85,14 +102,14 @@ public class RevisionQuestionController implements Initializable {
 			System.out.println(Comms.getInstance().shareVar().getQuizScore());
 			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionResult.fxml"));
 			rootPane.getChildren().setAll(newRoot);
+			count = 0;
 		}
 
 	}
 
 	public int setQuestion() {
-		int fAns = 0;
 		lblRevisionQuesNo.setText("Revision Question " + (count + 1));
-		int oper = operation.nextInt(4);
+		int oper = Comms.getInstance().shareVar().getQuizDifficulty();
 
 		switch (oper) {
 		case 0: {
@@ -136,6 +153,54 @@ public class RevisionQuestionController implements Initializable {
 			fAns = First / Second;
 			lblQuestion.setText(First + " / " + Second + " = ?");
 			break;
+		}
+		case 4:{
+			int operations = operation.nextInt(4);
+
+			switch (operations) {
+			case 0: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				fAns = First + Second;
+				lblQuestion.setText(First + " + " + Second + " = ?");
+				break;
+			}
+			case 1: {
+				int First = number.nextInt(35);
+				int Second = number.nextInt(35);
+				while (Second >= First) {
+					Second = number.nextInt(35);
+				}
+				while (Second >= First) {
+					Second = number.nextInt(35);
+				}
+
+				fAns = First - Second;
+				lblQuestion.setText(First + " - " + Second + " = ?");
+				break;
+			}
+			case 2: {
+				int First = number.nextInt(13);
+				int Second = number.nextInt(13);
+				fAns = First * Second;
+				lblQuestion.setText(First + " x " + Second + " = ?");
+				break;
+			}
+			case 3: {
+				int First = number.nextInt(101);
+				int Second = number.nextInt(11);
+				while (Second % 2 != 0 || Second == 0) {
+					Second = number.nextInt(11);
+				}
+				while (First % 2 != 0 || Second > First) {
+					First = number.nextInt(101);
+				}
+
+				fAns = First / Second;
+				lblQuestion.setText(First + " / " + Second + " = ?");
+				break;
+			}
+			}
 		}
 		}
 		return fAns;
