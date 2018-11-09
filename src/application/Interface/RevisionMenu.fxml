@@ -13,29 +13,19 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RevisionMenuController">
    <children>
-      <Button fx:id="btnNext" layoutX="588.0" layoutY="550.0" mnemonicParsing="false" onAction="#cmdNext" prefHeight="44.0" prefWidth="190.0" text="Next">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <styleClass>
-            <String fx:value="btn" />
-            <String fx:value="btn-lg" />
-            <String fx:value="btn-success" />
-         </styleClass>
-      </Button>
   	 <ImageView fx:id="imgHome" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdHome">
          <image>
             <Image url="@../Resources/Images/home.png" />
          </image>
       </ImageView>
-      <VBox layoutX="566.0" layoutY="163.0" spacing="10.0">
+      <VBox alignment="CENTER" layoutX="566.0" layoutY="163.0" spacing="10.0">
          <children>
             <Label fx:id="lblTitleRevision" contentDisplay="CENTER" styleClass="text-title" text="Revision">
                <font>
                   <Font name="Segoe UI Bold" size="64.0" />
                </font>
             </Label>
-            <RadioButton fx:id="rbAddition" mnemonicParsing="false" selected="true" text="Addition">
+            <RadioButton fx:id="rbAddition" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" selected="true" text="Addition">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
@@ -43,21 +33,31 @@
                   <ToggleGroup fx:id="groupMenu" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rbSubtraction" mnemonicParsing="false" text="Subtraction" toggleGroup="$groupMenu">
+            <RadioButton fx:id="rbSubtraction" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" text="Subtraction" toggleGroup="$groupMenu">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbMultiplication" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Multiplication" toggleGroup="$groupMenu">
+            <RadioButton fx:id="rbMultiplication" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Multiplication" toggleGroup="$groupMenu">
                <font>
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbDivision" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Division" toggleGroup="$groupMenu">
+            <RadioButton fx:id="rbDivision" alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" text="Division" toggleGroup="$groupMenu">
                <font>
                   <Font size="20.0" />
                </font>
             </RadioButton>
+            <Button fx:id="btnNext" mnemonicParsing="false" onAction="#cmdNext" prefHeight="44.0" prefWidth="190.0" text="Next">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-lg" />
+                  <String fx:value="btn-success" />
+               </styleClass>
+            </Button>
          </children>
       </VBox>
    </children>
