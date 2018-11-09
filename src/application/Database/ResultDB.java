@@ -32,6 +32,19 @@ public class ResultDB {
 		save();
 	}
 	
+	public boolean isEmpty() {
+		boolean empty = true;
+		int count = 0;
+		if(resultDB.size() != 0) {
+			while(count != resultDB.size()) {
+				
+				count++;
+			}
+		}
+		
+		return empty;
+	}
+	
 	public ArrayList<Result> selectResultWhereStdID(int stdID) {
 		ArrayList<Result> tmpAsList = new ArrayList<Result>();
 		for (int x = 0; x < resultDB.size(); x++) {

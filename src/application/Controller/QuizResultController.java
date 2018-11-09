@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Database.ResultDB;
 import application.Model.Comms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -83,6 +84,11 @@ public class QuizResultController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		
+		int stdID = Comms.getInstance().shareVar().getID();
+		ResultDB result = new ResultDB();
+		
+		
 		getDiff();
 		String Score = Integer.toString(Comms.getInstance().shareVar().getQuizScore());
 		String Num = Integer.toString(Comms.getInstance().shareVar().getQuizNum());
@@ -91,6 +97,8 @@ public class QuizResultController implements Initializable {
 		lblsomeWord.setText(Word);
 		lblquizDiff.setText(Diff);
 		lblquizScore.setText(Score + "/" + Num);
+		String anyname = (Score + "/" + Num);
+		result.add(stdID, anyname, Diff, Grade);
 	}
 
 }
