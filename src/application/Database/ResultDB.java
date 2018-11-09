@@ -56,4 +56,15 @@ public class ResultDB {
 		return tmpAsList;
 	}
 	
+	public ArrayList<Result> selectResultWhereDiff(String diff) {
+		ArrayList<Result> tmpAsList = new ArrayList<Result>();
+		for (int x = 0; x < resultDB.size(); x++) {
+			if (resultDB.get(x).getDiff() == diff) {
+				tmpAsList.add(resultDB.get(x));
+			}
+		}
+		
+		return tmpAsList;
+	}
+	
 }
