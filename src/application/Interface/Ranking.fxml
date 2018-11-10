@@ -56,6 +56,6 @@
             <Image url="@../Resources/Images/home.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="cbDiff" layoutX="976.0" layoutY="240.0" prefWidth="150.0" promptText="Difficulty" />
+      <ComboBox fx:id="cbDiff" layoutX="976.0" layoutY="240.0" onAction="#cmdChange" prefWidth="150.0" promptText="Difficulty" />
    </children>
 </AnchorPane>

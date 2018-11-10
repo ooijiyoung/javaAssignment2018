@@ -7,11 +7,13 @@ import java.util.ResourceBundle;
 
 import application.Database.ResultDB;
 import application.Database.StudentDB;
+import application.Model.Comms;
 import application.Model.Result;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,70 +24,74 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class RankingController implements Initializable{
+public class RankingController implements Initializable {
 
-    @FXML
-    private AnchorPane rootPane;
+	@FXML
+	private AnchorPane rootPane;
 
-    @FXML
-    private ImageView imgHome;
-    
-    @FXML
-    private GridPane gpRanking;
-    
-    @FXML
-    private ComboBox<String> cbDiff;
-    
-    int count = 1;
+	@FXML
+	private ImageView imgHome;
 
-    
-    ObservableList<String> diffList = (ObservableList<String>) FXCollections.observableArrayList("Easy", "Medium", "Hard");
+	@FXML
+	private GridPane gpRanking;
 
-    @FXML
-    void cmdHome(MouseEvent event) throws IOException {
-    	AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
-  		rootPane.getChildren().setAll(newRoot);
-    }
+	@FXML
+	private ComboBox<String> cbDiff;
+	
+	String diff;
 
-		@Override
-		public void initialize(URL location, ResourceBundle resources) {
-			// TODO Auto-generated method stub
-			String diff = cbDiff.getValue();
-			ResultDB result = new ResultDB();
-			StudentDB student = new StudentDB();
-			ArrayList<Result> resultlist;
-			resultlist = result.selectResultWhereDiff(diff);
-						
-			cbDiff.setValue("Easy");
-			cbDiff.setItems(diffList);
-			
-			cbDiff.valueProperty().addListener(new ChangeListener<String>() {
-				@Override
-				public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-					// TODO Auto-generated method stub
-				
-					for (int x = 0; x < resultlist.size(); x++) {
-						
-						String newcount = new Integer(count).toString();
-						Label numLbl = new Label(newcount);
-						Label nameLbl = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
-						Label diffLbl = new Label(resultlist.get(x).getDiff());
-//						Label gradeLbl = new Label(resultlist.get(x).getGrade());
-						
-						
-						gpRanking.add(numLbl, 0, count);
-						gpRanking.add(numLbl, 1, count);
-						gpRanking.add(diffLbl, 2, count);
+	ObservableList<String> diffList = FXCollections.observableArrayList("Easy", "Medium", "Hard");
 
-					
-						count++;
-
-					}
-				}    
-		    });
-			
-			int x = application.Model.Comms.getInstance().shareVar().getID();
-			System.out.println(x);
+	@FXML
+	void cmdHome(MouseEvent event) throws IOException {
+		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Main.fxml"));
+		rootPane.getChildren().setAll(newRoot);
+	}
+	
+	@FXML
+	void cmdChange(ActionEvent event) throws IOException {
+		String selected = cbDiff.getValue().toString();
+		System.out.println(selected);
+		switch(selected) {
+		case "Easy":{
+			diff = "Easy";
+			break;
 		}
+		case "Medium":{
+			diff = "Medium";
+			break;
+		}
+		case "Hard":{
+			diff = "Hard";
+			break;
+		}
+		}
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		cbDiff.setItems(diffList);
+		cbDiff.setValue("Easy");
+		String selected = cbDiff.getValue().toString();
+		int count = 1;
+		System.out.println(selected+"test");
+		
+		int stdID = Comms.getInstance().shareVar().getID();
+		ResultDB result = new ResultDB();
+		ArrayList<Result> resultlist;
+		resultlist = result.selectResultWhereDiff(selected);
+		System.out.println(resultlist.size());
+		for (int x = 0; x < resultlist.size(); x++) {
+			System.out.println("test");
+			String newcount = new Integer(count).toString();
+			Label numLbl = new Label(newcount);
+			gpRanking.add(numLbl, 0, count);
+		}
+		
+
+//		int x = application.Model.Comms.getInstance().shareVar().getID();
+//		System.out.println(x);
+	}
 
 }
