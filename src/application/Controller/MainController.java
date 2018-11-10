@@ -53,7 +53,7 @@ public class MainController implements Initializable  {
 	
 	public void cmdRevision(ActionEvent event){
 		try {
-			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Revision.fxml"));
+			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/RevisionMenu.fxml"));
 			rootPane.getChildren().setAll(newRoot);
 		} catch (Exception e) {
 			AlertBox.exceptionAlert(e);

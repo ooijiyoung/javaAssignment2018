@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RevisionMenuController">
+	<children>
+		<ImageView fx:id="imgHome" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdHome">
+			<image>
+				<Image url="@../Resources/Images/home.png" />
+			</image>
+		</ImageView>
+		<VBox alignment="CENTER" layoutX="314.0" layoutY="185.0" prefHeight="399.0" prefWidth="738.0" spacing="30.0">
+			<children>
+				<Label fx:id="lblTitleRevision" contentDisplay="CENTER" styleClass="text-title" text="Revision">
+					<font>
+						<Font name="Segoe UI Bold" size="64.0" />
+					</font>
+				</Label>
+				<HBox alignment="TOP_CENTER" prefHeight="63.0" prefWidth="738.0" spacing="30.0">
+					<children>
+						<RadioButton fx:id="rbAddition" mnemonicParsing="false" selected="true" text="Addition">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+							<toggleGroup>
+								<ToggleGroup fx:id="groupMenu" />
+							</toggleGroup>
+						</RadioButton>
+						<RadioButton fx:id="rbSubtraction" mnemonicParsing="false" text="Subtraction" toggleGroup="$groupMenu">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+						<RadioButton fx:id="rbMultiplication" mnemonicParsing="false" text="Multiplication" toggleGroup="$groupMenu">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+						<RadioButton fx:id="rbDivision" mnemonicParsing="false" text="Division" toggleGroup="$groupMenu">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+						<RadioButton fx:id="rbAll" mnemonicParsing="false" text="All" toggleGroup="$groupMenu">
+							<font>
+								<Font name="Segoe UI" size="20.0" />
+							</font>
+						</RadioButton>
+					</children>
+				</HBox>
+				<Button fx:id="btnNext" mnemonicParsing="false" onAction="#cmdNext" prefHeight="44.0" prefWidth="190.0" text="Next">
+					<font>
+						<Font size="20.0" />
+					</font>
+					<styleClass>
+						<String fx:value="btn" />
+						<String fx:value="btn-lg" />
+						<String fx:value="btn-success" />
+					</styleClass>
+				</Button>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>
