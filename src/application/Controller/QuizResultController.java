@@ -18,6 +18,7 @@ public class QuizResultController implements Initializable {
 
 	String Diff;
 	String Grade;
+	String GradeWord;
 	String Word;
 	@FXML
 	private Button btnExit;
@@ -64,19 +65,24 @@ public class QuizResultController implements Initializable {
 		System.out.println(percent + "% test");
 		if (percent >= 80) {
 			Word = "Exellent keep up the good work";
-			Grade = "You got an A";
+			GradeWord = "You got an A";
+			Grade="A";
 		} else if (percent >= 60 && percent < 80) {
 			Word = "Keep it up";
-			Grade = "You got a B";
+			GradeWord = "You got a B";
+			Grade="B";
 		} else if (percent >= 40 && percent < 60) {
 			Word = "You can do it";
-			Grade = "You got a C";
+			GradeWord = "You got a C";
+			Grade="C";
 		} else if (percent >= 30 && percent < 40){
 			Word = "Don't give up, little bit more";
-			Grade = "You got a D";
+			GradeWord = "You got a D";
+			Grade="D";
 		}else {
 			Word = "Don't give up";
-			Grade = "You got a F";
+			GradeWord = "You got a F";
+			Grade="F";
 		}
 
 	}
@@ -93,7 +99,7 @@ public class QuizResultController implements Initializable {
 		String Score = Integer.toString(Comms.getInstance().shareVar().getQuizScore());
 		String Num = Integer.toString(Comms.getInstance().shareVar().getQuizNum());
 		getGrade();
-		lblquizGrade.setText(Grade);
+		lblquizGrade.setText(GradeWord);
 		lblsomeWord.setText(Word);
 		lblquizDiff.setText(Diff);
 		lblquizScore.setText(Score + "/" + Num);
