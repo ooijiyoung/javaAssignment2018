@@ -1,5 +1,6 @@
 package application.Database;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,6 +33,8 @@ public class Database<T> {
 
           obj.close();
           } // 
+      }catch(EOFException ex) {
+    	  
       }
       catch(Exception exc){
       	//TODO: implement error message
