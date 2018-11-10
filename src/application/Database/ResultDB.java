@@ -1,8 +1,6 @@
 package application.Database;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import application.Model.Result;
-import application.Model.Student;
 
 public class ResultDB {
 	
@@ -59,7 +57,7 @@ public class ResultDB {
 	public ArrayList<Result> selectResultWhereDiff(String diff) {
 		ArrayList<Result> tmpAsList = new ArrayList<Result>();
 		for (int x = 0; x < resultDB.size(); x++) {
-			if (resultDB.get(x).getDiff() == diff) {
+			if (resultDB.get(x).getDiff().equals(diff)) {
 				tmpAsList.add(resultDB.get(x));
 			}
 		}
@@ -67,4 +65,10 @@ public class ResultDB {
 		return tmpAsList;
 	}
 	
+	public void listAllDebug() {
+		for (int x = 0; x < resultDB.size(); x++) {
+			System.out.println(x + ": " + resultDB.get(x).getStdID() + " " + resultDB.get(x).getGrade() + " "
+					+ resultDB.get(x).getResult() + " " + resultDB.get(x).getDiff());
+		}
+	}
 }
