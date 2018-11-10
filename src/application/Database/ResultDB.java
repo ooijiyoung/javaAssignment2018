@@ -1,5 +1,7 @@
 package application.Database;
 import java.util.ArrayList;
+
+import application.Interface.AlertBox;
 import application.Model.Result;
 
 public class ResultDB {
@@ -13,11 +15,17 @@ public class ResultDB {
 	}
 	
 	public void load() {
-		ArrayList<Result> tmpDB = (ArrayList<Result>) db.loadDB(fileName);
-		if(tmpDB!=null) {
-			resultDB = (ArrayList<Result>) tmpDB;
-			
+		try {
+			ArrayList<Result> tmpDB = (ArrayList<Result>) db.loadDB(fileName);
+			if(tmpDB!=null) {
+				resultDB = (ArrayList<Result>) tmpDB;
+				
+			}
+		}catch(Exception ex) {
+			AlertBox.exceptionAlert(ex, "An Error Occurred While Loading Database File \"Result.dat\"\n"
+					+ "Database file might be corrupted, please remove the file and retry.");
 		}
+		
 	}
 	
 	public void save() {
