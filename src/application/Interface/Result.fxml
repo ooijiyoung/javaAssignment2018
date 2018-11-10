@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -7,54 +8,60 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.ResultController">
    <children>
-      <Label alignment="CENTER" layoutX="533.0" layoutY="150.0" text="Result" AnchorPane.bottomAnchor="541.0" AnchorPane.leftAnchor="533.0" AnchorPane.rightAnchor="646.0" AnchorPane.topAnchor="150.0">
-         <font>
-            <Font name="Segoe UI Bold" size="64.0" />
-         </font>
-      </Label>
-      <GridPane layoutX="265.0" layoutY="250.0" prefHeight="90.0" prefWidth="724.0" style="-fx-background-color: white;">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.0" minWidth="0.0" prefWidth="42.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="402.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="350.0" minWidth="0.0" prefWidth="122.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" text="#">
-               <font>
-                  <Font name="Segoe UI" size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="Result" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Segoe UI" size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="Difficulty" GridPane.columnIndex="2">
-               <font>
-                  <Font name="Segoe UI" size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="Grade" GridPane.columnIndex="3">
-               <font>
-                  <Font name="Segoe UI" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </GridPane>
       <ImageView fx:id="imgHome" fitHeight="52.0" fitWidth="54.0" layoutX="46.0" layoutY="42.0" onMouseClicked="#cmdHome">
          <image>
             <Image url="@../Resources/Images/home.png" />
          </image>
       </ImageView>
+      <VBox alignment="CENTER" layoutX="243.0" layoutY="68.0" prefWidth="881.0" spacing="30.0">
+         <children>
+            <Label alignment="CENTER" text="Result">
+               <font>
+                  <Font name="Segoe UI Bold" size="64.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="gpResults" alignment="CENTER" hgap="10.0" maxHeight="550.0" minHeight="50.0" style="-fx-background-color: white;" vgap="15.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.0" minWidth="0.0" prefWidth="42.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="402.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="350.0" minWidth="0.0" prefWidth="122.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" text="#">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" text="Result" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" text="Difficulty" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" text="Grade" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="7.0" top="7.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
