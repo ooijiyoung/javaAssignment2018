@@ -2,6 +2,8 @@ package application.Database;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import application.Interface.AlertBox;
 import application.Model.Student;
 
 public class StudentDB {
@@ -27,10 +29,16 @@ public class StudentDB {
 	}
 
 	public void load() {
-		ArrayList<Student> tmpDB = (ArrayList<Student>) db.loadDB(fileName);
-		if (tmpDB != null) {
-			studentDB = (ArrayList<Student>) tmpDB;
+		try {
+			ArrayList<Student> tmpDB = (ArrayList<Student>) db.loadDB(fileName);
+			if (tmpDB != null) {
+				studentDB = (ArrayList<Student>) tmpDB;
+			}
+		}catch(Exception ex) {
+			AlertBox.exceptionAlert(ex, "An Error Occurred While Loading Database File \"Student.dat\"\n"
+					+ "Database file might be corrupted, please remove the file and retry.");
 		}
+	
 	}
 
 	public void save() {

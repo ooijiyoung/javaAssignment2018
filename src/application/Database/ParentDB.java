@@ -2,6 +2,8 @@ package application.Database;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import application.Interface.AlertBox;
 import application.Model.Parent;
 
 public class ParentDB {
@@ -33,11 +35,17 @@ public class ParentDB {
 	}
 	
 	public void load() {
-		ArrayList<Parent> tmpDB = (ArrayList<Parent>) db.loadDB(fileName);
-		if(tmpDB!=null) {
-			parentDB = (ArrayList<Parent>) tmpDB;
-			
+		try {
+			ArrayList<Parent> tmpDB = (ArrayList<Parent>) db.loadDB(fileName);
+			if(tmpDB!=null) {
+				parentDB = (ArrayList<Parent>) tmpDB;
+				
+			}
+		}catch(Exception ex) {
+			AlertBox.exceptionAlert(ex, "An Error Occurred While Loading Database File \"Parent.dat\"\n"
+					+ "Database file might be corrupted, please remove the file and retry.");
 		}
+		
 	}
 	
 	public void save() {
