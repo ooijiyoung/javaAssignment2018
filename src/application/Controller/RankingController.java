@@ -56,6 +56,7 @@ public class RankingController implements Initializable {
 		switch(selected) {
 		case "Easy":{
 			diff = "Easy";
+			gpRanking.getChildren().retainAll(gpRanking.getChildren().get(0),gpRanking.getChildren().get(1),gpRanking.getChildren().get(2));
 			int count = 0;
 			int stdID = Comms.getInstance().shareVar().getID();
 			ResultDB result = new ResultDB();
@@ -68,6 +69,7 @@ public class RankingController implements Initializable {
 				System.out.println("test");
 				String newcount = new Integer(count).toString();
 				Label numLbl = new Label(newcount);
+				System.out.println(resultlist.get(x).getStdID());
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
 				
 				gpRanking.add(numLbl, 0, (count+1));
@@ -79,6 +81,7 @@ public class RankingController implements Initializable {
 		}
 		case "Medium":{
 			diff = "Medium";
+			gpRanking.getChildren().retainAll(gpRanking.getChildren().get(0),gpRanking.getChildren().get(1),gpRanking.getChildren().get(2));
 			int count = 0;
 			int stdID = Comms.getInstance().shareVar().getID();
 			ResultDB result = new ResultDB();
@@ -100,6 +103,7 @@ public class RankingController implements Initializable {
 			break;
 		}
 		case "Hard":{
+			gpRanking.getChildren().retainAll(gpRanking.getChildren().get(0),gpRanking.getChildren().get(1),gpRanking.getChildren().get(2));
 			diff = "Hard";
 			int count = 0;
 			int stdID = Comms.getInstance().shareVar().getID();
