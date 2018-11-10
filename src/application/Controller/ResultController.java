@@ -44,27 +44,29 @@ public class ResultController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		int count = 1;
-		
+
 		int stdID = Comms.getInstance().shareVar().getID();
 		ResultDB result = new ResultDB();
 		ArrayList<Result> resultlist;
 		resultlist = result.selectResultWhereStdID(stdID);
-		for (int x = 0; x < resultlist.size(); x++) {
-			
-			String newcount = new Integer(count).toString();
-			Label numLbl = new Label(newcount);
-			Label resultLbl = new Label(resultlist.get(x).getResult());
-			Label diffLbl = new Label(resultlist.get(x).getDiff());
-			Label gradeLbl = new Label(resultlist.get(x).getGrade());
-			gpResults.add(numLbl, 0, count);
-			gpResults.add(resultLbl, 1, count);
-			gpResults.add(diffLbl, 2, count);
-			gpResults.add(gradeLbl, 3, count);
 
-		
-			count++;
+		if (resultlist.size() != 0) {
+			for (int x = 0; x < resultlist.size(); x++) {
 
+				String newcount = new Integer(count).toString();
+				Label numLbl = new Label(newcount);
+				Label resultLbl = new Label(resultlist.get(x).getResult());
+				Label diffLbl = new Label(resultlist.get(x).getDiff());
+				Label gradeLbl = new Label(resultlist.get(x).getGrade());
+				gpResults.add(numLbl, 0, count);
+				gpResults.add(resultLbl, 1, count);
+				gpResults.add(diffLbl, 2, count);
+				gpResults.add(gradeLbl, 3, count);
+
+				count++;
+			}
 		}
+		
 
 	}
 
