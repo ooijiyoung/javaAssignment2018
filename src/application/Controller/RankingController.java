@@ -71,9 +71,11 @@ public class RankingController implements Initializable {
 				Label numLbl = new Label(newcount);
 				System.out.println(resultlist.get(x).getStdID());
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
+				Label grade = new Label(resultlist.get(x).getGrade());
 				
 				gpRanking.add(numLbl, 0, (count+1));
 				gpRanking.add(name, 1, (count+1));
+				gpRanking.add(grade, 2, (count+1));
 				count++;
 			}
 			
@@ -95,9 +97,11 @@ public class RankingController implements Initializable {
 				String newcount = new Integer(count).toString();
 				Label numLbl = new Label(newcount);
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
+				Label grade = new Label(resultlist.get(x).getGrade());
 				
 				gpRanking.add(numLbl, 0, (count+1));
 				gpRanking.add(name, 1, (count+1));
+				gpRanking.add(grade, 2, (count+1));
 				count++;
 			}
 			break;
@@ -118,9 +122,11 @@ public class RankingController implements Initializable {
 				String newcount = new Integer(count).toString();
 				Label numLbl = new Label(newcount);
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
+				Label grade = new Label(resultlist.get(x).getGrade());
 				
 				gpRanking.add(numLbl, 0, (count+1));
 				gpRanking.add(name, 1, (count+1));
+				gpRanking.add(grade, 2, (count+1));
 				count++;
 			}
 			break;
@@ -132,30 +138,6 @@ public class RankingController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		cbDiff.setItems(diffList);
-//		String selected = cbDiff.getValue().toString();
-//		System.out.println(selected+"test");
-//		int count = 0;
-//		int stdID = Comms.getInstance().shareVar().getID();
-//		ResultDB result = new ResultDB();
-//		StudentDB student = new StudentDB();
-//		ArrayList<Result> resultlist;
-//		result.listAllDebug();
-//		resultlist = result.selectResultWhereDiff(selected);
-//		System.out.println(resultlist.size());
-//		for (int x = 0; x < resultlist.size(); x++) {
-//			System.out.println("test");
-//			String newcount = new Integer(count).toString();
-//			Label numLbl = new Label(newcount);
-//			Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
-//			
-//			gpRanking.add(numLbl, 0, count);
-//			gpRanking.add(name, 1, count);
-//			count ++;
-//		}
-		
-
-//		int x = application.Model.Comms.getInstance().shareVar().getID();
-//		System.out.println(x);
 	}
 
 }

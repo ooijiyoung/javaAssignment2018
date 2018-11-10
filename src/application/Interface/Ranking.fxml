@@ -42,7 +42,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Mean" GridPane.columnIndex="2">
+                  <Label text="Grade" GridPane.columnIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
