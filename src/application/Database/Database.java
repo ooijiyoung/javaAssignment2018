@@ -54,6 +54,7 @@ public class Database<T> {
 	    FileOutputStream databaseFile=new FileOutputStream(fileName);
 	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
 	    save.writeObject(object);
+	    save.flush();
 	    save.close(); 
     } catch(Exception exc){
     		AlertBox.exceptionAlert(exc);
@@ -66,6 +67,7 @@ public class Database<T> {
 	    FileOutputStream databaseFile=new FileOutputStream(fileName);
 	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
 	    save.writeObject(arrayObj);
+	    save.flush();
 	    save.close(); 
     } catch(Exception exc){
     	AlertBox.exceptionAlert(exc);
