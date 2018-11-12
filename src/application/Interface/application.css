@@ -23,6 +23,10 @@
 	-fx-text-fill: #dc3545;
 }
 
+.text-warning{
+	-fx-text-fill: #ffc107;
+}
+
 .text-success{
 	-fx-text-fill: #28a745;
 }

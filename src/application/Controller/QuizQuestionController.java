@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
+import com.sun.prism.paint.Color;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -137,6 +139,7 @@ public class QuizQuestionController implements Initializable {
 		switch (diff) {
 		case 0: {
 			lblDifficulty.setText(Diff);
+			lblDifficulty.getStyleClass().add("text-success");
 			int First = number.nextInt(35);
 			int Second = number.nextInt(35);
 			fAns = First + Second;
@@ -145,6 +148,7 @@ public class QuizQuestionController implements Initializable {
 		}
 		case 1: {
 			lblDifficulty.setText(Diff);
+			lblDifficulty.getStyleClass().add("text-warning");
 			int oper = operation.nextInt(2);
 
 			switch (oper) {
@@ -170,6 +174,7 @@ public class QuizQuestionController implements Initializable {
 		}
 		case 2: {
 			lblDifficulty.setText(Diff);
+			lblDifficulty.getStyleClass().add("text-danger");
 			int oper = operation.nextInt(4);
 
 			switch (oper) {
