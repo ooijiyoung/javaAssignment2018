@@ -67,7 +67,7 @@ public class RankingController implements Initializable {
 			System.out.println(resultlist.size());
 			for (int x = 0; x < resultlist.size(); x++) {
 				System.out.println("test");
-				String newcount = new Integer(count).toString();
+				String newcount = new Integer(count+1).toString();
 				Label numLbl = new Label(newcount);
 				System.out.println(resultlist.get(x).getStdID());
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
@@ -94,7 +94,7 @@ public class RankingController implements Initializable {
 			System.out.println(resultlist.size());
 			for (int x = 0; x < resultlist.size(); x++) {
 				System.out.println("test");
-				String newcount = new Integer(count).toString();
+				String newcount = new Integer(count+1).toString();
 				Label numLbl = new Label(newcount);
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
 				Label grade = new Label(resultlist.get(x).getGrade());
@@ -119,7 +119,7 @@ public class RankingController implements Initializable {
 			System.out.println(resultlist.size());
 			for (int x = 0; x < resultlist.size(); x++) {
 				System.out.println("test");
-				String newcount = new Integer(count).toString();
+				String newcount = new Integer(count+1).toString();
 				Label numLbl = new Label(newcount);
 				Label name = new Label(student.selectStudentWhereID(resultlist.get(x).getStdID()).getName());
 				Label grade = new Label(resultlist.get(x).getGrade());
