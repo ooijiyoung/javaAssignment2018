@@ -188,7 +188,7 @@ public class RevisionQuestionController implements Initializable {
 			}
 			case 3: {
 				int First = number.nextInt(101);
-				int Second = number.nextInt(11);
+				int Second = (number.nextInt(11) + 1);
 				while (Second % 2 != 0 || Second == 0) {
 					Second = number.nextInt(11);
 				}
