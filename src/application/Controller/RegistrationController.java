@@ -3,6 +3,9 @@ package application.Controller;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +57,8 @@ public class RegistrationController implements Initializable {
 
 	@FXML
 	void cmdRegister(ActionEvent event) {
+		String errmsg = "Please make sure all the fields are filled.";
+		
 		boolean pwdMatch = false;
 		boolean verification = false;
 		String studentName = tfStdName.getText();
@@ -68,76 +73,86 @@ public class RegistrationController implements Initializable {
 		LocalDate studentDOB = dpStdDob.getValue();
 		LocalDate parentDOB = dpParentDOB.getValue();
 
+		boolean stdNameVer = false;
+		boolean stdEmailVer = false;
+		boolean prtNameVer = false;
+		boolean prtAddrVer = false;
+		boolean prtContactVer = false;
+		boolean stdDOBVer = false;
+		boolean prtDOBVer = false;
+		
 		if (studentName.isEmpty()) {
 			tfStdName.getStyleClass().add("is-invalid");
-			verification = false;
+			stdNameVer = false;
 		} else {
 			tfStdName.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
-			verification = true;
+			stdNameVer = true;
 		}
 		if (stdEmail.isEmpty()) {
 			tfEmail.getStyleClass().add("is-invalid");
-			verification = false;
+			stdEmailVer = false;
 		} else {
-			tfEmail.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
-			verification = true;
-		}
-
-//    	if(studentIC.isEmpty()) {
-//    		tfStdIC.getStyleClass().add("is-invalid");
-//    		verification = false;
-//    	}else {
-//    		tfStdIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
-//    		verification = true;
-//    	}
-
+			String email_regex = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+			Pattern pattern = Pattern.compile(email_regex);
+      Matcher matcher = pattern.matcher(stdEmail);
+      if(matcher.matches()) {
+      	tfEmail.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
+  			stdEmailVer = true;
+      }else {
+      	errmsg+="\nInvalid Email Address";
+      	tfEmail.getStyleClass().add("is-invalid");
+  			stdEmailVer = false;
+      }
+      
+			
+		}		
 		if (parentName.isEmpty()) {
 			tfParentName.getStyleClass().add("is-invalid");
-			verification = false;
+			prtNameVer = false;
 		} else {
 			tfParentName.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
-			verification = true;
+			prtNameVer = true;
 		}
-
-//    	if(parentIC.isEmpty()) {
-//    		tfParentIC.getStyleClass().add("is-invalid");
-//    		verification = false;
-//    	}else {
-//    		tfParentIC.getStyleClass().setAll("text-input", "text-field" ,  "form-control","is-valid");
-//    		verification = true;
-//    	}
-
 		if (parentAddr.isEmpty()) {
 			System.out.println(tfParentAddr.getStyleClass());
 			tfParentAddr.getStyleClass().add("is-invalid");
-			verification = false;
+			prtAddrVer = false;
 		} else {
 			tfParentAddr.getStyleClass().setAll("text-input", "text-area", "is-valid");
-			verification = true;
+			prtAddrVer = true;
 		}
 
 		if (parentContact.isEmpty()) {
 			tfParentContact.getStyleClass().add("is-invalid");
-			verification = false;
+			prtContactVer = false;
 		} else {
-			tfParentContact.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
-			verification = true;
+			try {
+				Double.parseDouble(parentContact);
+				tfParentContact.getStyleClass().setAll("text-input", "text-field", "form-control", "is-valid");
+				prtContactVer = true;
+			}catch(NumberFormatException e) {
+				errmsg+= "\nInvalid Input In Contact Number Field";
+				tfParentContact.getStyleClass().add("is-invalid");
+				prtContactVer = false;
+			}
+			
+			
 		}
 
 		if (dpStdDob.getValue() == null) {
 			dpStdDob.getStyleClass().add("is-invalid");
-			verification = false;
+			stdDOBVer = false;
 		} else {
 			dpStdDob.getStyleClass().setAll("combo-box-base", "date-picker", "is-valid");
-			verification = true;
+			stdDOBVer = true;
 		}
 
 		if (dpParentDOB.getValue() == null) {
 			dpParentDOB.getStyleClass().add("is-invalid");
-			verification = false;
+			prtDOBVer = false;
 		} else {
 			dpParentDOB.getStyleClass().setAll("combo-box-base", "date-picker", "is-valid");
-			verification = true;
+			prtDOBVer = true;
 		}
 
 		if (!password.equals(cfmPassword) || password.isEmpty()) {
@@ -150,6 +165,13 @@ public class RegistrationController implements Initializable {
 			pfPwd.getStyleClass().setAll("text-input", "text-field", "password-field", "form-control", "is-valid");
 			pfConfirmPwd.getStyleClass().setAll("text-input", "text-field", "password-field", "form-control",
 					"is-valid");
+		}
+		
+		if(stdNameVer == true && stdEmailVer == true && prtNameVer == true 
+				&& prtContactVer == true && prtAddrVer == true && prtDOBVer == true && stdDOBVer == true) {
+				verification = true;
+		}else {
+			verification = false;
 		}
 
 		if (verification == true && pwdMatch == true) {
@@ -177,7 +199,7 @@ public class RegistrationController implements Initializable {
 			}
 
 		} else {
-			String errmsg = "Please make sure all the fields are filled.";
+			
 			if (pwdMatch == false && verification == true) {
 				errmsg = "Password and Confirm Password does not match";
 			}
