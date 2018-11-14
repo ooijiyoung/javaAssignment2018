@@ -90,7 +90,7 @@ public class RevisionQuestionController implements Initializable {
 						tfAnswer.clear();
 						tfAnswer.setText("0");
 						try {
-							setQuizNum(numOfQuiz);
+							setQuizNum();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
