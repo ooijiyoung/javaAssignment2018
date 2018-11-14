@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import application.Interface.AlertBox;
 import application.Model.Comms;
 
 public class QuizQuestionController implements Initializable {
@@ -87,21 +88,33 @@ public class QuizQuestionController implements Initializable {
 
 			btnNextQues.setOnAction(e -> {
 				String ans = tfAnswer.getText();
-				int newAns = Integer.parseInt(ans);
-				// System.out.println("test");
-				if (newAns == fAns) {
-					score++;
+				int newAns;
+				if(!ans.isEmpty()) {
+					try {
+						newAns = Integer.parseInt(ans);
+					// System.out.println("test");
+						if (newAns == fAns) {
+							score++;
+						}
+						count++;
+						System.out.println("Count: " + count);
+						tfAnswer.clear();
+						tfAnswer.setText("0");
+						try {
+							setQuizNum(numOfQuiz);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}catch(Exception ex){
+						AlertBox.errorAlert("Please Enter Digit / Integer Only");
+					}
+				}else {
+					AlertBox.errorAlert("Answer Field Cannot Be Blank");
 				}
-				count++;
-				System.out.println("Count: " + count);
-				tfAnswer.clear();
-				tfAnswer.setText("0");
-				try {
-					setQuizNum(numOfQuiz);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				
+				
 
 //				setQuizNum(numOfQuiz);
 			});

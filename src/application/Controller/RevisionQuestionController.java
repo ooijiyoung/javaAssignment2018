@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import application.Interface.AlertBox;
 import application.Model.Comms;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,21 +77,29 @@ public class RevisionQuestionController implements Initializable {
 
 			btnNextQues.setOnAction(e -> {
 				String ans = tfAnswer.getText();
-				int newAns = Integer.parseInt(ans);
-				if (newAns == fAns) {
-					score++;
-				}
-				count++;
-				System.out.println("Count: " + count);
-				tfAnswer.clear();
-				tfAnswer.setText("0");
-				lblAnswer.setText("");
-				lblQAnswer.setText("");
-				try {
-					setQuizNum();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				int newAns;
+				if(!ans.isEmpty()) {
+					try {
+						newAns = Integer.parseInt(ans);
+					// System.out.println("test");
+						if (newAns == fAns) {
+							score++;
+						}
+						count++;
+						System.out.println("Count: " + count);
+						tfAnswer.clear();
+						tfAnswer.setText("0");
+						try {
+							setQuizNum(numOfQuiz);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}catch(Exception ex){
+						AlertBox.errorAlert("Please Enter Digit / Integer Only");
+					}
+				}else {
+					AlertBox.errorAlert("Answer Field Cannot Be Blank");
 				}
 
 			});
