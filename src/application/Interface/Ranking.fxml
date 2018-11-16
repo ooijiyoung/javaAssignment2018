@@ -21,7 +21,7 @@
                   <Font name="Segoe UI Bold" size="64.0" />
                </font>
             </Label>
-            <ScrollPane prefHeight="376.0" prefWidth="417.0">
+            <ScrollPane prefHeight="376.0">
                <content>
                   <GridPane fx:id="gpRanking" alignment="CENTER" hgap="10.0" prefWidth="396.0" style="-fx-background-color: white;" vgap="10.0">
                     <columnConstraints>
