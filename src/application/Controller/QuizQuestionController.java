@@ -219,7 +219,7 @@ public class QuizQuestionController implements Initializable {
 		
 		lblDifficulty.setText(Diff);
 		
-		for(int x=0;x<numOfQuiz;x++) {
+		//for(int x=0;x<numOfQuiz;x++) {
 			int oper = operation.nextInt(operandControl);
 			
 			first = number.nextInt(35);
@@ -260,7 +260,7 @@ public class QuizQuestionController implements Initializable {
 					break;
 				}
 			}
-		}
+		//}
 		String questionText = first + operandSymb + second + " = ?";
 		
 		quizHist.add(new Question((count+1),questionText,fAns,0));

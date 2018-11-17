@@ -68,27 +68,21 @@ public class RevisionMenuController implements Initializable {
 
 		RadioButton chk = (RadioButton) groupMenu.getSelectedToggle();
 		switch (chk.getText()) {
-		case "Addition":{
+		case "Addition":
 			Comms.getInstance().shareVar().setQuizDifficulty(0);
-			System.out.println("test add");
-			break;
-		}
-			
+			break;			
 		case "Subtraction":
 			Comms.getInstance().shareVar().setQuizDifficulty(1);
-			;
 			break;
 		case "Multiplication":
 			Comms.getInstance().shareVar().setQuizDifficulty(2);
-			;
 			break;
 		case "Division":
 			Comms.getInstance().shareVar().setQuizDifficulty(3);
-			;
 			break;
 		case "All":
 			Comms.getInstance().shareVar().setQuizDifficulty(4);
-			;
+			
 			break;
 		}
 

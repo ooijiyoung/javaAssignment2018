@@ -2,9 +2,11 @@ package application.Controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import application.Controller.QuizQuestionController.Question;
 import application.Interface.AlertBox;
 import application.Model.Comms;
 import javafx.event.ActionEvent;
@@ -17,7 +19,40 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class RevisionQuestionController implements Initializable {
-
+	
+	public class Question{
+		private int questionNo;
+		private String question;
+		private int answer;
+		private int userResponse;
+		
+		public Question(int qNo, String q, int a, int u) {
+			questionNo = qNo;
+			question = q;
+			answer = a;
+			userResponse = u;
+		}
+		
+		public String getQuestion() {return question;}
+		public int getUserResponse(){return userResponse;}
+		public int getQuesNo() {return questionNo;}
+		public int getAnswer() {return answer;}
+		public void setUserResponse(int u) {userResponse = u;}
+		
+		public Boolean isCorrect() { 
+			if(userResponse == answer) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		
+		public String toString() {return questionNo + question + "=" + answer + "" + userResponse;}
+		
+		
+	}
+	
+	ArrayList<Question> quizHist = new ArrayList<Question>();
 	Random operation = new Random();
 	Random number = new Random();
 	int count = 0;
@@ -65,16 +100,18 @@ public class RevisionQuestionController implements Initializable {
 	void cmdRA(ActionEvent event) throws IOException {
 		
 		lblAnswer.setText("Answer");
-		String AnsStr = Integer.toString(fAns);
+		String AnsStr = Integer.toString(quizHist.get(count).getAnswer());
 		lblQAnswer.setText(AnsStr);
 	}
 
 	public void setQuizNum() throws IOException {
 		numOfQuiz = Comms.getInstance().shareVar().getQuizNum();
 		if (count < numOfQuiz) {
+			lblRevisionQuesNo.setText("Revision Question " + (count + 1));
+			
 
-			int fAns = setQuestion();
-
+			setQuestion();
+			lblQuestion.setText(quizHist.get(count).getQuestion());
 			btnNextQues.setOnAction(e -> {
 				String ans = tfAnswer.getText();
 				int newAns;
@@ -82,9 +119,8 @@ public class RevisionQuestionController implements Initializable {
 					try {
 						newAns = Integer.parseInt(ans);
 					// System.out.println("test");
-						if (newAns == fAns) {
-							score++;
-						}
+						
+						quizHist.get(count).setUserResponse(newAns);
 						count++;
 						System.out.println("Count: " + count);
 						tfAnswer.clear();
@@ -101,11 +137,16 @@ public class RevisionQuestionController implements Initializable {
 				}else {
 					AlertBox.errorAlert("Answer Field Cannot Be Blank");
 				}
-
 			});
 		}
 
 		else {
+			for(int x=0;x<quizHist.size();x++) {
+				System.out.println(quizHist.get(x));
+				if(quizHist.get(x).isCorrect()) {
+					score++;
+				}
+			}
 			System.out.println("Your Score is: " + score);
 			Comms.getInstance().shareVar().setQuizScore(score);
 			System.out.println(Comms.getInstance().shareVar().getQuizScore());
@@ -115,103 +156,83 @@ public class RevisionQuestionController implements Initializable {
 		}
 
 	}
-
-	public int setQuestion() {
-		lblRevisionQuesNo.setText("Revision Question " + (count + 1));
-		int oper = Comms.getInstance().shareVar().getQuizDifficulty();
-
-		switch (oper) {
-		case 0: {
-			int First = number.nextInt(35);
-			int Second = number.nextInt(35);
-			fAns = First + Second;
-			lblQuestion.setText(First + " + " + Second + " = ?");
-			break;
+	
+	@FXML
+	public void cmdPrevious(ActionEvent event) {
+		if(count!=0) {
+			try {
+				int newAns = Integer.parseInt(tfAnswer.getText());				
+				quizHist.get(count).setUserResponse(newAns);
+				count--;
+				
+				tfAnswer.setText(Integer.toString(quizHist.get(count).getUserResponse()));
+				lblRevisionQuesNo.setText("Revision Question " + (count + 1));
+				lblQuestion.setText(quizHist.get(count).getQuestion());
+			}catch(Exception ex){
+				AlertBox.errorAlert("Please Enter Digit / Integer Only");
+			}
+			
+			
+		}else {
+			AlertBox.infoAlert("This is the first question");
 		}
-		case 1: {
-			int First = number.nextInt(35);
-			int Second = number.nextInt(35);
-			while (Second >= First) {
-				Second = number.nextInt(35);
+		
+	}
+	public void setQuestion() {
+		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
+		int first = 0, second = 0, oper=0;
+		String operandSymb = " ? ";
+		//0-add,1-sub,2-div,3-multi,4-all
+		//for(int x=0;x<numOfQuiz;x++) {
+			
+			
+			first = number.nextInt(35);
+			second = number.nextInt(35);
+			if(diff==4) {
+				oper = operation.nextInt(diff);
+			}else {
+				oper = diff;
 			}
-			while (Second >= First) {
-				Second = number.nextInt(35);
-			}
-
-			fAns = First - Second;
-			lblQuestion.setText(First + " - " + Second + " = ?");
-			break;
-		}
-		case 2: {
-			int First = number.nextInt(13);
-			int Second = number.nextInt(13);
-			fAns = First * Second;
-			lblQuestion.setText(First + " x " + Second + " = ?");
-			break;
-		}
-		case 3: {
-			int First = number.nextInt(101);
-			int Second = number.nextInt(11);
-			while (Second % 2 != 0 || Second == 0) {
-				Second = number.nextInt(11);
-			}
-			while (First % 2 != 0 || Second > First) {
-				First = number.nextInt(101);
-			}
-
-			fAns = First / Second;
-			lblQuestion.setText(First + " / " + Second + " = ?");
-			break;
-		}
-		case 4:{
-			int operations = operation.nextInt(4);
-
-			switch (operations) {
-			case 0: {
-				int First = number.nextInt(35);
-				int Second = number.nextInt(35);
-				fAns = First + Second;
-				lblQuestion.setText(First + " + " + Second + " = ?");
-				break;
-			}
-			case 1: {
-				int First = number.nextInt(35);
-				int Second = number.nextInt(35);
-				while (Second >= First) {
-					Second = number.nextInt(35);
+			switch(oper) {
+				case 0: {
+					fAns = first + second;
+					operandSymb = " + ";
+					break;
 				}
-				while (Second >= First) {
-					Second = number.nextInt(35);
+				case 1:{
+					while (second >= first) {
+						second = number.nextInt(35);
+					}
+					operandSymb = " - ";
+					fAns = first - second;
+					break;
 				}
+				case 2:{
+					first = number.nextInt(13);
+					second = number.nextInt(13);
+					fAns = first * second;
+					operandSymb = " x ";
+					break;
+				}
+				case 3:{
+					first = number.nextInt(101);
+					second = (number.nextInt(11) + 1);
+					while (second % 2 != 0 || second == 0) {
+						second = number.nextInt(11);
+					}
+					while (first % 2 != 0 || second > first) {
+						first = number.nextInt(101);
+					}
+					operandSymb = " / ";
+					fAns = first / second;
+					break;
+				}
+			}
+		//}
+		String questionText = first + operandSymb + second + " = ?";
+		
+		quizHist.add(new Question((count+1),questionText,fAns,0));
+		
 
-				fAns = First - Second;
-				lblQuestion.setText(First + " - " + Second + " = ?");
-				break;
-			}
-			case 2: {
-				int First = number.nextInt(13);
-				int Second = number.nextInt(13);
-				fAns = First * Second;
-				lblQuestion.setText(First + " x " + Second + " = ?");
-				break;
-			}
-			case 3: {
-				int First = number.nextInt(101);
-				int Second = (number.nextInt(11) + 1);
-				while (Second % 2 != 0 || Second == 0) {
-					Second = number.nextInt(11);
-				}
-				while (First % 2 != 0 || Second > First) {
-					First = number.nextInt(101);
-				}
-
-				fAns = First / Second;
-				lblQuestion.setText(First + " / " + Second + " = ?");
-				break;
-			}
-			}
-		}
-		}
-		return fAns;
 	}
 }

@@ -29,7 +29,7 @@
 						<Font name="Segoe UI Bold" size="64.0" />
 					</font>
 				</Label>
-				<Label fx:id="lblQuestion" contentDisplay="CENTER" text="2 + 2 = ?">
+				<Label fx:id="lblQuestion" contentDisplay="CENTER" text="lblQuestion">
 					<font>
 						<Font name="Segoe UI" size="34.0" />
 					</font>
@@ -64,7 +64,7 @@
 								<String fx:value="btn-success" />
 							</styleClass>
 						</Button>
-						<Button fx:id="btnPrevious" mnemonicParsing="false" prefHeight="44.0" prefWidth="180.0" text="Previous" GridPane.rowIndex="3">
+						<Button fx:id="btnPrevious" mnemonicParsing="false" onAction="#cmdPrevious" prefHeight="44.0" prefWidth="180.0" text="Previous" GridPane.rowIndex="3">
 							<font>
 								<Font size="20.0" />
 							</font>
