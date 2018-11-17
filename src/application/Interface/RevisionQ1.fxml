@@ -13,10 +13,14 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainBgnColor" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.RevisionQuestionController">
 	<children>
-		<Button fx:id="btnExit" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#cmdExit" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: #ffffff;" text="Exit Revision">
+		<Button fx:id="btnExit" layoutX="32.0" layoutY="26.0" mnemonicParsing="false" onAction="#cmdExit" prefHeight="44.0" prefWidth="180.0" text="Exit Revision">
 			<font>
 				<Font size="20.0" />
 			</font>
+         <styleClass>
+            <String fx:value="btn" />
+            <String fx:value="btn-outline-secondary" />
+         </styleClass>
 		</Button>
 		<VBox alignment="CENTER" layoutX="341.0" layoutY="222.0" prefHeight="325.0" prefWidth="684.0" spacing="30.0">
 			<children>

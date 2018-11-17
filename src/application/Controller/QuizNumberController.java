@@ -66,7 +66,9 @@ public class QuizNumberController implements Initializable {
 
 		// System.out.println(newNumQues);
 		// Comms.setQuizNum(newNumQues);
+		Comms.getInstance().shareVar().setQuizNum(newNumQues);
 		quizCtrl.setQuizNum(newNumQues);
+		
 
 		rootPane.getChildren().setAll(newRoot);
 
