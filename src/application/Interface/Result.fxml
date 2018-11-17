@@ -28,7 +28,7 @@
             </Label>
             <ScrollPane prefHeight="483.0">
                <content>
-                  <GridPane fx:id="gpResults" alignment="CENTER" hgap="10.0" maxHeight="550.0" minHeight="50.0" style="-fx-background-color: white;" vgap="15.0">
+                  <GridPane fx:id="gpResults" alignment="CENTER" hgap="10.0" minHeight="50.0" style="-fx-background-color: white;" vgap="15.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.0" minWidth="0.0" prefWidth="42.0" />
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="402.0" />
