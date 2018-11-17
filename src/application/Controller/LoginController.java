@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import application.Database.StudentDB;
 import application.Interface.AlertBox;
@@ -82,6 +83,16 @@ public class LoginController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		pfPassword.setOnKeyPressed(e->{
+			if(e.getCode() == KeyCode.ENTER) {
+				cmdLogin(null);
+			}
+		});
+		tfID.setOnKeyPressed(e->{
+			if(e.getCode() == KeyCode.ENTER) {
+				cmdLogin(null);
+			}
+		});
 		
 	}
 
