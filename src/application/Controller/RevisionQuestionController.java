@@ -200,8 +200,6 @@ public class RevisionQuestionController implements Initializable {
 		int diff = Comms.getInstance().shareVar().getQuizDifficulty();
 		int first = 0, second = 0, oper = 0;
 		String operandSymb = " ? ";
-		// 0-add,1-sub,2-div,3-multi,4-all
-		// for(int x=0;x<numOfQuiz;x++) {
 
 		first = number.nextInt(35);
 		second = number.nextInt(35);
