@@ -71,7 +71,6 @@ public class QuizController implements Initializable {
 
 	@FXML
 	void cmdNext(ActionEvent event) throws IOException {
-//		AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/QuizNumOfQuestion.fxml"));
 

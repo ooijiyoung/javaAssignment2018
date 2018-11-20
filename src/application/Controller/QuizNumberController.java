@@ -54,9 +54,7 @@ public class QuizNumberController implements Initializable {
 	@FXML
 	void cmdStart(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Interface/EasyQ1.fxml"));
-		// QuizQuestionController ctrl = loader.<QuizQuestionController>getController();
-		// FXMLLoader loader=new
-		// FXMLLoader(getClass().getResource("/sample/second_view.fxml"));
+	
 		AnchorPane newRoot = loader.load();
 
 		QuizQuestionController quizCtrl = loader.getController();
@@ -64,24 +62,11 @@ public class QuizNumberController implements Initializable {
 		RadioButton chk = (RadioButton) group1.getSelectedToggle();
 		int newNumQues = Integer.parseInt(chk.getText());
 
-		// System.out.println(newNumQues);
-		// Comms.setQuizNum(newNumQues);
 		Comms.getInstance().shareVar().setQuizNum(newNumQues);
 		quizCtrl.setQuizNum(newNumQues);
 		
 
 		rootPane.getChildren().setAll(newRoot);
-
-		//
-
-//			int addFirst = number.nextInt(35);
-//			int addSecond = number.nextInt(35);
-//			System.out.println(addFirst + " " + addSecond);
-//			lblQuestion = new Label();
-//			lblQuestion.setText(addFirst + " + " + addSecond + " = ?");
-		// int addTotal = addFirst + addSecond;
-		// String strAns = tfAnswer.getText();
-		// int newAns = Integer.parseInt(strAns);
 	}
 
 	@FXML
