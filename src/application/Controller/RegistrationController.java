@@ -64,9 +64,7 @@ public class RegistrationController implements Initializable {
 		String studentName = tfStdName.getText();
 		String password = pfPwd.getText();
 		String cfmPassword = pfConfirmPwd.getText();
-//    	String studentIC = tfStdIC.getText();
 		String parentName = tfParentName.getText();
-//    	String parentIC = tfParentIC.getText();
 		String parentAddr = tfParentAddr.getText();
 		String parentContact = tfParentContact.getText();
 		String stdEmail = tfEmail.getText();
