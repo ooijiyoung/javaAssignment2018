@@ -13,13 +13,10 @@ public class ParentDB {
 	
 	public ParentDB() {
 		load();
-		listAllDebug();
 	}
 	
 	public void add() {
-		//debug purpose
 		Parent prt = new Parent();
-		System.out.println(prt + " student " + prt.getName());
 		parentDB.add(prt);
 	}
 	

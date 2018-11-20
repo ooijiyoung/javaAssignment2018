@@ -180,8 +180,6 @@ public class RegistrationController implements Initializable {
 				prtDB.add(parentName, parentDOB, parentContact, parentAddr);
 				int parentID = prtDB.getLastID();
 				stdDB.add(studentName, studentDOB, stdEmail, password, parentID);
-				stdDB.listAllStudentDebug();
-
 				AlertBox.infoAlert("User Successfully Registered");
 				AnchorPane newRoot;
 				try {

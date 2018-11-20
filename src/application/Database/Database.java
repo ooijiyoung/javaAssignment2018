@@ -13,7 +13,7 @@ import application.Interface.AlertBox;
 
 
 public class Database<T> {
-	//final String dir = "../application/Resources/Databases/";
+
 	String dir ="database/";
 	
 	public List<T> loadDB(String fileName){
@@ -21,66 +21,63 @@ public class Database<T> {
 		
 		List<T> returnObj = null;
 		try{
-      File OurDatabase = new File(fileName);
-          if(!OurDatabase.exists()) {
+			File OurDatabase = new File(fileName);
+			if(!OurDatabase.exists()) {
           	OurDatabase.createNewFile();
           } 
           else{ //only try to load database if only exist
-          FileInputStream databaseFile = new FileInputStream(fileName);
-          ObjectInputStream obj = new ObjectInputStream(databaseFile);
-
-          returnObj =  (List<T>) obj.readObject();
-
-          obj.close();
-          } // 
-      }catch(EOFException ex) {
-    	  
+	          FileInputStream databaseFile = new FileInputStream(fileName);
+	          ObjectInputStream obj = new ObjectInputStream(databaseFile);
+	
+	          returnObj =  (List<T>) obj.readObject();
+	
+	          obj.close();
+          } 
+		}catch(EOFException ex) {
+    	  //sometimes we create an empty file so ignore this error
       }
       catch(Exception exc){
-      	//TODO: implement error message
-         //error dont do anything, just keep quiet (either database file empty or cannot load)
-      	//screw the user anyway. 
       	AlertBox.exceptionAlert(exc);
-    }
+      }
 		
-		return returnObj;
+	return returnObj;
 		
 		
 	}
 	
 	public void saveDB(String fileName, T object) {
 		fileName = dir + fileName;
-    try{  
-	    FileOutputStream databaseFile=new FileOutputStream(fileName);
-	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
-	    save.writeObject(object);
-	    save.flush();
-	    save.close(); 
-    } catch(Exception exc){
-    		AlertBox.exceptionAlert(exc);
-    }
+		try{  
+		    FileOutputStream databaseFile=new FileOutputStream(fileName);
+		    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
+		    save.writeObject(object);
+		    save.flush();
+		    save.close(); 
+	    } catch(Exception exc){
+	    		AlertBox.exceptionAlert(exc);
+	    }
 	}
 
 	public void saveDB(String fileName, List<T> arrayObj) {
 		fileName = dir + fileName;
 		try{  
-	    FileOutputStream databaseFile=new FileOutputStream(fileName);
-	    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
-	    save.writeObject(arrayObj);
-	    save.flush();
-	    save.close(); 
-    } catch(Exception exc){
-    	AlertBox.exceptionAlert(exc);
-    }
+		    FileOutputStream databaseFile=new FileOutputStream(fileName);
+		    ObjectOutputStream save = new ObjectOutputStream(databaseFile);
+		    save.writeObject(arrayObj);
+		    save.flush();
+		    save.close(); 
+	    } catch(Exception exc){
+	    	AlertBox.exceptionAlert(exc);
+	    }
 		
 	}
 
 	public Database() {
 		
 		File directory = new File(dir);
-    if (! directory.exists()){
-        directory.mkdir();
-    }
+	    if (! directory.exists()){
+	        directory.mkdir();
+	    }
 		
 	}
 }

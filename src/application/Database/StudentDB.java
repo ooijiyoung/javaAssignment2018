@@ -18,7 +18,6 @@ public class StudentDB {
 	public void add() {
 		// testing one
 		Student std = new Student();
-		System.out.println(std + " student " + std.getName());
 		studentDB.add(std);
 	}
 
