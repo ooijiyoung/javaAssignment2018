@@ -44,14 +44,17 @@ public class QuizResultController implements Initializable {
 		switch (diff) {
 		case 0: {
 			Diff = "Easy";
+			lblquizDiff.getStyleClass().add("text-success");
 			break;
 		}
 		case 1: {
 			Diff = "Medium";
+			lblquizDiff.getStyleClass().add("text-warning");
 			break;
 		}
 		case 2: {
 			Diff = "Hard";
+			lblquizDiff.getStyleClass().add("text-danger");
 			break;
 		}
 		}
