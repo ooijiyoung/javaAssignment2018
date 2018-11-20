@@ -28,19 +28,13 @@ public class MainController implements Initializable  {
 	@FXML
 	private Button btnLogout;
 	
-	@FXML
-	private String variable;
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	public void initVariables(String variable) {
-	    this.variable = variable;
-	}
-	
+
 	public void cmdQuiz(ActionEvent event) {
 		try {
 			AnchorPane newRoot = FXMLLoader.load(getClass().getResource("../Interface/Quiz.fxml"));
