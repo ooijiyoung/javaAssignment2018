@@ -28,7 +28,6 @@ import javafx.scene.text.Text;
 public class QuizController implements Initializable {
 	Random operation = new Random();
 	Random number = new Random();
-	Timer timer = new Timer();
 	int score = 0;
 	int ans;
 	int oper = 0;
